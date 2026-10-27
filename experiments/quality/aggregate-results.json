@@ -1,0 +1,3550 @@
+{
+  "kind": "cuda_quality_ablation",
+  "status": "complete",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "arguments": {
+    "input": "data/local/abstracts.jsonl",
+    "output": "experiments/quality/raw-results.json",
+    "batch_size": 4,
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "model": "Qwen/Qwen2.5-3B-Instruct"
+  },
+  "python": "3.12.3",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA L40",
+  "seed": 42,
+  "repeats": 1,
+  "input_sha256": "b450e1a92d62786de1dd93e120b4380c044fe839f92ba20a71f6f7a7219d08b7",
+  "scope": "20 real paper abstracts, not full reports; one exploratory run per condition; proxy diagnostics only",
+  "condition_order": [
+    [
+      "evidence_json",
+      128
+    ],
+    [
+      "baseline",
+      256
+    ],
+    [
+      "baseline",
+      512
+    ],
+    [
+      "evidence_json",
+      256
+    ],
+    [
+      "baseline",
+      128
+    ],
+    [
+      "evidence_json",
+      512
+    ]
+  ],
+  "results": [
+    {
+      "prompt": "evidence_json",
+      "cap": 128,
+      "documents": 20,
+      "hit_cap": 20,
+      "four_sections": 0,
+      "valid_schema": 0,
+      "numeric_scorable_documents": 0,
+      "numeric_coverage_valid_mean": null,
+      "numeric_coverage_invalid_zero": 0.0,
+      "exact_quotes": 0,
+      "quotes": 0,
+      "documents_with_novel_numeric_mentions": 0,
+      "generation_seconds": 23.60264299879782,
+      "documents_per_second": 0.8473627297171203,
+      "generated_tokens": 2560,
+      "peak_allocated_bytes": 6576770048,
+      "per_document": [
+        {
+          "id": "1706.03762",
+          "input_tokens": 348,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1810.04805",
+          "input_tokens": 348,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.14165",
+          "input_tokens": 484,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "175",
+              "3"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1512.03385",
+          "input_tokens": 396,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1412.6980",
+          "input_tokens": 313,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1905.11946",
+          "input_tokens": 384,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "100",
+              "3",
+              "84.3%",
+              "91.7%",
+              "98.8%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1704.04861",
+          "input_tokens": 268,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2010.11929",
+          "input_tokens": 275,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "100"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2106.09685",
+          "input_tokens": 421,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2305.14314",
+          "input_tokens": 540,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "8",
+              "99.3%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2205.14135",
+          "input_tokens": 502,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "0.7",
+              "1.1",
+              "15%",
+              "2",
+              "2.4",
+              "256",
+              "3",
+              "512",
+              "6.4",
+              "61.4%",
+              "63.1%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2307.08691",
+          "input_tokens": 501,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "225",
+              "25",
+              "3",
+              "4",
+              "40",
+              "50",
+              "72",
+              "73"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2309.06180",
+          "input_tokens": 343,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "4"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1910.01108",
+          "input_tokens": 340,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1907.11692",
+          "input_tokens": 285,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2019"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1910.10683",
+          "input_tokens": 310,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.11401",
+          "input_tokens": 427,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2101.03961",
+          "input_tokens": 373,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "101"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2307.09288",
+          "input_tokens": 268,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2203.15556",
+          "input_tokens": 412,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "baseline",
+      "cap": 256,
+      "documents": 20,
+      "hit_cap": 12,
+      "four_sections": 11,
+      "valid_schema": null,
+      "numeric_scorable_documents": 16,
+      "numeric_coverage_valid_mean": 0.834659090909091,
+      "numeric_coverage_invalid_zero": 0.834659090909091,
+      "exact_quotes": 0,
+      "quotes": 0,
+      "documents_with_novel_numeric_mentions": 4,
+      "generation_seconds": 46.5628909379011,
+      "documents_per_second": 0.4295265950448207,
+      "generated_tokens": 4792,
+      "peak_allocated_bytes": 6528040960,
+      "per_document": [
+        {
+          "id": "1706.03762",
+          "input_tokens": 292,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "summary_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "covered_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1810.04805",
+          "input_tokens": 292,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "summary_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "covered_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2005.14165",
+          "input_tokens": 428,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "175",
+              "3"
+            ],
+            "summary_numbers": [
+              "175",
+              "3"
+            ],
+            "covered_numbers": [
+              "175",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1512.03385",
+          "input_tokens": 340,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "summary_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%",
+              "34",
+              "8"
+            ],
+            "covered_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "novel_numbers": [
+              "34",
+              "8"
+            ],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1412.6980",
+          "input_tokens": 257,
+          "generated_tokens": 172,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1905.11946",
+          "input_tokens": 328,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "100",
+              "3",
+              "84.3%",
+              "91.7%",
+              "98.8%"
+            ],
+            "summary_numbers": [
+              "1",
+              "100",
+              "6.1",
+              "8.4",
+              "84.3%"
+            ],
+            "covered_numbers": [
+              "1",
+              "100",
+              "84.3%"
+            ],
+            "novel_numbers": [
+              "6.1",
+              "8.4"
+            ],
+            "numeric_coverage": 0.5
+          }
+        },
+        {
+          "id": "1704.04861",
+          "input_tokens": 212,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2010.11929",
+          "input_tokens": 219,
+          "generated_tokens": 180,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "100"
+            ],
+            "summary_numbers": [
+              "100"
+            ],
+            "covered_numbers": [
+              "100"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2106.09685",
+          "input_tokens": 365,
+          "generated_tokens": 246,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "summary_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "covered_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2305.14314",
+          "input_tokens": 484,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "8",
+              "99.3%"
+            ],
+            "summary_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "99.3%"
+            ],
+            "covered_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "99.3%"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "id": "2205.14135",
+          "input_tokens": 446,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "0.7",
+              "1.1",
+              "15%",
+              "2",
+              "2.4",
+              "256",
+              "3",
+              "512",
+              "6.4",
+              "61.4%",
+              "63.1%"
+            ],
+            "summary_numbers": [
+              "1.1",
+              "15%",
+              "2",
+              "256",
+              "512"
+            ],
+            "covered_numbers": [
+              "1.1",
+              "15%",
+              "2",
+              "256",
+              "512"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.45454545454545453
+          }
+        },
+        {
+          "id": "2307.08691",
+          "input_tokens": 445,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "225",
+              "25",
+              "3",
+              "4",
+              "40",
+              "50",
+              "72",
+              "73"
+            ],
+            "summary_numbers": [
+              "2",
+              "225",
+              "50",
+              "73%"
+            ],
+            "covered_numbers": [
+              "2",
+              "225",
+              "50"
+            ],
+            "novel_numbers": [
+              "73%"
+            ],
+            "numeric_coverage": 0.3
+          }
+        },
+        {
+          "id": "2309.06180",
+          "input_tokens": 287,
+          "generated_tokens": 211,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "4"
+            ],
+            "summary_numbers": [
+              "2",
+              "4"
+            ],
+            "covered_numbers": [
+              "2",
+              "4"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "id": "1910.01108",
+          "input_tokens": 284,
+          "generated_tokens": 255,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "summary_numbers": [
+              "40%",
+              "60",
+              "60%",
+              "97%"
+            ],
+            "covered_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "novel_numbers": [
+              "60"
+            ],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1907.11692",
+          "input_tokens": 229,
+          "generated_tokens": 238,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2019"
+            ],
+            "summary_numbers": [
+              "2019"
+            ],
+            "covered_numbers": [
+              "2019"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1910.10683",
+          "input_tokens": 254,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.11401",
+          "input_tokens": 371,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2101.03961",
+          "input_tokens": 317,
+          "generated_tokens": 170,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "101"
+            ],
+            "summary_numbers": [
+              "101"
+            ],
+            "covered_numbers": [
+              "101"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2307.09288",
+          "input_tokens": 212,
+          "generated_tokens": 248,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "summary_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "covered_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2203.15556",
+          "input_tokens": 356,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "summary_numbers": [
+              "16",
+              "4",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "covered_numbers": [
+              "16",
+              "4",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "baseline",
+      "cap": 512,
+      "documents": 20,
+      "hit_cap": 0,
+      "four_sections": 20,
+      "valid_schema": null,
+      "numeric_scorable_documents": 16,
+      "numeric_coverage_valid_mean": 0.8596590909090909,
+      "numeric_coverage_invalid_zero": 0.8596590909090909,
+      "exact_quotes": 0,
+      "quotes": 0,
+      "documents_with_novel_numeric_mentions": 5,
+      "generation_seconds": 59.40954522497486,
+      "documents_per_second": 0.33664623966170854,
+      "generated_tokens": 5360,
+      "peak_allocated_bytes": 6528040960,
+      "per_document": [
+        {
+          "id": "1706.03762",
+          "input_tokens": 292,
+          "generated_tokens": 308,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "summary_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "covered_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1810.04805",
+          "input_tokens": 292,
+          "generated_tokens": 259,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "summary_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "covered_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2005.14165",
+          "input_tokens": 428,
+          "generated_tokens": 348,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "175",
+              "3"
+            ],
+            "summary_numbers": [
+              "175",
+              "3"
+            ],
+            "covered_numbers": [
+              "175",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1512.03385",
+          "input_tokens": 340,
+          "generated_tokens": 334,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "summary_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%",
+              "34",
+              "8"
+            ],
+            "covered_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "novel_numbers": [
+              "34",
+              "8"
+            ],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1412.6980",
+          "input_tokens": 257,
+          "generated_tokens": 172,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1905.11946",
+          "input_tokens": 328,
+          "generated_tokens": 276,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "100",
+              "3",
+              "84.3%",
+              "91.7%",
+              "98.8%"
+            ],
+            "summary_numbers": [
+              "1",
+              "100",
+              "6.1",
+              "8.4",
+              "84.3%"
+            ],
+            "covered_numbers": [
+              "1",
+              "100",
+              "84.3%"
+            ],
+            "novel_numbers": [
+              "6.1",
+              "8.4"
+            ],
+            "numeric_coverage": 0.5
+          }
+        },
+        {
+          "id": "1704.04861",
+          "input_tokens": 212,
+          "generated_tokens": 315,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2010.11929",
+          "input_tokens": 219,
+          "generated_tokens": 180,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "100"
+            ],
+            "summary_numbers": [
+              "100"
+            ],
+            "covered_numbers": [
+              "100"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2106.09685",
+          "input_tokens": 365,
+          "generated_tokens": 246,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "summary_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "covered_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2305.14314",
+          "input_tokens": 484,
+          "generated_tokens": 272,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "8",
+              "99.3%"
+            ],
+            "summary_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "99.3%"
+            ],
+            "covered_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "99.3%"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.8333333333333334
+          }
+        },
+        {
+          "id": "2205.14135",
+          "input_tokens": 446,
+          "generated_tokens": 270,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "0.7",
+              "1.1",
+              "15%",
+              "2",
+              "2.4",
+              "256",
+              "3",
+              "512",
+              "6.4",
+              "61.4%",
+              "63.1%"
+            ],
+            "summary_numbers": [
+              "1.1",
+              "15%",
+              "2",
+              "256",
+              "512"
+            ],
+            "covered_numbers": [
+              "1.1",
+              "15%",
+              "2",
+              "256",
+              "512"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.45454545454545453
+          }
+        },
+        {
+          "id": "2307.08691",
+          "input_tokens": 445,
+          "generated_tokens": 280,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "225",
+              "25",
+              "3",
+              "4",
+              "40",
+              "50",
+              "72",
+              "73"
+            ],
+            "summary_numbers": [
+              "2",
+              "225",
+              "50",
+              "72%",
+              "73%"
+            ],
+            "covered_numbers": [
+              "2",
+              "225",
+              "50"
+            ],
+            "novel_numbers": [
+              "72%",
+              "73%"
+            ],
+            "numeric_coverage": 0.3
+          }
+        },
+        {
+          "id": "2309.06180",
+          "input_tokens": 287,
+          "generated_tokens": 211,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "4"
+            ],
+            "summary_numbers": [
+              "2",
+              "4"
+            ],
+            "covered_numbers": [
+              "2",
+              "4"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "id": "1910.01108",
+          "input_tokens": 284,
+          "generated_tokens": 255,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "summary_numbers": [
+              "40%",
+              "60",
+              "60%",
+              "97%"
+            ],
+            "covered_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "novel_numbers": [
+              "60"
+            ],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1907.11692",
+          "input_tokens": 229,
+          "generated_tokens": 238,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2019"
+            ],
+            "summary_numbers": [
+              "2019"
+            ],
+            "covered_numbers": [
+              "2019"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1910.10683",
+          "input_tokens": 254,
+          "generated_tokens": 337,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.11401",
+          "input_tokens": 371,
+          "generated_tokens": 274,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2101.03961",
+          "input_tokens": 317,
+          "generated_tokens": 170,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "101"
+            ],
+            "summary_numbers": [
+              "101"
+            ],
+            "covered_numbers": [
+              "101"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2307.09288",
+          "input_tokens": 212,
+          "generated_tokens": 248,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "summary_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "covered_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2203.15556",
+          "input_tokens": 356,
+          "generated_tokens": 367,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 4,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "summary_numbers": [
+              "1",
+              "16",
+              "175",
+              "178",
+              "280",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "530",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "covered_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "novel_numbers": [
+              "175",
+              "178",
+              "280",
+              "530"
+            ],
+            "numeric_coverage": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "evidence_json",
+      "cap": 256,
+      "documents": 20,
+      "hit_cap": 9,
+      "four_sections": 11,
+      "valid_schema": 11,
+      "numeric_scorable_documents": 8,
+      "numeric_coverage_valid_mean": 0.3958333333333333,
+      "numeric_coverage_invalid_zero": 0.19791666666666666,
+      "exact_quotes": 7,
+      "quotes": 22,
+      "documents_with_novel_numeric_mentions": 0,
+      "generation_seconds": 46.52223441307433,
+      "documents_per_second": 0.4299019652069704,
+      "generated_tokens": 4715,
+      "peak_allocated_bytes": 6576770048,
+      "per_document": [
+        {
+          "id": "1706.03762",
+          "input_tokens": 348,
+          "generated_tokens": 256,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1810.04805",
+          "input_tokens": 348,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.14165",
+          "input_tokens": 484,
+          "generated_tokens": 235,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "175",
+              "3"
+            ],
+            "summary_numbers": [
+              "175",
+              "3"
+            ],
+            "covered_numbers": [
+              "175",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1512.03385",
+          "input_tokens": 396,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1412.6980",
+          "input_tokens": 313,
+          "generated_tokens": 218,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1905.11946",
+          "input_tokens": 384,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "100",
+              "3",
+              "84.3%",
+              "91.7%",
+              "98.8%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1704.04861",
+          "input_tokens": 268,
+          "generated_tokens": 217,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2010.11929",
+          "input_tokens": 275,
+          "generated_tokens": 177,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "100"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "2106.09685",
+          "input_tokens": 421,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2305.14314",
+          "input_tokens": 540,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "8",
+              "99.3%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2205.14135",
+          "input_tokens": 502,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "0.7",
+              "1.1",
+              "15%",
+              "2",
+              "2.4",
+              "256",
+              "3",
+              "512",
+              "6.4",
+              "61.4%",
+              "63.1%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2307.08691",
+          "input_tokens": 501,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "225",
+              "25",
+              "3",
+              "4",
+              "40",
+              "50",
+              "72",
+              "73"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2309.06180",
+          "input_tokens": 343,
+          "generated_tokens": 230,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "1",
+              "2",
+              "4"
+            ],
+            "summary_numbers": [
+              "2",
+              "4"
+            ],
+            "covered_numbers": [
+              "2",
+              "4"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "id": "1910.01108",
+          "input_tokens": 340,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1907.11692",
+          "input_tokens": 285,
+          "generated_tokens": 203,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "2019"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1910.10683",
+          "input_tokens": 310,
+          "generated_tokens": 179,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 1,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.11401",
+          "input_tokens": 427,
+          "generated_tokens": 256,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2101.03961",
+          "input_tokens": 373,
+          "generated_tokens": 239,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 3,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "101"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "2307.09288",
+          "input_tokens": 268,
+          "generated_tokens": 212,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "summary_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "covered_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2203.15556",
+          "input_tokens": 412,
+          "generated_tokens": 245,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 2,
+            "source_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "summary_numbers": [
+              "16",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "covered_numbers": [
+              "16",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "baseline",
+      "cap": 128,
+      "documents": 20,
+      "hit_cap": 20,
+      "four_sections": 0,
+      "valid_schema": null,
+      "numeric_scorable_documents": 16,
+      "numeric_coverage_valid_mean": 0.40005411255411255,
+      "numeric_coverage_invalid_zero": 0.40005411255411255,
+      "exact_quotes": 0,
+      "quotes": 0,
+      "documents_with_novel_numeric_mentions": 2,
+      "generation_seconds": 23.58483834390063,
+      "documents_per_second": 0.8480024203842924,
+      "generated_tokens": 2560,
+      "peak_allocated_bytes": 6528040960,
+      "per_document": [
+        {
+          "id": "1706.03762",
+          "input_tokens": 292,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1810.04805",
+          "input_tokens": 292,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "2005.14165",
+          "input_tokens": 428,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "175",
+              "3"
+            ],
+            "summary_numbers": [
+              "175",
+              "3"
+            ],
+            "covered_numbers": [
+              "175",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1512.03385",
+          "input_tokens": 340,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "summary_numbers": [
+              "152",
+              "3.57%",
+              "34"
+            ],
+            "covered_numbers": [
+              "152",
+              "3.57%"
+            ],
+            "novel_numbers": [
+              "34"
+            ],
+            "numeric_coverage": 0.2857142857142857
+          }
+        },
+        {
+          "id": "1412.6980",
+          "input_tokens": 257,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1905.11946",
+          "input_tokens": 328,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "100",
+              "3",
+              "84.3%",
+              "91.7%",
+              "98.8%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1704.04861",
+          "input_tokens": 212,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2010.11929",
+          "input_tokens": 219,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "100"
+            ],
+            "summary_numbers": [
+              "100"
+            ],
+            "covered_numbers": [
+              "100"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2106.09685",
+          "input_tokens": 365,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "summary_numbers": [
+              "3"
+            ],
+            "covered_numbers": [
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.3333333333333333
+          }
+        },
+        {
+          "id": "2305.14314",
+          "input_tokens": 484,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "8",
+              "99.3%"
+            ],
+            "summary_numbers": [
+              "16",
+              "4"
+            ],
+            "covered_numbers": [
+              "16",
+              "4"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.3333333333333333
+          }
+        },
+        {
+          "id": "2205.14135",
+          "input_tokens": 446,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "0.7",
+              "1.1",
+              "15%",
+              "2",
+              "2.4",
+              "256",
+              "3",
+              "512",
+              "6.4",
+              "61.4%",
+              "63.1%"
+            ],
+            "summary_numbers": [
+              "15%",
+              "512"
+            ],
+            "covered_numbers": [
+              "15%",
+              "512"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.18181818181818182
+          }
+        },
+        {
+          "id": "2307.08691",
+          "input_tokens": 445,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "225",
+              "25",
+              "3",
+              "4",
+              "40",
+              "50",
+              "72",
+              "73"
+            ],
+            "summary_numbers": [
+              "2"
+            ],
+            "covered_numbers": [
+              "2"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.1
+          }
+        },
+        {
+          "id": "2309.06180",
+          "input_tokens": 287,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "4"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1910.01108",
+          "input_tokens": 284,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "summary_numbers": [
+              "40%",
+              "60",
+              "97%"
+            ],
+            "covered_numbers": [
+              "40%",
+              "97%"
+            ],
+            "novel_numbers": [
+              "60"
+            ],
+            "numeric_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "id": "1907.11692",
+          "input_tokens": 229,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2019"
+            ],
+            "summary_numbers": [
+              "2019"
+            ],
+            "covered_numbers": [
+              "2019"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1910.10683",
+          "input_tokens": 254,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.11401",
+          "input_tokens": 371,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2101.03961",
+          "input_tokens": 317,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 3,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "101"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "2307.09288",
+          "input_tokens": 212,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "summary_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "covered_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2203.15556",
+          "input_tokens": 356,
+          "generated_tokens": 128,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": null,
+            "schema_valid": null,
+            "section_count": 2,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "summary_numbers": [
+              "16",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "covered_numbers": [
+              "16",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "evidence_json",
+      "cap": 512,
+      "documents": 20,
+      "hit_cap": 1,
+      "four_sections": 18,
+      "valid_schema": 18,
+      "numeric_scorable_documents": 14,
+      "numeric_coverage_valid_mean": 0.42091836734693877,
+      "numeric_coverage_invalid_zero": 0.3683035714285714,
+      "exact_quotes": 12,
+      "quotes": 45,
+      "documents_with_novel_numeric_mentions": 2,
+      "generation_seconds": 67.37031018699054,
+      "documents_per_second": 0.29686667531274147,
+      "generated_tokens": 5566,
+      "peak_allocated_bytes": 6576770048,
+      "per_document": [
+        {
+          "id": "1706.03762",
+          "input_tokens": 348,
+          "generated_tokens": 256,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "2",
+              "2014",
+              "28.4",
+              "3.5",
+              "41.8"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1810.04805",
+          "input_tokens": 348,
+          "generated_tokens": 467,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 5,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1.5",
+              "4.6%",
+              "5.1",
+              "7.7%",
+              "80.5%",
+              "83.1",
+              "86.7%",
+              "93.2"
+            ],
+            "summary_numbers": [
+              "1.5",
+              "4.6",
+              "5.1",
+              "7.7"
+            ],
+            "covered_numbers": [
+              "1.5",
+              "5.1"
+            ],
+            "novel_numbers": [
+              "4.6",
+              "7.7"
+            ],
+            "numeric_coverage": 0.25
+          }
+        },
+        {
+          "id": "2005.14165",
+          "input_tokens": 484,
+          "generated_tokens": 235,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "175",
+              "3"
+            ],
+            "summary_numbers": [
+              "175",
+              "3"
+            ],
+            "covered_numbers": [
+              "175",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1512.03385",
+          "input_tokens": 396,
+          "generated_tokens": 314,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 4,
+            "exact_evidence_quotes": 3,
+            "source_numbers": [
+              "10",
+              "100",
+              "1000",
+              "152",
+              "2015",
+              "28%",
+              "3.57%"
+            ],
+            "summary_numbers": [
+              "152"
+            ],
+            "covered_numbers": [
+              "152"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.14285714285714285
+          }
+        },
+        {
+          "id": "1412.6980",
+          "input_tokens": 313,
+          "generated_tokens": 218,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "1905.11946",
+          "input_tokens": 384,
+          "generated_tokens": 301,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 3,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "1",
+              "100",
+              "3",
+              "84.3%",
+              "91.7%",
+              "98.8%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1704.04861",
+          "input_tokens": 268,
+          "generated_tokens": 217,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2010.11929",
+          "input_tokens": 275,
+          "generated_tokens": 177,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "100"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "2106.09685",
+          "input_tokens": 421,
+          "generated_tokens": 335,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 3,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "summary_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "covered_numbers": [
+              "10,000",
+              "2",
+              "3"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2305.14314",
+          "input_tokens": 540,
+          "generated_tokens": 345,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 3,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1,000",
+              "16",
+              "24",
+              "4",
+              "8",
+              "99.3%"
+            ],
+            "summary_numbers": [
+              "1,000",
+              "4"
+            ],
+            "covered_numbers": [
+              "1,000",
+              "4"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.3333333333333333
+          }
+        },
+        {
+          "id": "2205.14135",
+          "input_tokens": 502,
+          "generated_tokens": 512,
+          "ended_with_eos": false,
+          "hit_output_cap": true,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "0.7",
+              "1.1",
+              "15%",
+              "2",
+              "2.4",
+              "256",
+              "3",
+              "512",
+              "6.4",
+              "61.4%",
+              "63.1%"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2307.08691",
+          "input_tokens": 501,
+          "generated_tokens": 295,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": false,
+            "schema_valid": false,
+            "section_count": 0,
+            "evidence_quotes": 0,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "1",
+              "2",
+              "225",
+              "25",
+              "3",
+              "4",
+              "40",
+              "50",
+              "72",
+              "73"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2309.06180",
+          "input_tokens": 343,
+          "generated_tokens": 230,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "1",
+              "2",
+              "4"
+            ],
+            "summary_numbers": [
+              "2",
+              "4"
+            ],
+            "covered_numbers": [
+              "2",
+              "4"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.6666666666666666
+          }
+        },
+        {
+          "id": "1910.01108",
+          "input_tokens": 340,
+          "generated_tokens": 286,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 3,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "summary_numbers": [
+              "40%",
+              "60",
+              "60%",
+              "97%"
+            ],
+            "covered_numbers": [
+              "40%",
+              "60%",
+              "97%"
+            ],
+            "novel_numbers": [
+              "60"
+            ],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "1907.11692",
+          "input_tokens": 285,
+          "generated_tokens": 203,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [
+              "2019"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "1910.10683",
+          "input_tokens": 310,
+          "generated_tokens": 179,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 1,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2005.11401",
+          "input_tokens": 427,
+          "generated_tokens": 300,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 1,
+            "source_numbers": [],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": null
+          }
+        },
+        {
+          "id": "2101.03961",
+          "input_tokens": 373,
+          "generated_tokens": 239,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 3,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "101"
+            ],
+            "summary_numbers": [],
+            "covered_numbers": [],
+            "novel_numbers": [],
+            "numeric_coverage": 0.0
+          }
+        },
+        {
+          "id": "2307.09288",
+          "input_tokens": 268,
+          "generated_tokens": 212,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 0,
+            "source_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "summary_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "covered_numbers": [
+              "2",
+              "7",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 1.0
+          }
+        },
+        {
+          "id": "2203.15556",
+          "input_tokens": 412,
+          "generated_tokens": 245,
+          "ended_with_eos": true,
+          "hit_output_cap": false,
+          "diagnostics": {
+            "json_valid": true,
+            "schema_valid": true,
+            "section_count": 4,
+            "evidence_quotes": 2,
+            "exact_evidence_quotes": 2,
+            "source_numbers": [
+              "1",
+              "16",
+              "3",
+              "4",
+              "400",
+              "5",
+              "500",
+              "67.5%",
+              "7%",
+              "70"
+            ],
+            "summary_numbers": [
+              "16",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "covered_numbers": [
+              "16",
+              "400",
+              "5",
+              "500",
+              "70"
+            ],
+            "novel_numbers": [],
+            "numeric_coverage": 0.5
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": "Abstract-only exploratory pilot, one run per condition. Numeric overlap is not fact coverage; exact evidence is not entailment. Structured parse failures are unscorable; invalid-zero metric is an operational proxy. Raw predictions retained locally, not published."
+}

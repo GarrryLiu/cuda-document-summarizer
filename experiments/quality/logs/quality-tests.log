@@ -1,0 +1,19 @@
+test_all_documents_preserved (test_batching.Tests.test_all_documents_preserved) ... ok
+test_arrival_and_tail (test_batching.Tests.test_arrival_and_tail) ... ok
+test_document_is_user_data (test_batching.Tests.test_document_is_user_data) ... ok
+test_empty_workload (test_batching.Tests.test_empty_workload) ... ok
+test_invalid_sizes (test_batching.Tests.test_invalid_sizes) ... ok
+test_padding_accounting (test_batching.Tests.test_padding_accounting) ... ok
+test_plan_integrity (test_batching.Tests.test_plan_integrity) ... ok
+test_sorted_and_stable (test_batching.Tests.test_sorted_and_stable) ... ok
+test_validation (test_batching.Tests.test_validation) ... ok
+test_bad_quote_and_number (test_quality.QualityTests.test_bad_quote_and_number) ... ok
+test_baseline_sections_and_numbers (test_quality.QualityTests.test_baseline_sections_and_numbers) ... ok
+test_json_evidence_not_credited_as_claim (test_quality.QualityTests.test_json_evidence_not_credited_as_claim) ... ok
+test_malformed_is_unscorable (test_quality.QualityTests.test_malformed_is_unscorable) ... ok
+test_prompt_variant_and_list_markers (test_quality.QualityTests.test_prompt_variant_and_list_markers) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.009s
+
+OK

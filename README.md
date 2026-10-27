@@ -81,3 +81,11 @@ synthetic input documents as 400 real benchmark documents or 100 reviewed summar
 - [Qwen model card and chat-template usage](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct)
 - [Transformers generation and left padding](https://huggingface.co/docs/transformers/llm_tutorial)
 - [Transformers KV cache](https://huggingface.co/docs/transformers/kv_cache)
+
+## Output-completeness and evidence pilot
+
+A separate [quality pilot](docs/quality-pilot.md) compares 128/256/512 output caps
+and the baseline/evidence-JSON prompts on 20 real arXiv abstracts. It keeps
+batching and KV cache fixed. Numeric overlap and exact evidence matching are
+proxy diagnostics, not validated factuality. Source abstracts remain local;
+public provenance is recorded in `experiments/quality/corpus-manifest.json`.
