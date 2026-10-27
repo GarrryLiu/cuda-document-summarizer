@@ -1,0 +1,14 @@
+test_all_documents_preserved (test_batching.Tests.test_all_documents_preserved) ... ok
+test_arrival_and_tail (test_batching.Tests.test_arrival_and_tail) ... ok
+test_document_is_user_data (test_batching.Tests.test_document_is_user_data) ... ok
+test_empty_workload (test_batching.Tests.test_empty_workload) ... ok
+test_invalid_sizes (test_batching.Tests.test_invalid_sizes) ... ok
+test_padding_accounting (test_batching.Tests.test_padding_accounting) ... ok
+test_plan_integrity (test_batching.Tests.test_plan_integrity) ... ok
+test_sorted_and_stable (test_batching.Tests.test_sorted_and_stable) ... ok
+test_validation (test_batching.Tests.test_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.009s
+
+OK

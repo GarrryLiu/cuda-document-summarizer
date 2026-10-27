@@ -97,6 +97,7 @@ def main():
               "torch": torch.__version__, "transformers": transformers.__version__,
               "cuda": torch.version.cuda, "gpu": torch.cuda.get_device_name(),
               "dtype": "float16", "seed": 42,
+              "input_tokens": [{"id": d["id"], "tokens": n} for d, n in zip(docs, lengths)],
               "input_sha256": hashlib.sha256(Path(args.input).read_bytes()).hexdigest(),
               "prompt_sha256": hashlib.sha256(json.dumps(prompt(""), sort_keys=True).encode()).hexdigest(),
               "results": results}

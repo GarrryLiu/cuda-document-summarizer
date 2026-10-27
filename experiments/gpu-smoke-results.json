@@ -1,0 +1,217 @@
+{
+  "kind": "real_cuda_inference",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "arguments": {
+    "input": "data/example.jsonl",
+    "output": "experiments/gpu-smoke-results.json",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "revision": "main",
+    "batch_size": 2,
+    "max_new_tokens": 128,
+    "repeats": 3
+  },
+  "python": "3.12.3",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA L40",
+  "dtype": "float16",
+  "seed": 42,
+  "input_sha256": "0305f9dc9b39f4fa2ed5a671af53fb949175629a1318eac0673bfdaf3c823274",
+  "prompt_sha256": "066e685110f6795f187d4e7709686fd9b38819484607fea281d7e6a47ce13e74",
+  "results": [
+    {
+      "strategy": "arrival",
+      "use_cache": false,
+      "padding": {
+        "useful_positions": 249,
+        "padded_positions": 266,
+        "padding_fraction": 0.06390977443609025
+      },
+      "runs": [
+        {
+          "seconds": 4.545122527051717,
+          "documents_per_second": 0.44003214172915583,
+          "generated_tokens_per_second": 45.763342739832204,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.545104517019354,
+          "batch_latency_p95_seconds": 4.545104517019354,
+          "peak_allocated_bytes": 6341323264
+        },
+        {
+          "seconds": 4.5451986799016595,
+          "documents_per_second": 0.44002476917978695,
+          "generated_tokens_per_second": 45.76257599469784,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.545185629976913,
+          "batch_latency_p95_seconds": 4.545185629976913,
+          "peak_allocated_bytes": 6341323264
+        },
+        {
+          "seconds": 4.540784426964819,
+          "documents_per_second": 0.4404525324134035,
+          "generated_tokens_per_second": 45.807063370993966,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.5407741270028055,
+          "batch_latency_p95_seconds": 4.5407741270028055,
+          "peak_allocated_bytes": 6341323264
+        }
+      ],
+      "summaries": [
+        {
+          "id": "synthetic-1",
+          "summary": "Objectives:\nThe objective of the study was to compare two document batching methods.\n\nMethods:\nThe study involved processing 40 synthetic documents with a batch size of 4. Two methods were compared: the length-sorted method and an unspecified alternative method. The length-sorted method utilized 20% fewer padded input positions than the alternative method.\n\nQuantitative Findings:\n- The length-sorted method required 20% fewer padded input positions.\n- No GPU throughput improvements were established between the two methods.\n\nLimitations:\n- Synthetic inputs were used in the study.\n- No measurements were taken using CUDA.\n- There was no fact"
+        },
+        {
+          "id": "synthetic-2",
+          "summary": "Objectives\nThe objective of the study was to evaluate cross-session memory.\n\nMethods\nThe method involved reopening a local database that had previously stored 100 events. This was done using a single process on a single local device.\n\nQuantitative Findings\nNot reported.\n\nLimitations\nThe study was conducted with a single process and a single local device. No distributed failure testing was performed."
+        }
+      ]
+    },
+    {
+      "strategy": "arrival",
+      "use_cache": true,
+      "padding": {
+        "useful_positions": 249,
+        "padded_positions": 266,
+        "padding_fraction": 0.06390977443609025
+      },
+      "runs": [
+        {
+          "seconds": 4.478818061063066,
+          "documents_per_second": 0.44654638182049566,
+          "generated_tokens_per_second": 46.440823709331546,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.478801411110908,
+          "batch_latency_p95_seconds": 4.478801411110908,
+          "peak_allocated_bytes": 6328404992
+        },
+        {
+          "seconds": 4.4591391870053485,
+          "documents_per_second": 0.4485170603842829,
+          "generated_tokens_per_second": 46.64577427996542,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.459129066905007,
+          "batch_latency_p95_seconds": 4.459129066905007,
+          "peak_allocated_bytes": 6328404992
+        },
+        {
+          "seconds": 4.839518986991607,
+          "documents_per_second": 0.41326421187227563,
+          "generated_tokens_per_second": 42.979478034716664,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.839509306941181,
+          "batch_latency_p95_seconds": 4.839509306941181,
+          "peak_allocated_bytes": 6328404992
+        }
+      ],
+      "summaries": [
+        {
+          "id": "synthetic-1",
+          "summary": "Objectives:\nThe objective of the study was to compare two document batching methods.\n\nMethods:\nThe study involved processing 40 synthetic documents with a batch size of 4. Two methods were compared: the length-sorted method and an unspecified alternative method. The length-sorted method utilized 20% fewer padded input positions than the alternative method.\n\nQuantitative Findings:\n- The length-sorted method used 20% fewer padded input positions.\n- No GPU throughput improvements were established between the two methods.\n\nLimitations:\n- Synthetic inputs were used in the study.\n- No measurements were taken using CUDA.\n- There was no fact"
+        },
+        {
+          "id": "synthetic-2",
+          "summary": "Objectives\nThe objective of the study was to evaluate cross-session memory.\n\nMethods\nThe method involved reopening a local database that had previously stored 100 events. This was done using a single process on a single local device.\n\nQuantitative Findings\nNot reported.\n\nLimitations\nThe study was conducted with a single process and a single local device. No distributed failure testing was performed."
+        }
+      ]
+    },
+    {
+      "strategy": "length",
+      "use_cache": false,
+      "padding": {
+        "useful_positions": 249,
+        "padded_positions": 266,
+        "padding_fraction": 0.06390977443609025
+      },
+      "runs": [
+        {
+          "seconds": 4.559764342964627,
+          "documents_per_second": 0.4386191587040785,
+          "generated_tokens_per_second": 45.61639250522417,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.55974142299965,
+          "batch_latency_p95_seconds": 4.55974142299965,
+          "peak_allocated_bytes": 6341323264
+        },
+        {
+          "seconds": 4.557258442975581,
+          "documents_per_second": 0.438860342248691,
+          "generated_tokens_per_second": 45.641475593863866,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.557248633005656,
+          "batch_latency_p95_seconds": 4.557248633005656,
+          "peak_allocated_bytes": 6341323264
+        },
+        {
+          "seconds": 4.557366854976863,
+          "documents_per_second": 0.4388499025080468,
+          "generated_tokens_per_second": 45.64038986083687,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.5573569550178945,
+          "batch_latency_p95_seconds": 4.5573569550178945,
+          "peak_allocated_bytes": 6341323264
+        }
+      ],
+      "summaries": [
+        {
+          "id": "synthetic-1",
+          "summary": "Objectives:\nThe objective of the study was to compare two document batching methods.\n\nMethods:\nThe study involved processing 40 synthetic documents with a batch size of 4. Two methods were compared: the length-sorted method and an unspecified alternative method. The length-sorted method utilized 20% fewer padded input positions than the alternative method.\n\nQuantitative Findings:\n- The length-sorted method required 20% fewer padded input positions.\n- No GPU throughput improvements were established between the two methods.\n\nLimitations:\n- Synthetic inputs were used in the study.\n- No measurements were taken using CUDA.\n- There was no fact"
+        },
+        {
+          "id": "synthetic-2",
+          "summary": "Objectives\nThe objective of the study was to evaluate cross-session memory.\n\nMethods\nThe method involved reopening a local database that had previously stored 100 events. This was done using a single process on a single local device.\n\nQuantitative Findings\nNot reported.\n\nLimitations\nThe study was conducted with a single process and a single local device. No distributed failure testing was performed."
+        }
+      ]
+    },
+    {
+      "strategy": "length",
+      "use_cache": true,
+      "padding": {
+        "useful_positions": 249,
+        "padded_positions": 266,
+        "padding_fraction": 0.06390977443609025
+      },
+      "runs": [
+        {
+          "seconds": 4.459608593955636,
+          "documents_per_second": 0.44846985063010125,
+          "generated_tokens_per_second": 46.640864465530534,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.459593334933743,
+          "batch_latency_p95_seconds": 4.459593334933743,
+          "peak_allocated_bytes": 6328404992
+        },
+        {
+          "seconds": 4.460816684062593,
+          "documents_per_second": 0.44834839484561445,
+          "generated_tokens_per_second": 46.6282330639439,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.460806643939577,
+          "batch_latency_p95_seconds": 4.460806643939577,
+          "peak_allocated_bytes": 6328404992
+        },
+        {
+          "seconds": 4.468829540070146,
+          "documents_per_second": 0.44754448162921123,
+          "generated_tokens_per_second": 46.54462608943797,
+          "generated_tokens": 208,
+          "batch_latency_p50_seconds": 4.468819409958087,
+          "batch_latency_p95_seconds": 4.468819409958087,
+          "peak_allocated_bytes": 6328404992
+        }
+      ],
+      "summaries": [
+        {
+          "id": "synthetic-1",
+          "summary": "Objectives:\nThe objective of the study was to compare two document batching methods.\n\nMethods:\nThe study involved processing 40 synthetic documents with a batch size of 4. Two methods were compared: the length-sorted method and an unspecified alternative method. The length-sorted method utilized 20% fewer padded input positions than the alternative method.\n\nQuantitative Findings:\n- The length-sorted method used 20% fewer padded input positions.\n- No GPU throughput improvements were established between the two methods.\n\nLimitations:\n- Synthetic inputs were used in the study.\n- No measurements were taken using CUDA.\n- There was no fact"
+        },
+        {
+          "id": "synthetic-2",
+          "summary": "Objectives\nThe objective of the study was to evaluate cross-session memory.\n\nMethods\nThe method involved reopening a local database that had previously stored 100 events. This was done using a single process on a single local device.\n\nQuantitative Findings\nNot reported.\n\nLimitations\nThe study was conducted with a single process and a single local device. No distributed failure testing was performed."
+        }
+      ]
+    }
+  ]
+}

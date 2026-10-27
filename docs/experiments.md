@@ -48,3 +48,13 @@ were written. CUDA availability is also checked after dependencies load.
 6. Manually review the same 100 document IDs across conditions using the rubric.
    Report factuality and coverage alongside throughput; do not report a quality
    improvement from scheduling alone.
+
+## Subsequent real GPU execution
+
+The initial local status above records the Mac attempt. Real execution has since
+completed on Brown's NVIDIA L40: both a short-document smoke test and an
+eight-document mixed-length synthetic GPU experiment. See
+[the Brown report](brown-gpu.md) for measurements, actual token lengths, model
+revision, environment, raw results and quality caveats. The cache-on batching
+comparison measured 4.95% higher median throughput for length ordering on that
+small fixture; it does not reproduce a 25% general improvement.

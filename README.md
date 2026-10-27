@@ -4,11 +4,12 @@ A foundation for GPU-accelerated technical-document summarization using
 `Qwen/Qwen2.5-3B-Instruct`, PyTorch and Transformers. Produces summaries with
 Objectives, Methods, Quantitative findings and Limitations sections.
 
-**Status:** scheduling utilities and synthetic experiments tested locally. A real
-CUDA inference/benchmark runner is implemented but **not GPU-validated**. Initial
-host is an Apple Silicon Mac without CUDA, PyTorch or Transformers. No real
-summaries, GPU throughput improvement, factuality score or GPU memory measurement
-has been produced. The résumé's 25% throughput improvement is not reproduced.
+**Status:** real Qwen inference has now run on a Brown Slurm NVIDIA L40.
+All four benchmark configurations completed on the two-document smoke fixture.
+Scheduling tests passed locally and on the cluster. See the
+[Brown GPU report](docs/brown-gpu.md) for raw measured results and limitations.
+The original résumé claim of 25% throughput improvement is not established;
+400 real reports and 100 source-backed quality reviews have not been run.
 
 ## Run without GPU dependencies
 

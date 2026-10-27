@@ -1,0 +1,347 @@
+{
+  "kind": "real_cuda_inference",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "resolved_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "arguments": {
+    "input": "data/controlled.jsonl",
+    "output": "experiments/gpu-controlled-results.json",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "revision": "main",
+    "batch_size": 4,
+    "max_new_tokens": 32,
+    "repeats": 3
+  },
+  "python": "3.12.3",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA L40",
+  "dtype": "float16",
+  "seed": 42,
+  "input_tokens": [
+    {
+      "id": "controlled-0",
+      "tokens": 776
+    },
+    {
+      "id": "controlled-1",
+      "tokens": 1000
+    },
+    {
+      "id": "controlled-2",
+      "tokens": 1896
+    },
+    {
+      "id": "controlled-3",
+      "tokens": 3688
+    },
+    {
+      "id": "controlled-4",
+      "tokens": 552
+    },
+    {
+      "id": "controlled-5",
+      "tokens": 1448
+    },
+    {
+      "id": "controlled-6",
+      "tokens": 328
+    },
+    {
+      "id": "controlled-7",
+      "tokens": 440
+    }
+  ],
+  "input_sha256": "f37248f7c99276090722590e89f4cb88e57b64efb980d754762dee9d66d92680",
+  "prompt_sha256": "066e685110f6795f187d4e7709686fd9b38819484607fea281d7e6a47ce13e74",
+  "results": [
+    {
+      "strategy": "arrival",
+      "use_cache": false,
+      "padding": {
+        "useful_positions": 10128,
+        "padded_positions": 20544,
+        "padding_fraction": 0.5070093457943925
+      },
+      "runs": [
+        {
+          "seconds": 46.88950594898779,
+          "documents_per_second": 0.1706138684571211,
+          "generated_tokens_per_second": 5.459643790627875,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 23.44472519942792,
+          "batch_latency_p95_seconds": 35.1075570959365,
+          "peak_allocated_bytes": 7589748224
+        },
+        {
+          "seconds": 47.38785668590572,
+          "documents_per_second": 0.16881962087935898,
+          "generated_tokens_per_second": 5.402227868139487,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 23.6939141729963,
+          "batch_latency_p95_seconds": 35.57782985200174,
+          "peak_allocated_bytes": 7589748224
+        },
+        {
+          "seconds": 47.071698475047015,
+          "documents_per_second": 0.16995350198040649,
+          "generated_tokens_per_second": 5.4385120633730075,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 23.535837712523062,
+          "batch_latency_p95_seconds": 35.24313089100178,
+          "peak_allocated_bytes": 7589748224
+        }
+      ],
+      "summaries": [
+        {
+          "id": "controlled-0",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nLimitations:\nArtificial repetition; no real document quality evaluation.\n\nQuantitative findings:\nNot"
+        },
+        {
+          "id": "controlled-1",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n- Paragraph length varied.\n- Padded batching policies compared.\n- No real scientific findings claimed.\n\n"
+        },
+        {
+          "id": "controlled-2",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no"
+        },
+        {
+          "id": "controlled-3",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        },
+        {
+          "id": "controlled-4",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real"
+        },
+        {
+          "id": "controlled-5",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph. Artificial repetition was used in the test setup.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\n"
+        },
+        {
+          "id": "controlled-6",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real document quality evaluation"
+        },
+        {
+          "id": "controlled-7",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        }
+      ]
+    },
+    {
+      "strategy": "arrival",
+      "use_cache": true,
+      "padding": {
+        "useful_positions": 10128,
+        "padded_positions": 20544,
+        "padding_fraction": 0.5070093457943925
+      },
+      "runs": [
+        {
+          "seconds": 3.62558502308093,
+          "documents_per_second": 2.2065404476990595,
+          "generated_tokens_per_second": 70.6092943263699,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 1.8127766525140032,
+          "batch_latency_p95_seconds": 2.1875048740766943,
+          "peak_allocated_bytes": 8121030144
+        },
+        {
+          "seconds": 3.6223054149886593,
+          "documents_per_second": 2.208538232832873,
+          "generated_tokens_per_second": 70.67322345065193,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 1.8111422375659458,
+          "batch_latency_p95_seconds": 2.1848059931071475,
+          "peak_allocated_bytes": 8121030144
+        },
+        {
+          "seconds": 3.609430767945014,
+          "documents_per_second": 2.2164159709190665,
+          "generated_tokens_per_second": 70.92531106941013,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 1.804705704038497,
+          "batch_latency_p95_seconds": 2.1713529360713437,
+          "peak_allocated_bytes": 8121030144
+        }
+      ],
+      "summaries": [
+        {
+          "id": "controlled-0",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nLimitations:\nArtificial repetition; no real document quality evaluation.\n\nQuantitative findings:\nNot"
+        },
+        {
+          "id": "controlled-1",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n- Paragraph length varied.\n- Padded batching policies compared.\n- No real scientific findings claimed.\n\n"
+        },
+        {
+          "id": "controlled-2",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no"
+        },
+        {
+          "id": "controlled-3",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        },
+        {
+          "id": "controlled-4",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real"
+        },
+        {
+          "id": "controlled-5",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph. Artificial repetition was used in the test setup.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\n"
+        },
+        {
+          "id": "controlled-6",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real document quality evaluation"
+        },
+        {
+          "id": "controlled-7",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        }
+      ]
+    },
+    {
+      "strategy": "length",
+      "use_cache": false,
+      "padding": {
+        "useful_positions": 10128,
+        "padded_positions": 17856,
+        "padding_fraction": 0.43279569892473113
+      },
+      "runs": [
+        {
+          "seconds": 42.05101722397376,
+          "documents_per_second": 0.19024510054988897,
+          "generated_tokens_per_second": 6.087843217596447,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 21.02548776200274,
+          "batch_latency_p95_seconds": 35.513600766076706,
+          "peak_allocated_bytes": 7589748224
+        },
+        {
+          "seconds": 42.04147102800198,
+          "documents_per_second": 0.1902882987769755,
+          "generated_tokens_per_second": 6.089225560863216,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 21.020724304020405,
+          "batch_latency_p95_seconds": 35.50774802500382,
+          "peak_allocated_bytes": 7589748224
+        },
+        {
+          "seconds": 42.07942843902856,
+          "documents_per_second": 0.19011665074281334,
+          "generated_tokens_per_second": 6.083732823770027,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 21.03970433451468,
+          "batch_latency_p95_seconds": 35.538184556993656,
+          "peak_allocated_bytes": 7589748224
+        }
+      ],
+      "summaries": [
+        {
+          "id": "controlled-0",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nLimitations:\nArtificial repetition; no real document quality evaluation.\n\nQuantitative findings:\nNot"
+        },
+        {
+          "id": "controlled-1",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n- Paragraph length varied.\n- Padded batching policies compared.\n- No real scientific findings claimed.\n\n"
+        },
+        {
+          "id": "controlled-2",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no"
+        },
+        {
+          "id": "controlled-3",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        },
+        {
+          "id": "controlled-4",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real"
+        },
+        {
+          "id": "controlled-5",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph. Artificial repetition was used in the test setup.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\n"
+        },
+        {
+          "id": "controlled-6",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real document quality evaluation"
+        },
+        {
+          "id": "controlled-7",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        }
+      ]
+    },
+    {
+      "strategy": "length",
+      "use_cache": true,
+      "padding": {
+        "useful_positions": 10128,
+        "padded_positions": 17856,
+        "padding_fraction": 0.43279569892473113
+      },
+      "runs": [
+        {
+          "seconds": 3.4490283490158617,
+          "documents_per_second": 2.319493837237581,
+          "generated_tokens_per_second": 74.2238027916026,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 1.7244985844590701,
+          "batch_latency_p95_seconds": 2.175774646922946,
+          "peak_allocated_bytes": 8121030144
+        },
+        {
+          "seconds": 3.451436112052761,
+          "documents_per_second": 2.3178757306453384,
+          "generated_tokens_per_second": 74.17202338065083,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 1.725708145997487,
+          "batch_latency_p95_seconds": 2.177205702988431,
+          "peak_allocated_bytes": 8121030144
+        },
+        {
+          "seconds": 3.457096575992182,
+          "documents_per_second": 2.3140805656272447,
+          "generated_tokens_per_second": 74.05057810007183,
+          "generated_tokens": 256,
+          "batch_latency_p50_seconds": 1.7285387929878198,
+          "batch_latency_p95_seconds": 2.1839355629635975,
+          "peak_allocated_bytes": 8121030144
+        }
+      ],
+      "summaries": [
+        {
+          "id": "controlled-0",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nLimitations:\nArtificial repetition; no real document quality evaluation.\n\nQuantitative findings:\nNot"
+        },
+        {
+          "id": "controlled-1",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n- Paragraph length varied.\n- Padded batching policies compared.\n- No real scientific findings claimed.\n\n"
+        },
+        {
+          "id": "controlled-2",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.  \nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no"
+        },
+        {
+          "id": "controlled-3",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        },
+        {
+          "id": "controlled-4",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real"
+        },
+        {
+          "id": "controlled-5",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph. Artificial repetition was used in the test setup.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\n"
+        },
+        {
+          "id": "controlled-6",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition; no real document quality evaluation"
+        },
+        {
+          "id": "controlled-7",
+          "summary": "Objectives:\nNot reported.\n\nMethods:\nRepeat a fixed paragraph.\nNot reported.\n\nQuantitative findings:\nNot reported.\n\nLimitations:\nArtificial repetition;\nNo real"
+        }
+      ]
+    }
+  ]
+}
