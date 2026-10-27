@@ -1,0 +1,53 @@
+{
+  "scope": "Four outputs from two papers; qualitative spot-check only, not complete corpus scoring",
+  "reviews": [
+    {
+      "id": "1810.04805",
+      "prompt": "baseline",
+      "cap": 512,
+      "source_sha256": "fea4dc857ec30fd8b2745acffd87789b1e45a94f868b559d025883eea462fcb1",
+      "prediction_sha256": "e6d85bde787814b34ad08d8e4b0f63cd168cec208b63f20d5b31d48fb40fd408",
+      "reviewer": "assistant spot-check, no independent second reviewer",
+      "notes": [
+        "Spot check: reported BERT benchmark values and absolute improvements are retained. This is not a full factuality score."
+      ]
+    },
+    {
+      "id": "2305.14314",
+      "prompt": "baseline",
+      "cap": 512,
+      "source_sha256": "6272079be29d11ca8f943e1c3e9ebb29ac5113ef009a0e85a6fb8b4fc88723ce",
+      "prediction_sha256": "9d291848512f6a4b1ed1fd2b340018519bafeecaa73da1f960be875d78181f85",
+      "reviewer": "assistant spot-check, no independent second reviewer",
+      "notes": [
+        "The summary confuses experiments across more than 1000 models with a model being trained on models.",
+        "It states limitations are not reported despite the abstract discussing benchmark unreliability and failure cases."
+      ]
+    },
+    {
+      "id": "1810.04805",
+      "prompt": "evidence_json",
+      "cap": 512,
+      "source_sha256": "fea4dc857ec30fd8b2745acffd87789b1e45a94f868b559d025883eea462fcb1",
+      "prediction_sha256": "8ac5ea7af8043127088f6ee84b17cf8e5daa117abdd8d2ad853d11f310df4523",
+      "reviewer": "assistant spot-check, no independent second reviewer",
+      "notes": [
+        "All five evidence strings fail exact source matching; some are rewritten or synthesized across source clauses.",
+        "Claims omit absolute benchmark scores and weaken the distinction between percentage-point and relative improvement."
+      ]
+    },
+    {
+      "id": "2305.14314",
+      "prompt": "evidence_json",
+      "cap": 512,
+      "source_sha256": "6272079be29d11ca8f943e1c3e9ebb29ac5113ef009a0e85a6fb8b4fc88723ce",
+      "prediction_sha256": "dfa92dd83256cf5026e705ca73fa0ace6819c718d56b23b7e6e6c51971f8244f",
+      "reviewer": "assistant spot-check, no independent second reviewer",
+      "notes": [
+        "All three evidence strings fail exact source matching.",
+        "Important performance numbers occur in evidence but are absent from corresponding summary claims.",
+        "The faster-finetuning claim is not established by a matched speed comparison in the source abstract; limitations are omitted."
+      ]
+    }
+  ]
+}

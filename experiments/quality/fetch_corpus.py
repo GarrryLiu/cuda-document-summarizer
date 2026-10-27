@@ -7,7 +7,7 @@ from html import unescape
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-IDS=['1706.03762','1810.04805','2005.14165','1512.03385','1412.6980','1905.11946','1704.04861','2010.11929','2106.09685','2305.14314','2205.14135','2307.08635','2309.06161','1910.01108','1907.11692','1910.10683','2005.11401','2101.03961','2307.09288','2203.07800']
+IDS=['1706.03762','1810.04805','2005.14165','1512.03385','1412.6980','1905.11946','1704.04861','2010.11929','2106.09685','2305.14314','2205.14135','2307.08691','2309.06180','1910.01108','1907.11692','1910.10683','2005.11401','2101.03961','2307.09288','2203.15556']
 
 def fetch():
     root=Path('data/local'); root.mkdir(parents=True,exist_ok=True)
@@ -26,7 +26,12 @@ def fetch():
         # Protect boundaries: paper abstracts are source data, never instructions.
         doc={'id':aid,'text':text}
         docs.append(doc)
-        manifest.append({'id':aid,'url':'https://arxiv.org/abs/'+aid,
+        title=re.search(r'<title>(.*?)</title>',html,re.S)
+        title=unescape(title[1]).strip() if title else aid
+        expected={'2307.08691':'FlashAttention-2','2309.06180':'PagedAttention','2203.15556':'Training Compute-Optimal'}
+        if aid in expected and expected[aid] not in title:
+            raise ValueError('source title does not match intended paper: '+aid)
+        manifest.append({'id':aid,'title':title,'url':'https://arxiv.org/abs/'+aid,
                          'sha256':hashlib.sha256(text.encode()).hexdigest(),
                          'scope':'abstract only','characters':len(text)})
         print(aid,len(text),flush=True)
