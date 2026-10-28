@@ -1,0 +1,20 @@
+{
+  "reviewer": "Codex source inspection, not independent human or legal-expert validation",
+  "scope": "Only the one-year restriction claim in document 381 was rechecked across all six distinct first-repeat sweep summaries. No full-summary factuality score.",
+  "document_id": "381",
+  "source_sha256": "af107ed132c018c3b26f32eff70434d840891db56e8e20d7a07bbd38b7b76cf3",
+  "source_offsets": [
+    1632,
+    1667
+  ],
+  "assessment": "unsupported_in_provided_source",
+  "note": "The source redacts the anniversary defining the restriction period; every tested policy supplies one year. This shared error is not caused or repaired by scheduling.",
+  "summaries_sha256": {
+    "budget_16384": "dc2a8eaebcf40a765ea8f817f4a497384e1fac59bdb628cad9c44c21689cf4a6",
+    "length_4": "dc2a8eaebcf40a765ea8f817f4a497384e1fac59bdb628cad9c44c21689cf4a6",
+    "length_8": "dc2a8eaebcf40a765ea8f817f4a497384e1fac59bdb628cad9c44c21689cf4a6",
+    "budget_24576": "dc2a8eaebcf40a765ea8f817f4a497384e1fac59bdb628cad9c44c21689cf4a6",
+    "arrival_4": "dc2a8eaebcf40a765ea8f817f4a497384e1fac59bdb628cad9c44c21689cf4a6",
+    "budget_32768": "dc2a8eaebcf40a765ea8f817f4a497384e1fac59bdb628cad9c44c21689cf4a6"
+  }
+}
