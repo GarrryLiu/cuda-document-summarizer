@@ -8,7 +8,7 @@ import statistics
 import time
 from pathlib import Path
 from .batching import batches,read_documents
-from .scheduling import token_budget_batches,plan_stats
+from .scheduling import token_budget_batches,plan_stats,distinct_plans
 
 
 def legal_prompt(text):
@@ -25,11 +25,14 @@ def main():
     p.add_argument('--input',required=True);p.add_argument('--output',default='experiments/legal/raw-results.json')
     p.add_argument('--batch-size',type=int,default=4);p.add_argument('--max-sequences',type=int,default=8)
     p.add_argument('--token-budget',type=int,default=32768);p.add_argument('--max-new-tokens',type=int,default=512)
+    p.add_argument('--token-budgets',type=int,nargs='+',help='Sweep budgets; identical plans share measurements via aliases')
     p.add_argument('--repeats',type=int,default=3)
     p.add_argument('--model',default='Qwen/Qwen2.5-3B-Instruct')
     p.add_argument('--revision',default='aa8e72537993ba99e69dfaafa59ed015b17504d1')
     a=p.parse_args()
     if min(a.batch_size,a.max_sequences,a.token_budget,a.max_new_tokens,a.repeats)<1: p.error('positive limits required')
+    if a.token_budgets and (min(a.token_budgets)<1 or len(set(a.token_budgets))!=len(a.token_budgets)):
+        p.error('sweep budgets must be positive and unique')
     docs=read_documents(a.input)
     import torch
     import transformers
@@ -44,8 +47,13 @@ def main():
     if max(lengths)+a.max_new_tokens+7>model.config.max_position_embeddings: raise ValueError('input exceeds context; no truncation')
     plans={'arrival_4':batches(lengths,a.batch_size,'arrival'),
            'length_4':batches(lengths,a.batch_size,'length'),
-           'length_8':batches(lengths,a.max_sequences,'length'),
-           'token_budget':token_budget_batches(lengths,a.token_budget,a.max_new_tokens,a.max_sequences)}
+           'length_8':batches(lengths,a.max_sequences,'length')}
+    budgets=a.token_budgets or [a.token_budget]
+    for budget in budgets:
+        name=f'budget_{budget}' if a.token_budgets else 'token_budget'
+        plans[name]=token_budget_batches(lengths,budget,a.max_new_tokens,a.max_sequences)
+    # Identical plans are one condition, not independent experiments.
+    unique,aliases=distinct_plans(plans)
     eos=model.generation_config.eos_token_id;eos=set(eos if isinstance(eos,list) else [eos])
     def generate(indices,limit):
         inputs=tok.pad([{'input_ids':encoded[i],'attention_mask':[1]*lengths[i]} for i in indices],
@@ -65,17 +73,20 @@ def main():
       'prompt_sha256':hashlib.sha256(json.dumps(legal_prompt(''),sort_keys=True).encode()).hexdigest(),
       'input_tokens':[{'id':d['id'],'tokens':n} for d,n in zip(docs,lengths)],
       'plans':{k:{'indices':v,'stats':plan_stats(lengths,v,a.max_new_tokens)} for k,v in plans.items()},
+      'aliases':aliases,
+      'code_sha256':{f:hashlib.sha256(Path(__file__).with_name(f).read_bytes()).hexdigest()
+                     for f in ('legal_benchmark.py','scheduling.py')},
       'runs':[],'summaries':{}}
     out=Path(a.output);out.parent.mkdir(parents=True,exist_ok=True)
     def checkpoint():
         temp=out.with_suffix('.tmp');temp.write_text(json.dumps(report,indent=2)+'\n');temp.replace(out)
     # Full longest-sequence batch warmup for each shape; no measured output reused.
-    for name,plan in plans.items():
+    for name,plan in unique.items():
         generate(max(plan,key=lambda b:len(b)*(max(lengths[i] for i in b)+a.max_new_tokens)),32)
         torch.cuda.synchronize();print('warmup',name,flush=True)
     order=[];rng=random.Random(42)
     for repeat in range(a.repeats):
-        names=list(plans);rng.shuffle(names)
+        names=list(unique);rng.shuffle(names)
         order.extend((repeat,name) for name in names)
     report['run_order']=order;checkpoint()
     for repeat,name in order:

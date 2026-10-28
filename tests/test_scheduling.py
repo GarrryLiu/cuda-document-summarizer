@@ -1,8 +1,13 @@
 import random
 import unittest
-from cuda_summary.scheduling import token_budget_batches,plan_stats,rounded
+from cuda_summary.scheduling import token_budget_batches,plan_stats,rounded,distinct_plans
 
 class ScheduleTests(unittest.TestCase):
+    def test_plan_aliases_preserve_order_and_batch_boundaries(self):
+        plans={'a':[[0,1],[2]],'b':[[0,1],[2]],'c':[[2],[0,1]],'d':[[0],[1,2]]}
+        unique,aliases=distinct_plans(plans)
+        self.assertEqual(aliases,{'b':'a'})
+        self.assertEqual(list(unique),['a','c','d'])
     def test_variable_capacity_and_tail(self):
         lengths=[500,100,300,100]
         p=token_budget_batches(lengths,1024,128,max_sequences=4)

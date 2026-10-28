@@ -29,5 +29,5 @@ PYTHONPATH="$SOURCE_DIR/src" .venv/bin/python -m unittest discover -s "$SOURCE_D
 .venv/bin/python -m cuda_summary.legal_benchmark \
   --input "$SOURCE_DIR/data/local/legal-poc.jsonl" \
   --output "$RESULT_DIR/raw-results.json" --batch-size 4 --max-sequences 8 \
-  --token-budget 32768 --max-new-tokens 512 --repeats 3
+  --token-budgets 16384 24576 32768 49152 --max-new-tokens 512 --repeats 3
 printf 'Results: %s\n' "$RESULT_DIR"

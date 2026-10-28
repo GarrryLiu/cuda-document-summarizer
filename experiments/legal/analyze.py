@@ -13,8 +13,10 @@ out['arguments']={**r['arguments'], 'input':Path(r['arguments']['input']).name,
 out['summary_hashes']={k:{d['id']:__import__('hashlib').sha256(d['summary'].encode()).hexdigest() for d in values} for k,values in r['summaries'].items()}
 metrics={}
 for name in r['plans']:
-    runs=[x for x in r['runs'] if x['strategy']==name]
+    measured=r.get('aliases',{}).get(name,name)
+    runs=[x for x in r['runs'] if x['strategy']==measured]
     metrics[name]={'median_seconds':statistics.median(x['seconds'] for x in runs),
+      'measurement_source':measured,
       'median_docs_per_second':statistics.median(x['documents_per_second'] for x in runs),
       'median_generated_tokens_per_second':statistics.median(x['generated_tokens_per_second'] for x in runs),
       'max_peak_allocated_gib':max(x['peak_allocated_bytes'] for x in runs)/2**30,

@@ -7,6 +7,16 @@ def rounded(length, multiple=8):
     return ((length+multiple-1)//multiple)*multiple
 
 
+def distinct_plans(plans):
+    """Keep one measurement per identical ordered batch plan, with explicit aliases."""
+    unique={}; aliases={}
+    for name,plan in plans.items():
+        same=next((other for other,existing in unique.items() if existing==plan),None)
+        if same is None: unique[name]=plan
+        else: aliases[name]=same
+    return unique,aliases
+
+
 def token_budget_batches(lengths, token_budget, output_reserve, max_sequences=8, pad_multiple=8):
     """Length-sorted greedy packing with B*(rounded(max input)+output cap) bound.
 
