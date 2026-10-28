@@ -8,6 +8,8 @@ p=argparse.ArgumentParser();p.add_argument('input');p.add_argument('--output',de
 r=json.loads(Path(a.input).read_text())
 if r['status']!='complete':raise ValueError('incomplete run')
 out={k:v for k,v in r.items() if k!='summaries'}
+out['arguments']={**r['arguments'], 'input':Path(r['arguments']['input']).name,
+                  'output':Path(r['arguments']['output']).name}
 out['summary_hashes']={k:{d['id']:__import__('hashlib').sha256(d['summary'].encode()).hexdigest() for d in values} for k,values in r['summaries'].items()}
 metrics={}
 for name in r['plans']:

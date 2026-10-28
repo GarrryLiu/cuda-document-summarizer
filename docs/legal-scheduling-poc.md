@@ -92,3 +92,72 @@ python3 experiments/legal/analyze.py experiments/legal/raw-results.json
 Requires the project's GPU dependencies and an NVIDIA CUDA machine. Results
 checkpoint after each strategy run; interrupted experiments retain partial data
 but are not automatically resumed. OOM is not silently hidden by splitting batches.
+
+## Durable school execution
+
+The original interactive L40 session ended before results were retrieved. Its
+node-local checkpoints were not accessible while all GPUs on that node were in
+use, so that attempt is excluded from final comparisons. A complete new run uses
+one RTX A6000 via Slurm batch job; no L40/A6000 measurements are pooled.
+
+`scripts/brown-legal.sbatch` stages dependencies/model cache in a job-local `/tmp`
+directory, checkpoints predictions directly to a private shared result directory,
+and removes only its own generated temporary cache at exit. Submit from a staged
+source checkout containing the local input JSONL. Set the Slurm output path to a
+shared directory as well. This survives terminal/chat disconnection. Do not
+publish raw contract text or predictions by accident; Git retains manifests and
+sanitized aggregate metrics.
+
+The batch script explicitly requests Python 3.12 and uses the absolute user-local
+`uv` executable (overridable with `UV_BIN`). The cluster's batch PATH differs from
+the interactive shell and otherwise selects Python 3.7. Bootstrap failures before
+generation are excluded from timing results. Keep dependencies and model cache
+out of the shared home filesystem to avoid exhausting its quota.
+
+## Measured result (2026-10-28)
+
+Slurm job 77268 completed successfully on one NVIDIA RTX A6000 (48 GB),
+Python 3.12.3, PyTorch 2.14.1+cu130, CUDA 13.0 and Transformers 4.57.6.
+The 24 prompts span 548–4,717 tokens (54,097 total). Every one of the 12 runs
+processed all 24 documents; none ran out of memory or hit the generation cap.
+Results below use median generation time across three randomized repetitions.
+Memory is the maximum PyTorch-allocated peak across those repetitions.
+
+| Policy | Time (s) | Docs/s | Throughput vs arrival | Allocated GiB | Padding |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Arrival, 4 | 58.55 | 0.410 | 1.000× | 8.05 | 34.45% |
+| Length, 4 | 51.31 | 0.468 | 1.141× | 8.05 | 11.35% |
+| Length, 8 | 41.78 | 0.574 | 1.401× | 10.24 | 23.71% |
+| Token budget, up to 8 | 45.37 | 0.529 | 1.290× | 8.26 | 14.71% |
+
+Token-budget packing increased observed document throughput by 29.0% relative
+to arrival-4, reducing completion time by 22.5%, with 2.6% more peak allocated
+memory. Fixed length-8 was faster: token-budget packing used 19.3% less peak
+allocated memory but took 8.6% longer. This is a speed/memory tradeoff, not a
+claim that the token-budget scheduler is universally fastest. Length-4 alone
+improved throughput by 14.1% at the same measured peak allocation as arrival-4.
+
+All three repetitions of each policy produced identical token hashes within that
+policy. Across policies, only 18/24 (length-4), 16/24 (length-8), and 17/24
+(token budget) matched arrival-4 exactly. Generated-token totals were respectively
+4,871, 4,866 and 4,854 versus 4,877 for arrival-4. Thus measured throughput is
+not evidence of semantic quality equivalence. No legal factuality or reference
+summary evaluation was performed. Small output-length differences remain a
+confound in the generation timings.
+
+The public `experiments/legal/aggregate-results.json` includes all individual
+measurements, scheduling plans and output hashes, but omits generated prose and
+absolute school filesystem paths. `gpu-environment.txt` pins the installed
+packages. Full predictions remain in ignored local raw results.
+
+## Next experiment
+
+Sweep token budgets (for example 16K, 24K, 32K and 48K slots) and sequence caps
+on a larger held-out legal corpus, comparing the complete measured speed/memory
+frontier with fixed batching. Use separate development and evaluation documents
+when selecting a policy. Add human-reviewed checks for parties, obligations,
+exceptions, dates, termination and governing law, with source evidence spans,
+before calling an optimization quality-preserving. Only then extend to longer
+contracts or judgments, online arrival traces, and continuous-batching backends.
+This PoC establishes a reproducible baseline; it does not establish novelty over
+existing inference engines or a general legal-domain advantage.
