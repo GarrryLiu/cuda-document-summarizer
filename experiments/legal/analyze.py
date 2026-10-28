@@ -28,5 +28,10 @@ for name,m in metrics.items():
     m['throughput_speedup_vs_arrival4']=reference/m['median_seconds']
     print(name,json.dumps(m))
 out['aggregate']=metrics
+out['observed_frontier']=[name for name,m in metrics.items() if not any(
+    other['median_seconds']<=m['median_seconds'] and
+    other['max_peak_allocated_gib']<=m['max_peak_allocated_gib'] and
+    (other['median_seconds']<m['median_seconds'] or other['max_peak_allocated_gib']<m['max_peak_allocated_gib'])
+    for other in metrics.values())]
 out['limitations']='Offline length-spread dev subset of 24 NDAs. Token slots are a proxy, not a VRAM guarantee. Batch-shape changes can change greedy outputs. No online latency or validated legal factuality result. Fixed8 control separates increased concurrency from token-budget effects.'
 Path(a.output).write_text(json.dumps(out,indent=2)+'\n')

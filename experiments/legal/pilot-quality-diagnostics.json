@@ -1,6 +1,10 @@
 {
   "kind": "lexical_triage_not_factuality",
   "raw_sha256": "757f86f27579e1b110aa2466c47fafcfbfb71b41dc1d0416051ae35bc22a934e",
+  "checker_sha256": {
+    "legal_quality.py": "a7e662aa9f34f3bb97582b438aab446d72057a092dc2305f20c002753694ea3f",
+    "quality.py": "7bc1a5996922f86c992c1c00f6914c032950ce47b1cbb4d2550b95f7c9f38a73"
+  },
   "source_sha256": "310af7d661d2ab50ee3700169cef524c75f39fb296bbf5a515c229eb0f42e68e",
   "limitations": "Flags require source review; absence is not support. Word-number normalization covers zero to ninety-nine. No party, negation, exception or clause alignment. ContractNLI labels concern original documents, not generated summaries.",
   "aliases": {},
@@ -8,8 +12,8 @@
     "length_8": {
       "documents": 24,
       "flagged_documents": 2,
-      "duration_mismatch_mentions": 1,
-      "numeric_anchor_mismatch_mentions": 1,
+      "duration_mismatch_types": 1,
+      "numeric_anchor_mismatch_types": 1,
       "over_160_words": 4,
       "flags_by_id": {
         "9": {
@@ -156,13 +160,15 @@
           "over_160_words": true,
           "review_required": false
         }
-      }
+      },
+      "documents_with_sensitive_line_changes_vs_arrival": 7,
+      "sensitive_changed_line_blocks": 10
     },
     "length_4": {
       "documents": 24,
       "flagged_documents": 2,
-      "duration_mismatch_mentions": 1,
-      "numeric_anchor_mismatch_mentions": 1,
+      "duration_mismatch_types": 1,
+      "numeric_anchor_mismatch_types": 1,
       "over_160_words": 4,
       "flags_by_id": {
         "9": {
@@ -309,13 +315,15 @@
           "over_160_words": true,
           "review_required": false
         }
-      }
+      },
+      "documents_with_sensitive_line_changes_vs_arrival": 5,
+      "sensitive_changed_line_blocks": 6
     },
     "token_budget": {
       "documents": 24,
       "flagged_documents": 2,
-      "duration_mismatch_mentions": 1,
-      "numeric_anchor_mismatch_mentions": 1,
+      "duration_mismatch_types": 1,
+      "numeric_anchor_mismatch_types": 1,
       "over_160_words": 4,
       "flags_by_id": {
         "9": {
@@ -462,13 +470,15 @@
           "over_160_words": true,
           "review_required": false
         }
-      }
+      },
+      "documents_with_sensitive_line_changes_vs_arrival": 7,
+      "sensitive_changed_line_blocks": 10
     },
     "arrival_4": {
       "documents": 24,
       "flagged_documents": 2,
-      "duration_mismatch_mentions": 1,
-      "numeric_anchor_mismatch_mentions": 1,
+      "duration_mismatch_types": 1,
+      "numeric_anchor_mismatch_types": 1,
       "over_160_words": 4,
       "flags_by_id": {
         "9": {
@@ -615,7 +625,9 @@
           "over_160_words": true,
           "review_required": false
         }
-      }
+      },
+      "documents_with_sensitive_line_changes_vs_arrival": 0,
+      "sensitive_changed_line_blocks": 0
     }
   }
 }

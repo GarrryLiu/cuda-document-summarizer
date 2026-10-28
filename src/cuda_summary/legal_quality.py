@@ -4,6 +4,7 @@ A duration found elsewhere in the source can still be assigned to the wrong
 party/clause in a summary. Absence of a flag never means a claim is supported.
 """
 import re
+import difflib
 
 WORDS = dict(zip('zero one two three four five six seven eight nine ten eleven twelve'.split(), range(13)))
 WORDS.update(dict(zip('thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split(),range(13,20))))
@@ -15,6 +16,16 @@ for tens,value in zip('twenty thirty forty fifty sixty seventy eighty ninety'.sp
             WORDS[tens+'-'+unit]=value+WORDS[unit]
 NUMBER = r'(?:\d+|' + '|'.join(sorted(WORDS,key=len,reverse=True)) + r')'
 DURATION = re.compile(r'\b(' + NUMBER + r')(?:\s*\(\s*(\d+)\s*\))?[\s-]+(?:(business|calendar)\s+)?(day|week|month|year|hour)s?\b', re.I)
+LEGAL_MARKERS=re.compile(r'\b(?:not|no|shall|must|may|except\w*|unless|surviv\w*|law\w*|court\w*|terminat\w*|days?|months?|years?)\b|subject to',re.I)
+
+
+def sensitive_changes(reference, candidate):
+    """Changed lines containing legal markers; a review queue, not error detection."""
+    before=reference.splitlines();after=candidate.splitlines();result=[]
+    for op,i,j,k,l in difflib.SequenceMatcher(None,before,after).get_opcodes():
+        if op!='equal' and LEGAL_MARKERS.search('\n'.join(before[i:j]+after[k:l])):
+            result.append({'reference_lines':before[i:j],'candidate_lines':after[k:l]})
+    return result
 
 
 def durations(text):

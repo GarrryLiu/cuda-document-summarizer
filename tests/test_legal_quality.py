@@ -1,8 +1,12 @@
 import unittest
-from cuda_summary.legal_quality import durations,triage
+from cuda_summary.legal_quality import durations,triage,sensitive_changes
 
 
 class QualityTriageTests(unittest.TestCase):
+    def test_sensitive_negation_change_is_queued(self):
+        self.assertEqual(len(sensitive_changes('May not disclose.','May disclose.')),1)
+        self.assertEqual(sensitive_changes('May not disclose.','May not disclose.'),[])
+        self.assertEqual(sensitive_changes('Heading A','Heading B'),[])
     def test_duration_spellings_and_hyphen(self):
         self.assertEqual(durations('three (3) years, 30-day notice; two months'),
                          {(3,'','year'),(30,'','day'),(2,'','month')})

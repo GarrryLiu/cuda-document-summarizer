@@ -27,7 +27,14 @@ locale ambiguity, larger spelled-out numbers, ranges, numeric formatting,
 OCR and paraphrases can still produce false flags. A word-budget miss is an
 instruction-following issue, not necessarily a factual error.
 
-These are review flags, not supported/unsupported classifications. A matching
+Changed summary lines mentioning negation, obligations/permissions, exceptions,
+termination, survival, governing law/courts or durations are also queued against
+arrival-4. Counts are public; the actual before/after lines stay in the private
+packet. This detects sensitive wording changes, not semantic errors. Its counts
+are separate from numeric/duration flagged-document counts.
+
+Mismatch totals count unique normalized duration/number types per document,
+not their number of repeated occurrences. These are review flags, not supported/unsupported classifications. A matching
 number can be attached to the wrong party, exception or clause. The checker does
 not assess negation, obligation versus permission, missing material facts,
 party identity, governing law or exception preservation. Zero flags never means

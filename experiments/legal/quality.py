@@ -3,7 +3,8 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-from cuda_summary.legal_quality import triage
+from cuda_summary.legal_quality import triage,sensitive_changes
+from cuda_summary import legal_quality
 
 
 def main():
@@ -17,7 +18,12 @@ def main():
     docs={str(d['id']):d for d in source['documents']}
     wanted=[x['id'] for x in r['input_tokens']]
     if len(set(wanted))!=len(wanted):raise ValueError('duplicate document IDs')
+    canonical='\n'.join(json.dumps({'id':key,'text':docs[key]['text']}) for key in wanted)+'\n'
+    if hashlib.sha256(canonical.encode()).hexdigest()!=r['input_sha256']:
+        raise ValueError('source text does not reproduce benchmark input; use prepare.py JSONL format')
     output={'kind':'lexical_triage_not_factuality','raw_sha256':hashlib.sha256(Path(a.raw).read_bytes()).hexdigest(),
+            'checker_sha256':{'legal_quality.py':hashlib.sha256(Path(legal_quality.__file__).read_bytes()).hexdigest(),
+                              'quality.py':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},
             'source_sha256':hashlib.sha256(Path(a.source).read_bytes()).hexdigest(),
             'limitations':'Flags require source review; absence is not support. Word-number normalization covers zero to ninety-nine. No party, negation, exception or clause alignment. ContractNLI labels concern original documents, not generated summaries.',
             'aliases':r.get('aliases',{}),'policies':{}}
@@ -30,10 +36,15 @@ def main():
         checks=[(x['id'],triage(docs[x['id']]['text'],x['summary'])) for x in rows]
         output['policies'][policy]={'documents':len(rows),
             'flagged_documents':sum(c['review_required'] for _,c in checks),
-            'duration_mismatch_mentions':sum(c['duration_mismatch_count'] for _,c in checks),
-            'numeric_anchor_mismatch_mentions':sum(c['numeric_anchor_mismatch_count'] for _,c in checks),
+            'duration_mismatch_types':sum(c['duration_mismatch_count'] for _,c in checks),
+            'numeric_anchor_mismatch_types':sum(c['numeric_anchor_mismatch_count'] for _,c in checks),
             'over_160_words':sum(c['over_160_words'] for _,c in checks),
             'flags_by_id':{i:{k:v for k,v in c.items() if not k.startswith('unmatched_')} for i,c in checks}}
+    reference=summaries['arrival_4']
+    for policy in summaries:
+        changes={key:sensitive_changes(reference[key],summaries[policy][key]) for key in wanted}
+        output['policies'][policy]['documents_with_sensitive_line_changes_vs_arrival']=sum(bool(x) for x in changes.values())
+        output['policies'][policy]['sensitive_changed_line_blocks']=sum(len(x) for x in changes.values())
     for key in wanted:
         d=docs[key];evidence=[]
         for annotation_set in d['annotation_sets']:
@@ -43,7 +54,8 @@ def main():
                 evidence.append({'label':label,'hypothesis':source['labels'][label]['hypothesis'],
                                  'gold_relation':annotation['choice'],'evidence':spans})
         packet['documents'].append({'id':key,'source_url':d.get('url'),'source':d['text'],
-                                    'annotations':evidence,'summaries':{k:v[key] for k,v in summaries.items()}})
+                                    'annotations':evidence,'summaries':{k:v[key] for k,v in summaries.items()},
+                                    'sensitive_changes_vs_arrival':{k:sensitive_changes(reference[key],v[key]) for k,v in summaries.items()}})
     Path(a.output).write_text(json.dumps(output,indent=2)+'\n')
     Path(a.packet).parent.mkdir(parents=True,exist_ok=True)
     Path(a.packet).write_text(json.dumps(packet,indent=2)+'\n')
