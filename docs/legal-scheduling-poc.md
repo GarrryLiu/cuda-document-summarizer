@@ -161,3 +161,85 @@ before calling an optimization quality-preserving. Only then extend to longer
 contracts or judgments, online arrival traces, and continuous-batching backends.
 This PoC establishes a reproducible baseline; it does not establish novelty over
 existing inference engines or a general legal-domain advantage.
+
+
+## Follow-up budget sweep
+
+The sweep requests budgets of 16,384, 24,576, 32,768 and 49,152 padded
+input-plus-output token slots, with a maximum of eight sequences. It keeps
+arrival-4, length-4 and length-8 controls. Identical ordered batch plans are
+measured once and explicitly aliased: on these documents, 49,152 slots yields
+exactly length-8. Six distinct policies each run three times in seeded shuffled
+order. Alias rows must not be counted as independent repetitions.
+
+The A6000 was fully occupied at follow-up submission, so the pending job 78668
+was canceled and the entire matched comparison ran on an L40S (job 78683).
+Follow-up measurements are separate from the original A6000 result. Model,
+prompt, revision, FP16, output reserve and input documents are unchanged. Code
+hashes and environment versions accompany the measurements. Timing covers
+loading input tensors and generation, not model download/load or planning.
+
+The sweep reuses the same 24 development NDAs to explore configuration effects;
+it does not provide held-out validation. The observed frontier compares median
+completion time and maximum allocated memory, without statistical significance
+claims. A smaller budget is not a hard memory limit. This GPU has enough physical
+memory for all tested policies; improvements do not demonstrate OOM avoidance.
+Batch-shape output differences remain a timing confound.
+
+Quality diagnostics and source-inspection limitations are described in
+[legal-quality-protocol.md](legal-quality-protocol.md). Automated lexical flags
+are not factuality scores; policy hash matches do not validate legal content.
+
+### Follow-up measurements (L40S)
+
+Job 78683 completed in 13m33s with exit code 0. All 18 measured runs processed
+all 24 documents without OOM or generation-cap hits. Exact source-code and input
+hashes were checked after retrieval. Each distinct policy produced identical
+output token hashes across its three repetitions.
+
+| Policy | Median time (s) | Throughput vs arrival | Peak allocated GiB | Exact matches vs arrival |
+| --- | ---: | ---: | ---: | ---: |
+| Arrival 4 | 47.80 | 1.000× | 8.05 | 24/24 |
+| Length 4 | 40.54 | 1.179× | 8.05 | 17/24 |
+| Length 8 / 48K alias | 34.47 | 1.387× | 10.24 | 17/24 |
+| 16K budget | 38.28 | 1.249× | 7.51 | 18/24 |
+| 24K budget | 35.46 | 1.348× | 8.22 | 17/24 |
+| 32K budget | 36.37 | 1.314× | 8.26 | 19/24 |
+
+The observed speed/memory frontier consists of 16K, 24K, and length-8 (48K is
+its alias). On this development workload, 16K is faster and uses less allocated
+memory than fixed length-4. The 24K condition is faster and uses slightly less
+allocated memory than 32K. These are observed median comparisons, not claims of
+statistical significance. The median timing advantage of 24K over 32K is small
+and needs confirmation on independent workloads.
+
+24K increased observed throughput by 34.8% over arrival-4. Relative to fixed
+length-8, it took 2.9% longer and used 19.8% less peak allocated memory. Its
+absolute peak is 8.22 GiB of PyTorch allocation, not a guarantee that an 8 GB
+GPU can run it. A measured candidate for further testing is 24K for a balance,
+16K for lower allocation, or length-8 for speed; no production default is changed.
+
+`experiments/legal/sweep-results.json` contains individual measurements and
+alias metadata; `sweep-environment.txt` records the installed packages. Do not
+compare these times directly to the A6000 study to infer a scheduling gain.
+
+### Quality findings and next step
+
+Each distinct sweep policy has two numerically flagged documents and four
+summaries over the requested 160-word limit. One numeric flag is the expanded
+source date year (a lexical review flag); the other is the unsupported one-year
+restriction in document 381. Codex rechecked that same unsupported claim in all
+six sweep policies against the source redaction, with offsets and hashes saved
+in `sweep-source-audit.json`. This narrow source inspection is not a human/legal
+expert evaluation, a full-summary audit, or an error-rate estimate.
+
+24K matches arrival-4 exactly on 17/24 outputs; seven documents have changed
+lines containing legal markers and require semantic review. Numeric flags alone
+do not cover negation, party identity, jurisdiction or material omissions. Thus
+no tested policy is established to preserve legal-summary quality.
+
+Next, use a disjoint evaluation set and a fixed atomic-claim rubric. Test an
+abstention/evidence-linked prompt for missing or redacted durations, with human
+source review, before choosing a quality-constrained scheduling configuration.
+Keep prompt changes separate from the scheduling ablation: changing both at once
+would confound the throughput comparison.

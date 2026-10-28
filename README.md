@@ -89,3 +89,8 @@ length/fixed-4, length/fixed-8 and token-budget batching on full ContractNLI NDA
 It fixes model, prompt and decoding, records three repeated runs and checks output
 hashes. This is offline scheduling research, not validated legal advice or a trained
 legal model. Token-slot limits are a scheduling proxy, not a hard VRAM guarantee.
+
+The follow-up study sweeps 16K–48K token budgets with explicit identical-plan
+aliases and a measured speed/memory frontier. See the
+[quality protocol](docs/legal-quality-protocol.md) for lexical triage and
+source-evidence review; flags are not factuality scores.
