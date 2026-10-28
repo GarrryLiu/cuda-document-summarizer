@@ -1,0 +1,621 @@
+{
+  "kind": "lexical_triage_not_factuality",
+  "raw_sha256": "757f86f27579e1b110aa2466c47fafcfbfb71b41dc1d0416051ae35bc22a934e",
+  "source_sha256": "310af7d661d2ab50ee3700169cef524c75f39fb296bbf5a515c229eb0f42e68e",
+  "limitations": "Flags require source review; absence is not support. Word-number normalization covers zero to ninety-nine. No party, negation, exception or clause alignment. ContractNLI labels concern original documents, not generated summaries.",
+  "aliases": {},
+  "policies": {
+    "length_8": {
+      "documents": 24,
+      "flagged_documents": 2,
+      "duration_mismatch_mentions": 1,
+      "numeric_anchor_mismatch_mentions": 1,
+      "over_160_words": 4,
+      "flags_by_id": {
+        "9": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "10": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "14": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "16": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "32": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "35": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "39": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "54": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "63": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "70": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "79": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "152": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "205": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "381": {
+          "duration_mismatch_count": 1,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": true
+        },
+        "405": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "406": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "435": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 1,
+          "over_160_words": true,
+          "review_required": true
+        },
+        "440": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "456": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "478": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "488": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "575": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "590": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "610": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        }
+      }
+    },
+    "length_4": {
+      "documents": 24,
+      "flagged_documents": 2,
+      "duration_mismatch_mentions": 1,
+      "numeric_anchor_mismatch_mentions": 1,
+      "over_160_words": 4,
+      "flags_by_id": {
+        "9": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "10": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "14": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "16": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "32": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "35": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "39": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "54": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "63": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "70": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "79": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "152": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "205": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "381": {
+          "duration_mismatch_count": 1,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": true
+        },
+        "405": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "406": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "435": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 1,
+          "over_160_words": true,
+          "review_required": true
+        },
+        "440": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "456": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "478": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "488": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "575": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "590": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "610": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        }
+      }
+    },
+    "token_budget": {
+      "documents": 24,
+      "flagged_documents": 2,
+      "duration_mismatch_mentions": 1,
+      "numeric_anchor_mismatch_mentions": 1,
+      "over_160_words": 4,
+      "flags_by_id": {
+        "9": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "10": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "14": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "16": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "32": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "35": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "39": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "54": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "63": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "70": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "79": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "152": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "205": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "381": {
+          "duration_mismatch_count": 1,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": true
+        },
+        "405": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "406": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "435": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 1,
+          "over_160_words": true,
+          "review_required": true
+        },
+        "440": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "456": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "478": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "488": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "575": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "590": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "610": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        }
+      }
+    },
+    "arrival_4": {
+      "documents": 24,
+      "flagged_documents": 2,
+      "duration_mismatch_mentions": 1,
+      "numeric_anchor_mismatch_mentions": 1,
+      "over_160_words": 4,
+      "flags_by_id": {
+        "9": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "10": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "14": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "16": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "32": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "35": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "39": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "54": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "63": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        },
+        "70": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "79": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "152": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "205": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "381": {
+          "duration_mismatch_count": 1,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": true
+        },
+        "405": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "406": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "435": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 1,
+          "over_160_words": true,
+          "review_required": true
+        },
+        "440": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "456": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "478": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "488": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "575": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "590": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": false,
+          "review_required": false
+        },
+        "610": {
+          "duration_mismatch_count": 0,
+          "numeric_anchor_mismatch_count": 0,
+          "over_160_words": true,
+          "review_required": false
+        }
+      }
+    }
+  }
+}

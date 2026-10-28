@@ -1,0 +1,67 @@
+{
+  "reviewer": "Codex source inspection, not human/legal expert validation",
+  "selection": "Five cases flagged by the initial lexical triage; diagnostics refined after inspection. Development audit, not an unbiased accuracy estimate.",
+  "scope": "Only the named numeric/duration claim in each arrival_4 pilot summary was inspected. Remaining claims and other policies were not adjudicated.",
+  "cases": [
+    {
+      "document_id": "381",
+      "reviewed_policy": "arrival_4",
+      "summary_sha256": "631ad6ba0d01925c7a38e2f62e78e24f4e39756d63ad552233267eae31591080",
+      "source_sha256": "af107ed132c018c3b26f32eff70434d840891db56e8e20d7a07bbd38b7b76cf3",
+      "source_offsets": [
+        1632,
+        1667
+      ],
+      "assessment": "unsupported_claim",
+      "note": "Summary specifies a one-year noncompetition period although the provided source redacts the anniversary. Preserve the missing value instead of inventing a duration."
+    },
+    {
+      "document_id": "435",
+      "reviewed_policy": "arrival_4",
+      "summary_sha256": "80114a2b5dee9176b2435ed6be16c69aabea7d03d6106cd932ed8c979f51ba06",
+      "source_sha256": "ab6116cc446d423897444ed4a322c1c43fcf955caeebb45bc816a9049dffb973",
+      "source_offsets": [
+        31,
+        55
+      ],
+      "assessment": "lexical_false_positive",
+      "note": "The summary expands the two-digit source year to 1998; this lexical flag does not establish a wrong date. Date century interpretation was not independently validated."
+    },
+    {
+      "document_id": "456",
+      "reviewed_policy": "arrival_4",
+      "summary_sha256": "5734c47ed8c497b1c23ec94ede5dd82f74e225ae3e8393f16c39c4acb7248182",
+      "source_sha256": "5c4e7b9fc4d7e83d6ca44fe0296b57743861ce58f0cf9905e21d36b353615f07",
+      "source_offsets": [
+        2045,
+        2064
+      ],
+      "assessment": "lexical_false_positive",
+      "note": "Source ordinal 9th and summary cardinal 9 denote the same stated day."
+    },
+    {
+      "document_id": "478",
+      "reviewed_policy": "arrival_4",
+      "summary_sha256": "d438b6e523666788a4a4373d2dffdc6815f28b7210f7fb6754fbe8b29471d287",
+      "source_sha256": "e089a825ddea8e56a9342c9c71b6ed9e497e2f4c792bf499bfb8266f63784a1b",
+      "source_offsets": [
+        83,
+        103
+      ],
+      "assessment": "lexical_false_positive",
+      "note": "Source ordinal 18th and summary cardinal 18 denote the same stated day."
+    },
+    {
+      "document_id": "590",
+      "reviewed_policy": "arrival_4",
+      "summary_sha256": "d7d151624963baea79c9d8607dbd45b34a1d2f608f8f4a4515b71dc765394162",
+      "source_sha256": "85b1e4500d99ccb9726ed9826bfced95bcc3dde1b0e7bfc32f98be676d08d771",
+      "source_offsets": [
+        16009,
+        16049
+      ],
+      "assessment": "lexical_false_positive",
+      "note": "The source second-anniversary term supports a two-year duration; literal year-pattern matching missed it."
+    }
+  ]
+}
