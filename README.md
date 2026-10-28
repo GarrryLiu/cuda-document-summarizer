@@ -81,3 +81,11 @@ synthetic input documents as 400 real benchmark documents or 100 reviewed summar
 - [Qwen model card and chat-template usage](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct)
 - [Transformers generation and left padding](https://huggingface.co/docs/transformers/llm_tutorial)
 - [Transformers KV cache](https://huggingface.co/docs/transformers/kv_cache)
+
+## Legal-document scheduling PoC
+
+The [legal scheduling study](docs/legal-scheduling-poc.md) compares arrival/fixed-4,
+length/fixed-4, length/fixed-8 and token-budget batching on full ContractNLI NDAs.
+It fixes model, prompt and decoding, records three repeated runs and checks output
+hashes. This is offline scheduling research, not validated legal advice or a trained
+legal model. Token-slot limits are a scheduling proxy, not a hard VRAM guarantee.
