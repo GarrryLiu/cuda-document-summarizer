@@ -4,3 +4,9 @@ __pycache__/
 *.egg-info/
 .env
 .cache/
+data/local/
+work-legal-source.tar.gz
+work-quality-source.tar.gz
+experiments/legal/raw*.json
+experiments/quality/raw*.json
+experiments/kernels/raw*.json
