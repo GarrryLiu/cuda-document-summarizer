@@ -12,6 +12,7 @@ RESULT_DIR="$SOURCE_DIR/results-$SLURM_JOB_ID"
 mkdir -p "$RESULT_DIR"
 TASK_DIR=$(mktemp -d /tmp/decode-kernel-XXXXXX)
 export HF_HOME="$TASK_DIR/hf" UV_CACHE_DIR="$TASK_DIR/uv" UV_PYTHON_INSTALL_DIR="$TASK_DIR/python"
+export CCACHE_DIR="$TASK_DIR/ccache"
 export TORCH_EXTENSIONS_DIR="$TASK_DIR/extensions" MAX_JOBS=2 TOKENIZERS_PARALLELISM=false
 export PYTHONPATH="$SOURCE_DIR/src"
 cleanup() { if [[ "$TASK_DIR" == /tmp/decode-kernel-* ]]; then rm -rf -- "$TASK_DIR"; fi; }
@@ -31,5 +32,7 @@ cd "$SOURCE_DIR"
 "$TASK_DIR/.venv/bin/python" -m unittest discover -s tests -v
 "$TASK_DIR/.venv/bin/python" experiments/kernels/check.py "$RESULT_DIR/correctness.json"
 "$TASK_DIR/.venv/bin/python" experiments/kernels/benchmark.py --output "$RESULT_DIR/benchmark.json"
-"$TASK_DIR/.venv/bin/python" experiments/kernels/profile_model.py --input data/local/legal-poc.jsonl --output "$RESULT_DIR/model-profile.json"
+if [[ "${RUN_MODEL_PROFILE:-1}" == 1 ]]; then
+  "$TASK_DIR/.venv/bin/python" experiments/kernels/profile_model.py --input data/local/legal-poc.jsonl --output "$RESULT_DIR/model-profile.json"
+fi
 printf 'Results: %s\n' "$RESULT_DIR"

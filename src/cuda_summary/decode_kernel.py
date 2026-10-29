@@ -11,6 +11,7 @@ def extension():
                 extra_cuda_cflags=['-O3','-lineinfo'],verbose=True)
 
 
-def decode_attention(q,k,v,splits=1):
+def decode_attention(q,k,v,splits=1,grouped=False):
     """Q[B,Hq,128], K/V[B,Hkv,S,128]; all cached keys valid, no masks/dropout."""
-    return extension().decode(q,k,v,splits)
+    module=extension()
+    return (module.decode_grouped if grouped else module.decode)(q,k,v,splits)

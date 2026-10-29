@@ -6,6 +6,7 @@
 #include <c10/cuda/CUDAException.h>
 #include <cuda_fp16.h>
 #include <cmath>
+#include <cstdint>
 
 constexpr int D=128, TILE=64, THREADS=256;
 __device__ float warp_sum(float x) {
@@ -95,7 +96,7 @@ __global__ void merge_splits(const float* parts,const float* lse,half* out,int s
   out[int64_t(bh)*D+d]=__float2half(value/sum);
 }
 
-torch::Tensor decode(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t splits) {
+void validate(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t splits) {
   TORCH_CHECK(q.is_cuda()&&k.is_cuda()&&v.is_cuda(),"CUDA tensors required");
   TORCH_CHECK(q.device()==k.device()&&q.device()==v.device(),"same CUDA device required");
   TORCH_CHECK(q.scalar_type()==torch::kFloat16&&k.scalar_type()==torch::kFloat16&&v.scalar_type()==torch::kFloat16,"FP16 required");
@@ -106,6 +107,10 @@ torch::Tensor decode(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t spl
   TORCH_CHECK(k.size(1)>0&&q.size(1)>0&&q.size(1)<=128&&q.size(1)%k.size(1)==0,"invalid GQA heads");
   TORCH_CHECK(k.size(2)>0&&k.size(2)<=131072&&splits>=1&&splits<=128,"invalid sequence length or split count");
   TORCH_CHECK(!q.requires_grad()&&!k.requires_grad()&&!v.requires_grad(),"inference only; gradients unsupported");
+}
+
+torch::Tensor decode(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t splits) {
+  validate(q,k,v,splits);
   c10::cuda::CUDAGuard guard(q.device());
   auto out=torch::empty_like(q);
   auto stream=at::cuda::getCurrentCUDAStream();
@@ -126,4 +131,94 @@ torch::Tensor decode(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t spl
   C10_CUDA_KERNEL_LAUNCH_CHECK();
   return out;
 }
-PYBIND11_MODULE(TORCH_EXTENSION_NAME,m) { m.def("decode",&decode,"FP16 D128 split-KV decode attention"); }
+
+
+// Optimization v2: four query heads share one staged K/V tile.
+// 16-byte global loads reduce repeated KV traffic and instruction overhead.
+__global__ void attend_grouped(const half* q,const half* k,const half* v,
+                              half* out,float* parts,float* lse,
+                              int Hq,int Hkv,int S,int splits) {
+  const int tid=threadIdx.x,lane=tid%32,warp=tid/32;
+  const int groups=Hq/4,b=blockIdx.x/groups,first=(blockIdx.x%groups)*4,h=first+warp;
+  const int bh=b*Hq+h,kh=first/(Hq/Hkv),split=blockIdx.y;
+  const int chunk=(S+splits-1)/splits,begin=split*chunk,end=min(S,begin+chunk);
+  const int64_t base=(int64_t(b)*Hkv+kh)*S*D;
+  __shared__ __align__(16) half keys[32*D],values[32*D];
+  __shared__ float weights[4][32];
+  float query[4],acc[4]={0.f,0.f,0.f,0.f};
+  #pragma unroll
+  for(int j=0;j<4;++j) query[j]=__half2float(q[int64_t(bh)*D+lane+j*32]);
+  float maximum=-INFINITY,denominator=0.f;
+  for(int start=begin;start<end;start+=32) {
+    int count=min(32,end-start);
+    for(int i=tid;i<count*D/8;i+=128) {
+      reinterpret_cast<uint4*>(keys)[i]=reinterpret_cast<const uint4*>(k+base+int64_t(start)*D)[i];
+      reinterpret_cast<uint4*>(values)[i]=reinterpret_cast<const uint4*>(v+base+int64_t(start)*D)[i];
+    }
+    __syncthreads();
+    for(int t=0;t<32;++t) {
+      float score=0.f;
+      if(t<count) {
+        #pragma unroll
+        for(int j=0;j<4;++j) score+=query[j]*__half2float(keys[t*D+lane+j*32]);
+      }
+      score=warp_sum(score);
+      if(!lane) weights[warp][t]=t<count?score*0.08838834764831845f:-INFINITY;
+    }
+    __syncwarp();
+    float tilemax=warp_max(weights[warp][lane]);
+    tilemax=__shfl_sync(0xffffffff,tilemax,0);
+    float nextmax=fmaxf(maximum,tilemax);
+    float alpha=maximum==-INFINITY?0.f:expf(maximum-nextmax);
+    float weight=expf(weights[warp][lane]-nextmax);
+    weights[warp][lane]=weight;
+    float sum=warp_sum(weight);sum=__shfl_sync(0xffffffff,sum,0);
+    __syncwarp();
+    #pragma unroll
+    for(int j=0;j<4;++j) {
+      float value=0.f;
+      for(int t=0;t<count;++t) value+=weights[warp][t]*__half2float(values[t*D+lane+j*32]);
+      acc[j]=acc[j]*alpha+value;
+    }
+    denominator=denominator*alpha+sum;maximum=nextmax;
+    __syncthreads();
+  }
+  #pragma unroll
+  for(int j=0;j<4;++j) {
+    float value=denominator>0?acc[j]/denominator:0.f;
+    int d=lane+j*32;
+    if(splits==1) out[int64_t(bh)*D+d]=__float2half(value);
+    else parts[(int64_t(bh)*splits+split)*D+d]=value;
+  }
+  if(!lane&&splits>1) lse[int64_t(bh)*splits+split]=denominator>0?maximum+logf(denominator):-INFINITY;
+}
+
+torch::Tensor decode_grouped(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t splits) {
+  validate(q,k,v,splits);
+  TORCH_CHECK((q.size(1)/k.size(1))%4==0,"grouped kernel requires GQA ratio divisible by four");
+  TORCH_CHECK(reinterpret_cast<std::uintptr_t>(k.data_ptr())%16==0&&
+              reinterpret_cast<std::uintptr_t>(v.data_ptr())%16==0,
+              "grouped kernel requires 16-byte aligned K/V storage");
+  c10::cuda::CUDAGuard guard(q.device());
+  int B=q.size(0),Hq=q.size(1),Hkv=k.size(1),S=k.size(2);
+  auto out=torch::empty_like(q);
+  auto parts=torch::empty({B,Hq,splits,D},q.options().dtype(torch::kFloat32));
+  auto lse=torch::empty({B,Hq,splits},q.options().dtype(torch::kFloat32));
+  auto stream=at::cuda::getCurrentCUDAStream();
+  auto op=reinterpret_cast<half*>(out.data_ptr<at::Half>());
+  attend_grouped<<<dim3(B*Hq/4,splits),128,0,stream>>>(
+    reinterpret_cast<const half*>(q.data_ptr<at::Half>()),
+    reinterpret_cast<const half*>(k.data_ptr<at::Half>()),
+    reinterpret_cast<const half*>(v.data_ptr<at::Half>()),op,
+    parts.data_ptr<float>(),lse.data_ptr<float>(),Hq,Hkv,S,splits);
+  C10_CUDA_KERNEL_LAUNCH_CHECK();
+  if(splits>1) {
+    merge_splits<<<B*Hq,D,0,stream>>>(parts.data_ptr<float>(),lse.data_ptr<float>(),op,splits);
+    C10_CUDA_KERNEL_LAUNCH_CHECK();
+  }
+  return out;
+}
+PYBIND11_MODULE(TORCH_EXTENSION_NAME,m) {
+  m.def("decode",&decode,"FP16 D128 split-KV decode attention");
+  m.def("decode_grouped",&decode_grouped,"Four query heads reuse shared KV tiles");
+}

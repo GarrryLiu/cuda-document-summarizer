@@ -24,18 +24,21 @@ def run(output):
         if kind=='distinct_kv_heads':
             for h in range(Hkv):v[:,h].fill_(h+1)
         expected=reference(q,k,v)
-        for splits in (1,2,8,32):
-            actual=decode_attention(q,k,v,splits)
-            torch.testing.assert_close(actual.float(),expected,atol=.003,rtol=.02)
-            results.append({'shape':[B,Hq,Hkv,S,128],'case':kind,'splits':splits,
-                            'max_abs_error':(actual.float()-expected).abs().max().item()})
+        for grouped in (False,True):
+            if grouped and (Hq//Hkv)%4:continue
+            for splits in (1,2,8,32):
+                actual=decode_attention(q,k,v,splits,grouped=grouped)
+                torch.testing.assert_close(actual.float(),expected,atol=.003,rtol=.02)
+                results.append({'shape':[B,Hq,Hkv,S,128],'case':kind,'splits':splits,'grouped':grouped,
+                                'max_abs_error':(actual.float()-expected).abs().max().item()})
     q=torch.randn(1,16,128,device='cuda',dtype=torch.float16)
     k=torch.randn(1,2,513,128,device='cuda',dtype=torch.float16);v=torch.randn_like(k)
     stream=torch.cuda.Stream();stream.wait_stream(torch.cuda.current_stream())
-    with torch.cuda.stream(stream):
-        actual=decode_attention(q,k,v,8)
-    torch.cuda.current_stream().wait_stream(stream)
-    torch.testing.assert_close(actual.float(),reference(q,k,v),atol=.003,rtol=.02)
+    for grouped in (False,True):
+        with torch.cuda.stream(stream):
+            actual=decode_attention(q,k,v,8,grouped=grouped)
+        torch.cuda.current_stream().wait_stream(stream)
+        torch.testing.assert_close(actual.float(),reference(q,k,v),atol=.003,rtol=.02)
     invalid=[(q.float(),k,v,1),(q,k,v,0),(q,k,v,129),
              (torch.randn(1,16,256,device="cuda",dtype=torch.float16)[...,::2],k,v,1),(q,k[:,:,:,:64].contiguous(),v[:,:,:,:64].contiguous(),1),
              (q.cpu(),k.cpu(),v.cpu(),1),(q.detach().clone().requires_grad_(),k,v,1)]
@@ -43,7 +46,14 @@ def run(output):
         try:decode_attention(*args)
         except RuntimeError:pass
         else:raise AssertionError('invalid inputs accepted')
-    report={'status':'passed','cases':results,'nondefault_stream':'passed','invalid_api_cases':len(invalid),
+    unaligned=torch.empty(k.numel()+1,device='cuda',dtype=torch.float16)[1:].view_as(k)
+    try:decode_attention(q,unaligned,v,8,grouped=True)
+    except RuntimeError as error:assert 'aligned' in str(error)
+    else:raise AssertionError('unaligned vector load accepted')
+    try:decode_attention(q[:,:2].contiguous(),k,v,1,grouped=True)
+    except RuntimeError as error:assert 'divisible by four' in str(error)
+    else:raise AssertionError('unsupported grouped head ratio accepted')
+    report={'status':'passed','cases':results,'nondefault_stream':'passed','invalid_api_cases':len(invalid)+2,
             'tolerance':{'atol':.003,'rtol':.02},'reference':'FP32 PyTorch SDPA math from the identical FP16 input values'}
     Path(output).write_text(json.dumps(report,indent=2)+'\n');print('Correctness passed:',len(results),'cases',flush=True)
 
