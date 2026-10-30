@@ -1,0 +1,396 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        1,
+        128
+      ],
+      "case": "random",
+      "splits": 1,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        1,
+        128
+      ],
+      "case": "random",
+      "splits": 2,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        1,
+        128
+      ],
+      "case": "random",
+      "splits": 8,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        1,
+        128
+      ],
+      "case": "random",
+      "splits": 32,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape": [
+        2,
+        16,
+        2,
+        17,
+        128
+      ],
+      "case": "random",
+      "splits": 1,
+      "max_abs_error": 0.0005295276641845703
+    },
+    {
+      "shape": [
+        2,
+        16,
+        2,
+        17,
+        128
+      ],
+      "case": "random",
+      "splits": 2,
+      "max_abs_error": 0.0005295276641845703
+    },
+    {
+      "shape": [
+        2,
+        16,
+        2,
+        17,
+        128
+      ],
+      "case": "random",
+      "splits": 8,
+      "max_abs_error": 0.0005295276641845703
+    },
+    {
+      "shape": [
+        2,
+        16,
+        2,
+        17,
+        128
+      ],
+      "case": "random",
+      "splits": 32,
+      "max_abs_error": 0.0005295276641845703
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        513,
+        128
+      ],
+      "case": "random",
+      "splits": 1,
+      "max_abs_error": 8.338689804077148e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        513,
+        128
+      ],
+      "case": "random",
+      "splits": 2,
+      "max_abs_error": 8.338689804077148e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        513,
+        128
+      ],
+      "case": "random",
+      "splits": 8,
+      "max_abs_error": 8.338689804077148e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        513,
+        128
+      ],
+      "case": "random",
+      "splits": 32,
+      "max_abs_error": 8.338689804077148e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        4096,
+        128
+      ],
+      "case": "random",
+      "splits": 1,
+      "max_abs_error": 2.9452145099639893e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        4096,
+        128
+      ],
+      "case": "random",
+      "splits": 2,
+      "max_abs_error": 2.9452145099639893e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        4096,
+        128
+      ],
+      "case": "random",
+      "splits": 8,
+      "max_abs_error": 2.9452145099639893e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        4096,
+        128
+      ],
+      "case": "random",
+      "splits": 32,
+      "max_abs_error": 2.9452145099639893e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        16384,
+        128
+      ],
+      "case": "random",
+      "splits": 1,
+      "max_abs_error": 1.483038067817688e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        16384,
+        128
+      ],
+      "case": "random",
+      "splits": 2,
+      "max_abs_error": 1.483038067817688e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        16384,
+        128
+      ],
+      "case": "random",
+      "splits": 8,
+      "max_abs_error": 1.483038067817688e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        16384,
+        128
+      ],
+      "case": "random",
+      "splits": 32,
+      "max_abs_error": 1.483038067817688e-05
+    },
+    {
+      "shape": [
+        1,
+        4,
+        4,
+        129,
+        128
+      ],
+      "case": "zero_query",
+      "splits": 1,
+      "max_abs_error": 5.9291720390319824e-05
+    },
+    {
+      "shape": [
+        1,
+        4,
+        4,
+        129,
+        128
+      ],
+      "case": "zero_query",
+      "splits": 2,
+      "max_abs_error": 5.9291720390319824e-05
+    },
+    {
+      "shape": [
+        1,
+        4,
+        4,
+        129,
+        128
+      ],
+      "case": "zero_query",
+      "splits": 8,
+      "max_abs_error": 5.9291720390319824e-05
+    },
+    {
+      "shape": [
+        1,
+        4,
+        4,
+        129,
+        128
+      ],
+      "case": "zero_query",
+      "splits": 32,
+      "max_abs_error": 5.9291720390319824e-05
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        257,
+        128
+      ],
+      "case": "large_logits",
+      "splits": 1,
+      "max_abs_error": 0.0008563995361328125
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        257,
+        128
+      ],
+      "case": "large_logits",
+      "splits": 2,
+      "max_abs_error": 0.0008563995361328125
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        257,
+        128
+      ],
+      "case": "large_logits",
+      "splits": 8,
+      "max_abs_error": 0.0008563995361328125
+    },
+    {
+      "shape": [
+        1,
+        16,
+        2,
+        257,
+        128
+      ],
+      "case": "large_logits",
+      "splits": 32,
+      "max_abs_error": 0.0008563995361328125
+    },
+    {
+      "shape": [
+        2,
+        8,
+        2,
+        65,
+        128
+      ],
+      "case": "distinct_kv_heads",
+      "splits": 1,
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "shape": [
+        2,
+        8,
+        2,
+        65,
+        128
+      ],
+      "case": "distinct_kv_heads",
+      "splits": 2,
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "shape": [
+        2,
+        8,
+        2,
+        65,
+        128
+      ],
+      "case": "distinct_kv_heads",
+      "splits": 8,
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "shape": [
+        2,
+        8,
+        2,
+        65,
+        128
+      ],
+      "case": "distinct_kv_heads",
+      "splits": 32,
+      "max_abs_error": 1.1920928955078125e-07
+    }
+  ],
+  "nondefault_stream": "passed",
+  "invalid_api_cases": 7,
+  "tolerance": {
+    "atol": 0.003,
+    "rtol": 0.02
+  },
+  "reference": "FP32 PyTorch SDPA math from the identical FP16 input values"
+}
