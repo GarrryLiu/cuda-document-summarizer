@@ -81,3 +81,13 @@ synthetic input documents as 400 real benchmark documents or 100 reviewed summar
 - [Qwen model card and chat-template usage](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct)
 - [Transformers generation and left padding](https://huggingface.co/docs/transformers/llm_tutorial)
 - [Transformers KV cache](https://huggingface.co/docs/transformers/kv_cache)
+
+
+## CUDA C++ kernel research
+
+The [decode-attention CUDA source](src/cuda_summary/kernels/decode_attention.cu)
+implements FP16 D128 GQA single-token attention with tiled online softmax,
+split-KV merging, and four-query-head shared KV tiles. See the
+[kernel study](docs/cuda-decode-kernel.md) for compiled GPU correctness tests,
+SDPA comparisons, actual Qwen profiling, measured gains and negative results.
+This experimental operator is not enabled in the summarization pipeline.

@@ -1,0 +1,135 @@
+{
+  "kind": "cuda_decode_kernel_results",
+  "job_ids": {
+    "original_profile": 85685,
+    "final_kernels": 85689
+  },
+  "cuda_sha256": "45539601824f26e6ca0a7c56330e90b53ee31c72176018713d03f620318c9668",
+  "rows": [
+    {
+      "batch": 1,
+      "context": 512,
+      "sdpa_auto_us": 7.11679995059967,
+      "split32_us": 8.089600205421448,
+      "grouped32_us": 8.069120049476624,
+      "grouped32_speedup_vs_split32": 1.0025380903765526,
+      "posthoc_best_custom": "split_16",
+      "posthoc_best_custom_us": 6.225919723510742,
+      "posthoc_best_custom_speedup_vs_sdpa": 1.1430921480925502
+    },
+    {
+      "batch": 1,
+      "context": 2048,
+      "sdpa_auto_us": 8.878080248832703,
+      "split32_us": 10.219520330429077,
+      "grouped32_us": 13.742079734802246,
+      "grouped32_speedup_vs_split32": 0.7436662082921716,
+      "posthoc_best_custom": "split_32",
+      "posthoc_best_custom_us": 10.219520330429077,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.8687374712096636
+    },
+    {
+      "batch": 1,
+      "context": 8192,
+      "sdpa_auto_us": 16.117759943008423,
+      "split32_us": 26.920959949493408,
+      "grouped32_us": 42.556161880493164,
+      "grouped32_speedup_vs_split32": 0.632598400793127,
+      "posthoc_best_custom": "split_32",
+      "posthoc_best_custom_us": 26.920959949493408,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.5987067316041872
+    },
+    {
+      "batch": 1,
+      "context": 16384,
+      "sdpa_auto_us": 29.368319511413574,
+      "split32_us": 48.998398780822754,
+      "grouped32_us": 80.85503578186035,
+      "grouped32_speedup_vs_split32": 0.6060030560497932,
+      "posthoc_best_custom": "grouped_64",
+      "posthoc_best_custom_us": 48.07680130004883,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.6108625931272958
+    },
+    {
+      "batch": 1,
+      "context": 32768,
+      "sdpa_auto_us": 34.24256086349487,
+      "split32_us": 95.56991577148438,
+      "grouped32_us": 156.8665599822998,
+      "grouped32_speedup_vs_split32": 0.6092433963125609,
+      "posthoc_best_custom": "grouped_64",
+      "posthoc_best_custom_us": 88.76031875610352,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.38578681716530244
+    },
+    {
+      "batch": 4,
+      "context": 512,
+      "sdpa_auto_us": 7.229440212249756,
+      "split32_us": 18.903039693832397,
+      "grouped32_us": 10.13759970664978,
+      "grouped32_speedup_vs_split32": 1.8646464884022702,
+      "posthoc_best_custom": "grouped_16",
+      "posthoc_best_custom_us": 9.021440148353577,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.8013620988849698
+    },
+    {
+      "batch": 4,
+      "context": 2048,
+      "sdpa_auto_us": 9.738240242004395,
+      "split32_us": 25.45504093170166,
+      "grouped32_us": 19.763200283050537,
+      "grouped32_speedup_vs_split32": 1.2880019717015467,
+      "posthoc_best_custom": "grouped_32",
+      "posthoc_best_custom_us": 19.763200283050537,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.4927461191776808
+    },
+    {
+      "batch": 4,
+      "context": 8192,
+      "sdpa_auto_us": 21.451199054718018,
+      "split32_us": 82.24767684936523,
+      "grouped32_us": 63.148159980773926,
+      "grouped32_speedup_vs_split32": 1.3024556356734123,
+      "posthoc_best_custom": "grouped_32",
+      "posthoc_best_custom_us": 63.148159980773926,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.33969634366621365
+    },
+    {
+      "batch": 4,
+      "context": 16384,
+      "sdpa_auto_us": 31.539199352264404,
+      "split32_us": 157.88031578063965,
+      "grouped32_us": 120.82176208496094,
+      "grouped32_speedup_vs_split32": 1.3067208510799522,
+      "posthoc_best_custom": "grouped_32",
+      "posthoc_best_custom_us": 120.82176208496094,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.261039061242016
+    },
+    {
+      "batch": 4,
+      "context": 32768,
+      "sdpa_auto_us": 188.3443260192871,
+      "split32_us": 417.0649719238281,
+      "grouped32_us": 252.71295547485352,
+      "grouped32_speedup_vs_split32": 1.650350577160373,
+      "posthoc_best_custom": "grouped_32",
+      "posthoc_best_custom_us": 252.71295547485352,
+      "posthoc_best_custom_speedup_vs_sdpa": 0.7452895545674885
+    }
+  ],
+  "model_profile": {
+    "prefill": {
+      "recorded_device_activity_us": 126600.75300000014,
+      "flash_attention_us": 10910.738000000008,
+      "attention_fraction": 0.0861822520123557,
+      "matrix_kernel_fraction": 0.6734420924020881
+    },
+    "decode": {
+      "recorded_device_activity_us": 366380.39399999025,
+      "flash_attention_us": 13606.309000000707,
+      "attention_fraction": 0.037137110016866974,
+      "matrix_kernel_fraction": 0.7908785261036784
+    }
+  },
+  "limitations": "One L40S, reused inputs, five same-job randomized samples, no clock lock or independent-device trials; posthoc best variant is descriptive, not an independently validated dispatch policy. CUDA graph timings are not generation latency. Original Qwen profile uses one 3431-token NDA, not a long-context scaling study. No custom attention integration, Nsight counters or Compute Sanitizer run."
+}
