@@ -66,8 +66,9 @@ future work. This runner is offline batch processing, not an online scheduler.
 - Record model revision, library versions, GPU, CUDA, input/prompt hashes and seed.
   Supply `--revision <commit>` for reproducibility; default main can change.
 
-The runner delegates KV caching to Transformers via `use_cache`; it does not
-implement a custom CUDA kernel or custom cache. Actual outputs may differ across
+The runner delegates KV caching to Transformers via `use_cache`. Its default
+normalization is native; an optional custom RMSNorm kernel is described below.
+It does not implement a custom cache. Actual outputs may differ across
 hardware or batch shapes. Quality parity must be checked before claiming gains.
 
 ## Quality evaluation
@@ -107,3 +108,7 @@ C++/CUDA normalization kernel for long-contract prefill. It compares actual
 model inputs and full prefill runs against eager PyTorch and torch.compile,
 while preserving native attention and decode. The operator is opt-in; importing
 it does not patch the summarization pipeline.
+
+The [held-out generation study](docs/rmsnorm-holdout.md) documents the optional
+`--rmsnorm-backend native|compiled|cuda` integration, safe fallback conditions,
+and EOS/cap-aware comparisons on eight contracts excluded from earlier tuning.

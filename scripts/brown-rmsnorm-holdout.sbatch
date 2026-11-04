@@ -32,4 +32,4 @@ nvidia-smi > "$RESULT_DIR/nvidia-smi.txt"
 cd "$SOURCE_DIR"
 "$TASK_DIR/.venv/bin/python" -m unittest discover -s tests -v
 "$TASK_DIR/.venv/bin/python" experiments/kernels/check_rmsnorm.py "$RESULT_DIR/rmsnorm-correctness.json"
-"$TASK_DIR/.venv/bin/python" experiments/kernels/rmsnorm_holdout.py --input data/local/cuad-test.jsonl --profile experiments/kernels/legal-profile/legal-profile.json --output "$RESULT_DIR/rmsnorm-holdout.json" --private-output "$RESULT_DIR/private-summaries.json"
+"$TASK_DIR/.venv/bin/python" experiments/kernels/rmsnorm_holdout.py --input data/local/cuad-test.jsonl --profile experiments/kernels/legal-profile/legal-profile.json --output "$RESULT_DIR/rmsnorm-holdout.json" --private-output "$RESULT_DIR/private-summaries.json" "$@"

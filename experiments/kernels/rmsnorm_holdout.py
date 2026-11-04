@@ -27,6 +27,7 @@ def main():
     p.add_argument('--private-output', required=True)
     p.add_argument('--max-new-tokens', type=int, default=512)
     p.add_argument('--repeats', type=int, default=3)
+    p.add_argument('--cap-followup-of', help='Completed report: rerun only documents with any cap hit')
     a = p.parse_args()
     if a.max_new_tokens < 1 or a.repeats < 1:
         p.error('positive generation cap and repeats required')
@@ -50,6 +51,21 @@ def main():
         if len(candidates) < 2:
             raise ValueError(f'Not enough contracts in [{lo},{hi})')
         selected.extend(candidates[:2])
+    followup_hash = None
+    if a.cap_followup_of:
+        previous_bytes = Path(a.cap_followup_of).read_bytes()
+        previous = json.loads(previous_bytes)
+        assert previous['status'] == 'complete'
+        assert previous['input_sha256'] == profile['input_sha256']
+        assert previous['model'] == MODEL and previous['revision'] == REVISION
+        assert previous['prompt_sha256'] == sha(SYSTEM)
+        assert a.max_new_tokens > previous['max_new_tokens']
+        capped = {row['id'] for row in previous['results']
+                  if any(run['cap_hit'] for runs in row['runs'].values() for run in runs)}
+        selected = [x for x in selected if x[0]['id'] in capped]
+        if not selected or {d['id'] for d, _ in selected} != capped:
+            raise ValueError('Cap followup must match the original frozen selection')
+        followup_hash = hashlib.sha256(previous_bytes).hexdigest()
     report = {'status': 'running', 'model': MODEL, 'revision': REVISION,
         'torch': torch.__version__, 'transformers': transformers.__version__,
         'cuda': torch.version.cuda, 'gpu': torch.cuda.get_device_name(),
@@ -57,7 +73,9 @@ def main():
         'script_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'integration_sha256': hashlib.sha256(Path('src/cuda_summary/rmsnorm.py').read_bytes()).hexdigest(),
         'excluded_ids': sorted(excluded), 'max_new_tokens': a.max_new_tokens,
-        'repeats': a.repeats, 'batch': 1, 'selection': 'First two SHA256(holdout-v1:id) in each fixed length bin; excludes all four prior profiling contracts. No outcome-based selection.',
+        'repeats': a.repeats, 'batch': 1,
+        'cap_followup_of_sha256': followup_hash,
+        'followup_criterion': 'Only documents with any cap hit in the referenced completed report' if followup_hash else None, 'selection': 'First two SHA256(holdout-v1:id) in each fixed length bin; excludes all four prior profiling contracts. No outcome-based selection.',
         'limitations': 'Held out from this project tuning only, not model pretraining. B1, greedy FP16 SDPA dynamic cache. EOS or cap, no truncation. No expert factuality labels. Timings exclude compilation and tokenization; include generate CPU orchestration. First-forward CUDA event measures prefill only. Raw summaries in private packet.',
         'manifest': [{'id': d['id'], 'text_sha256': sha(d['text']), 'prompt_tokens': len(ids)} for d, ids in selected],
         'results': []}
