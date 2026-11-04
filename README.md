@@ -99,3 +99,11 @@ prefill and decode on intact CUAD contracts near 4K–24K tokens. It records sep
 wall timings and CUDA activity profiles, and tests dynamic versus preallocated
 KV cache before choosing the next custom-kernel target. These bounded research
 runs do not establish complete-summary quality or change production defaults.
+
+## Fused RMSNorm experiment
+
+The [RMSNorm study](docs/fused-rmsnorm.md) implements a Qwen-compatible FP16
+C++/CUDA normalization kernel for long-contract prefill. It compares actual
+model inputs and full prefill runs against eager PyTorch and torch.compile,
+while preserving native attention and decode. The operator is opt-in; importing
+it does not patch the summarization pipeline.

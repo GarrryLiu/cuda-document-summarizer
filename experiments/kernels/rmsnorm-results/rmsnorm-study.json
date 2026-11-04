@@ -1,0 +1,1105 @@
+{
+  "status": "complete",
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "script_sha256": "a8e580a04c0a2ffaa8b01ec99c7a04e75e093db2690b58b5b7a6faaed7692beb",
+  "source_sha256": "bfa80a614d3401849c931b443e5e059d73869cad13a7d89703000b5f40bbf6f2",
+  "input_sha256": "bb4f4b32f9824320e68c8a6f6c3a98e2b100a98e7a981547e40d8b41f316377e",
+  "microbenchmarks": [
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 1,
+      "prompt_tokens": 8190,
+      "module_index": 0,
+      "rows": 8190,
+      "gpu_us": {
+        "eager": 897.1776008605957,
+        "compiled": 104.6015977859497,
+        "cuda": 100.65920352935791
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          897.8943824768066,
+          897.3312377929688,
+          896.8704223632812,
+          897.5872039794922,
+          897.1776008605957,
+          897.1263885498047,
+          895.8975791931152
+        ],
+        "compiled": [
+          104.9936056137085,
+          104.3455958366394,
+          104.44799661636353,
+          104.90880012512207,
+          104.24319505691528,
+          104.70399856567383,
+          104.6015977859497
+        ],
+        "cuda": [
+          100.44640302658081,
+          100.65920352935791,
+          100.76160430908203,
+          100.35200119018555,
+          100.65920352935791,
+          100.65759420394897,
+          100.71040391921997
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.0078125,
+        "cuda": 0.00048828125
+      }
+    },
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 1,
+      "prompt_tokens": 8190,
+      "module_index": 36,
+      "rows": 8190,
+      "gpu_us": {
+        "eager": 895.7951545715332,
+        "compiled": 104.49919700622559,
+        "cuda": 100.29599666595459
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          896.2559700012207,
+          895.6416130065918,
+          895.8895683288574,
+          895.9487915039062,
+          895.3344345092773,
+          895.7951545715332,
+          895.4367637634277
+        ],
+        "compiled": [
+          104.62080240249634,
+          104.49919700622559,
+          104.6015977859497,
+          103.98720502853394,
+          104.55039739608765,
+          104.49919700622559,
+          104.08960580825806
+        ],
+        "cuda": [
+          100.40320158004761,
+          100.30080080032349,
+          99.94239807128906,
+          100.29599666595459,
+          100.50560235977173,
+          99.94239807128906,
+          99.891197681427
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.015625,
+        "cuda": 0.00390625
+      }
+    },
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 1,
+      "prompt_tokens": 8190,
+      "module_index": 72,
+      "rows": 8190,
+      "gpu_us": {
+        "eager": 895.3856468200684,
+        "compiled": 104.3936014175415,
+        "cuda": 100.04479885101318
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          895.4367637634277,
+          895.4879760742188,
+          895.0783729553223,
+          895.3344345092773,
+          895.3856468200684,
+          895.3344345092773,
+          895.6928253173828
+        ],
+        "compiled": [
+          104.64479923248291,
+          103.98720502853394,
+          104.08320426940918,
+          104.3936014175415,
+          104.23200130462646,
+          105.01120090484619,
+          104.44799661636353
+        ],
+        "cuda": [
+          100.04479885101318,
+          100.30080080032349,
+          99.891197681427,
+          99.68640208244324,
+          100.29599666595459,
+          100.30080080032349,
+          99.78880286216736
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.125,
+        "cuda": 0.0625
+      }
+    },
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 4,
+      "prompt_tokens": 8190,
+      "module_index": 0,
+      "rows": 32760,
+      "gpu_us": {
+        "eager": 3529.2160034179688,
+        "compiled": 412.62078285217285,
+        "cuda": 394.80319023132324
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          3528.8063049316406,
+          3529.2160034179688,
+          3529.3697357177734,
+          3528.2943725585938,
+          3528.7551879882812,
+          3529.420852661133,
+          3529.6768188476562
+        ],
+        "compiled": [
+          412.75038719177246,
+          412.62078285217285,
+          412.62078285217285,
+          412.56961822509766,
+          412.7232074737549,
+          412.3648166656494,
+          413.33441734313965
+        ],
+        "cuda": [
+          394.8479890823364,
+          394.80319023132324,
+          394.80319023132324,
+          395.15841007232666,
+          394.80319023132324,
+          394.7007894515991,
+          394.598388671875
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.0078125,
+        "cuda": 0.00048828125
+      }
+    },
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 4,
+      "prompt_tokens": 8190,
+      "module_index": 36,
+      "rows": 32760,
+      "gpu_us": {
+        "eager": 3529.6768188476562,
+        "compiled": 414.8736000061035,
+        "cuda": 395.1103925704956
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          3529.6768188476562,
+          3528.7551879882812,
+          3530.4447174072266,
+          3529.420852661133,
+          3529.779052734375,
+          3529.1648864746094,
+          3529.983901977539
+        ],
+        "compiled": [
+          414.7679805755615,
+          415.283203125,
+          414.7200107574463,
+          415.334415435791,
+          414.8736000061035,
+          414.56642150878906,
+          414.9759769439697
+        ],
+        "cuda": [
+          395.1103925704956,
+          395.6223964691162,
+          394.90559101104736,
+          395.1103925704956,
+          395.72479724884033,
+          395.1103925704956,
+          395.0592041015625
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.015625,
+        "cuda": 0.00390625
+      }
+    },
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 4,
+      "prompt_tokens": 8190,
+      "module_index": 72,
+      "rows": 32760,
+      "gpu_us": {
+        "eager": 3529.420852661133,
+        "compiled": 414.61758613586426,
+        "cuda": 395.41759490966797
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          3529.721450805664,
+          3529.8816680908203,
+          3529.2160034179688,
+          3529.471969604492,
+          3529.420852661133,
+          3529.267120361328,
+          3529.3697357177734
+        ],
+        "compiled": [
+          415.0383949279785,
+          415.28000831604004,
+          414.3616199493408,
+          415.02718925476074,
+          414.10560607910156,
+          414.61758613586426,
+          414.46399688720703
+        ],
+        "cuda": [
+          395.5199956893921,
+          395.41759490966797,
+          395.468807220459,
+          395.26400566101074,
+          395.41759490966797,
+          395.0592041015625,
+          395.2127933502197
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.125,
+        "cuda": 0.015625
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 1,
+      "prompt_tokens": 22899,
+      "module_index": 0,
+      "rows": 22899,
+      "gpu_us": {
+        "eager": 2471.7824935913086,
+        "compiled": 290.4063940048218,
+        "cuda": 276.582407951355
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          2471.6800689697266,
+          2472.447967529297,
+          2471.833610534668,
+          2471.7824935913086,
+          2471.7824935913086,
+          2472.1391677856445,
+          2471.731185913086
+        ],
+        "compiled": [
+          290.45441150665283,
+          290.3552055358887,
+          291.63520336151123,
+          290.4063940048218,
+          290.61119556427,
+          290.3552055358887,
+          290.15040397644043
+        ],
+        "cuda": [
+          276.94079875946045,
+          276.6335964202881,
+          276.582407951355,
+          276.4240026473999,
+          276.88961029052734,
+          276.582407951355,
+          276.53119564056396
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.0078125,
+        "cuda": 0.00048828125
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 1,
+      "prompt_tokens": 22899,
+      "module_index": 36,
+      "rows": 22899,
+      "gpu_us": {
+        "eager": 2470.809555053711,
+        "compiled": 289.84320163726807,
+        "cuda": 276.6319990158081
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          2478.3872604370117,
+          2470.7584381103516,
+          2470.193672180176,
+          2471.014404296875,
+          2470.502471923828,
+          2470.809555053711,
+          2470.809555053711
+        ],
+        "compiled": [
+          289.7808074951172,
+          289.84320163726807,
+          290.5600070953369,
+          290.15040397644043,
+          289.6336078643799,
+          289.9456024169922,
+          289.84320163726807
+        ],
+        "cuda": [
+          276.99201107025146,
+          276.53119564056396,
+          276.6848087310791,
+          276.42879486083984,
+          276.99201107025146,
+          276.6319990158081,
+          276.42879486083984
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.015625,
+        "cuda": 0.00390625
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 1,
+      "prompt_tokens": 22899,
+      "module_index": 72,
+      "rows": 22899,
+      "gpu_us": {
+        "eager": 2471.42391204834,
+        "compiled": 290.25280475616455,
+        "cuda": 276.6848087310791
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          2470.907211303711,
+          2471.42391204834,
+          2471.219253540039,
+          2471.4752197265625,
+          2470.9632873535156,
+          2471.833610534668,
+          2472.1872329711914
+        ],
+        "compiled": [
+          290.35840034484863,
+          290.0480031967163,
+          290.0991916656494,
+          289.84320163726807,
+          290.25280475616455,
+          290.4576063156128,
+          290.4560089111328
+        ],
+        "cuda": [
+          276.7872095108032,
+          276.94079875946045,
+          276.6848087310791,
+          276.2752056121826,
+          277.1456003189087,
+          276.1215925216675,
+          276.37760639190674
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.125,
+        "cuda": 0.0625
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 4,
+      "prompt_tokens": 22899,
+      "module_index": 0,
+      "rows": 91596,
+      "gpu_us": {
+        "eager": 9848.576354980469,
+        "compiled": 1154.6624183654785,
+        "cuda": 1101.5680313110352
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          9847.808074951172,
+          9848.576354980469,
+          9848.627471923828,
+          9848.980712890625,
+          9848.371124267578,
+          9849.241638183594,
+          9846.16928100586
+        ],
+        "compiled": [
+          1155.303955078125,
+          1155.9935569763184,
+          1154.6624183654785,
+          1155.072021484375,
+          1153.1776428222656,
+          1154.6112060546875,
+          1152.9135704040527
+        ],
+        "cuda": [
+          1101.8239974975586,
+          1101.5168190002441,
+          1101.2096405029297,
+          1101.414394378662,
+          1101.7727851867676,
+          1102.7968406677246,
+          1101.5680313110352
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.0078125,
+        "cuda": 0.00048828125
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 4,
+      "prompt_tokens": 22899,
+      "module_index": 36,
+      "rows": 91596,
+      "gpu_us": {
+        "eager": 9849.699401855469,
+        "compiled": 1154.252815246582,
+        "cuda": 1102.899169921875
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          9848.831939697266,
+          9849.292755126953,
+          9850.470733642578,
+          9849.8046875,
+          9849.699401855469,
+          9848.729705810547,
+          9849.752044677734
+        ],
+        "compiled": [
+          1153.9471626281738,
+          1153.7407875061035,
+          1155.737590789795,
+          1155.9935569763184,
+          1154.252815246582,
+          1152.7680397033691,
+          1155.726432800293
+        ],
+        "cuda": [
+          1101.6608238220215,
+          1102.182388305664,
+          1102.4895668029785,
+          1102.899169921875,
+          1103.4576416015625,
+          1103.4624099731445,
+          1104.1791915893555
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.015625,
+        "cuda": 0.0078125
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 4,
+      "prompt_tokens": 22899,
+      "module_index": 72,
+      "rows": 91596,
+      "gpu_us": {
+        "eager": 9850.214385986328,
+        "compiled": 1156.2255859375,
+        "cuda": 1101.2096405029297
+      },
+      "gpu_rounds_us": {
+        "eager": [
+          9850.214385986328,
+          9850.214385986328,
+          9849.75357055664,
+          9852.416229248047,
+          9850.06103515625,
+          9849.958038330078,
+          9851.69906616211
+        ],
+        "compiled": [
+          1156.2255859375,
+          1155.686378479004,
+          1155.635166168213,
+          1157.7263832092285,
+          1156.608009338379,
+          1156.5055847167969,
+          1155.4304122924805
+        ],
+        "cuda": [
+          1100.8000373840332,
+          1101.8239974975586,
+          1101.2096405029297,
+          1101.5680313110352,
+          1101.2096405029297,
+          1101.6192436218262,
+          1100.9023666381836
+        ]
+      },
+      "max_abs_error": {
+        "eager": 0.0,
+        "compiled": 0.125,
+        "cuda": 0.125
+      }
+    }
+  ],
+  "generation": [
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 1,
+      "prompt_tokens": 8190,
+      "timings": {
+        "eager": [
+          {
+            "prefill_s": 0.6263665310107172,
+            "decode_s": 0.7325351069448516,
+            "total_s": 1.3589016379555687,
+            "peak_bytes": 7275751936,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          },
+          {
+            "prefill_s": 0.6271214049775153,
+            "decode_s": 0.7191886480432004,
+            "total_s": 1.3463100530207157,
+            "peak_bytes": 7275751936,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          },
+          {
+            "prefill_s": 0.6279572999337688,
+            "decode_s": 0.7201541119720787,
+            "total_s": 1.3481114119058475,
+            "peak_bytes": 7275751936,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          }
+        ],
+        "compiled": [
+          {
+            "prefill_s": 0.5743396959733218,
+            "decode_s": 0.7244893619790673,
+            "total_s": 1.2988290579523891,
+            "peak_bytes": 7275795968,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          },
+          {
+            "prefill_s": 0.5756893460638821,
+            "decode_s": 0.7252421269658953,
+            "total_s": 1.3009314730297774,
+            "peak_bytes": 7275795968,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          },
+          {
+            "prefill_s": 0.5772616150788963,
+            "decode_s": 0.7331878329860047,
+            "total_s": 1.310449448064901,
+            "peak_bytes": 7275795968,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          }
+        ],
+        "cuda": [
+          {
+            "prefill_s": 0.5752694190014154,
+            "decode_s": 0.7302732029929757,
+            "total_s": 1.305542621994391,
+            "peak_bytes": 7275795968,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          },
+          {
+            "prefill_s": 0.574849791941233,
+            "decode_s": 0.7318503720453009,
+            "total_s": 1.3067001639865339,
+            "peak_bytes": 7275795968,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          },
+          {
+            "prefill_s": 0.5780552099458873,
+            "decode_s": 0.7264898290159181,
+            "total_s": 1.3045450389618054,
+            "peak_bytes": 7275795968,
+            "output_sha256": "42e430e7e49418a34f6d3afda2a42dcfb6d4d3f56401e31564af65fdfb1eb9b8"
+          }
+        ]
+      },
+      "paired_output_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "first_logit_error": {
+        "compiled": [
+          0.080078125,
+          0.080078125,
+          0.080078125
+        ],
+        "cuda": [
+          0.080078125,
+          0.080078125,
+          0.080078125
+        ]
+      },
+      "median": {
+        "eager": {
+          "prefill_s": 0.6271214049775153,
+          "decode_s": 0.7201541119720787,
+          "total_s": 1.3481114119058475,
+          "peak_bytes": 7275751936
+        },
+        "compiled": {
+          "prefill_s": 0.5756893460638821,
+          "decode_s": 0.7252421269658953,
+          "total_s": 1.3009314730297774,
+          "peak_bytes": 7275795968
+        },
+        "cuda": {
+          "prefill_s": 0.5752694190014154,
+          "decode_s": 0.7302732029929757,
+          "total_s": 1.305542621994391,
+          "peak_bytes": 7275795968
+        }
+      },
+      "calls_including_warmup": {
+        "eager": {
+          "replaced": 0,
+          "fallback": 0
+        },
+        "compiled": {
+          "replaced": 292,
+          "fallback": 9344
+        },
+        "cuda": {
+          "replaced": 292,
+          "fallback": 9344
+        }
+      }
+    },
+    {
+      "document_id": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+      "batch": 4,
+      "prompt_tokens": 8190,
+      "timings": {
+        "eager": [
+          {
+            "prefill_s": 2.4816101769683883,
+            "decode_s": 0.7265223379945382,
+            "total_s": 3.2081325149629265,
+            "peak_bytes": 10207744512,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          },
+          {
+            "prefill_s": 2.5018673689337447,
+            "decode_s": 0.7385623060399666,
+            "total_s": 3.2404296749737114,
+            "peak_bytes": 10207744512,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          },
+          {
+            "prefill_s": 2.5166545980609953,
+            "decode_s": 0.7306699199834839,
+            "total_s": 3.247324518044479,
+            "peak_bytes": 10207744512,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          }
+        ],
+        "compiled": [
+          {
+            "prefill_s": 2.2845006100833416,
+            "decode_s": 0.7358064249856398,
+            "total_s": 3.0203070350689813,
+            "peak_bytes": 10207920640,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          },
+          {
+            "prefill_s": 2.3029207850340754,
+            "decode_s": 0.7342382649658248,
+            "total_s": 3.0371590499999,
+            "peak_bytes": 10207920640,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          },
+          {
+            "prefill_s": 2.310199143947102,
+            "decode_s": 0.729121760930866,
+            "total_s": 3.039320904877968,
+            "peak_bytes": 10207920640,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          }
+        ],
+        "cuda": [
+          {
+            "prefill_s": 2.2940023849951103,
+            "decode_s": 0.7380042499862611,
+            "total_s": 3.0320066349813715,
+            "peak_bytes": 10207920640,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          },
+          {
+            "prefill_s": 2.2987770519685,
+            "decode_s": 0.7307704699924216,
+            "total_s": 3.0295475219609216,
+            "peak_bytes": 10207920640,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          },
+          {
+            "prefill_s": 2.3161801249952987,
+            "decode_s": 0.7283615649212152,
+            "total_s": 3.044541689916514,
+            "peak_bytes": 10207920640,
+            "output_sha256": "0d0faad3749a011695b9c28e854808a15dcd01d08eba520d578d58b0ffcf6365"
+          }
+        ]
+      },
+      "paired_output_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "first_logit_error": {
+        "compiled": [
+          0.1015625,
+          0.1015625,
+          0.1015625
+        ],
+        "cuda": [
+          0.0654296875,
+          0.0654296875,
+          0.0654296875
+        ]
+      },
+      "median": {
+        "eager": {
+          "prefill_s": 2.5018673689337447,
+          "decode_s": 0.7306699199834839,
+          "total_s": 3.2404296749737114,
+          "peak_bytes": 10207744512
+        },
+        "compiled": {
+          "prefill_s": 2.3029207850340754,
+          "decode_s": 0.7342382649658248,
+          "total_s": 3.0371590499999,
+          "peak_bytes": 10207920640
+        },
+        "cuda": {
+          "prefill_s": 2.2987770519685,
+          "decode_s": 0.7307704699924216,
+          "total_s": 3.0320066349813715,
+          "peak_bytes": 10207920640
+        }
+      },
+      "calls_including_warmup": {
+        "eager": {
+          "replaced": 0,
+          "fallback": 0
+        },
+        "compiled": {
+          "replaced": 292,
+          "fallback": 9344
+        },
+        "cuda": {
+          "replaced": 292,
+          "fallback": 9344
+        }
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 1,
+      "prompt_tokens": 22899,
+      "timings": {
+        "eager": [
+          {
+            "prefill_s": 2.3036498309811577,
+            "decode_s": 0.7256742939352989,
+            "total_s": 3.0293241249164566,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          },
+          {
+            "prefill_s": 2.31529930094257,
+            "decode_s": 0.7285925339674577,
+            "total_s": 3.0438918349100277,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          },
+          {
+            "prefill_s": 2.3186317390063778,
+            "decode_s": 0.7389211439294741,
+            "total_s": 3.057552882935852,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          }
+        ],
+        "compiled": [
+          {
+            "prefill_s": 2.160343856899999,
+            "decode_s": 0.737937060999684,
+            "total_s": 2.898280917899683,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          },
+          {
+            "prefill_s": 2.1772991319885477,
+            "decode_s": 0.760122159961611,
+            "total_s": 2.9374212919501588,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          },
+          {
+            "prefill_s": 2.1814196029445156,
+            "decode_s": 0.7299403849756345,
+            "total_s": 2.91135998792015,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          }
+        ],
+        "cuda": [
+          {
+            "prefill_s": 2.170054830959998,
+            "decode_s": 0.731008768081665,
+            "total_s": 2.901063599041663,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          },
+          {
+            "prefill_s": 2.1694729939335957,
+            "decode_s": 0.7284973750356585,
+            "total_s": 2.897970368969254,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          },
+          {
+            "prefill_s": 2.183462340035476,
+            "decode_s": 0.7311875069281086,
+            "total_s": 2.9146498469635844,
+            "peak_bytes": 9039190016,
+            "output_sha256": "c815c18bb2aa250a05f721528bec9f482846e869ce51ae6f572362d3ebd36c80"
+          }
+        ]
+      },
+      "paired_output_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "first_logit_error": {
+        "compiled": [
+          0.072265625,
+          0.072265625,
+          0.072265625
+        ],
+        "cuda": [
+          0.0703125,
+          0.0703125,
+          0.0703125
+        ]
+      },
+      "median": {
+        "eager": {
+          "prefill_s": 2.31529930094257,
+          "decode_s": 0.7285925339674577,
+          "total_s": 3.0438918349100277,
+          "peak_bytes": 9039190016
+        },
+        "compiled": {
+          "prefill_s": 2.1772991319885477,
+          "decode_s": 0.737937060999684,
+          "total_s": 2.91135998792015,
+          "peak_bytes": 9039190016
+        },
+        "cuda": {
+          "prefill_s": 2.170054830959998,
+          "decode_s": 0.731008768081665,
+          "total_s": 2.901063599041663,
+          "peak_bytes": 9039190016
+        }
+      },
+      "calls_including_warmup": {
+        "eager": {
+          "replaced": 0,
+          "fallback": 0
+        },
+        "compiled": {
+          "replaced": 292,
+          "fallback": 9344
+        },
+        "cuda": {
+          "replaced": 292,
+          "fallback": 9344
+        }
+      }
+    },
+    {
+      "document_id": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+      "batch": 4,
+      "prompt_tokens": 22899,
+      "timings": {
+        "eager": [
+          {
+            "prefill_s": 9.650594977894798,
+            "decode_s": 0.9307958070421591,
+            "total_s": 10.581390784936957,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          },
+          {
+            "prefill_s": 9.68664724600967,
+            "decode_s": 0.9298376339720562,
+            "total_s": 10.616484879981726,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          },
+          {
+            "prefill_s": 9.685316386050545,
+            "decode_s": 0.9284048760309815,
+            "total_s": 10.613721262081526,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          }
+        ],
+        "compiled": [
+          {
+            "prefill_s": 9.109257275937125,
+            "decode_s": 0.9302230810280889,
+            "total_s": 10.039480356965214,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          },
+          {
+            "prefill_s": 9.160197642981075,
+            "decode_s": 0.9297664539190009,
+            "total_s": 10.089964096900076,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          },
+          {
+            "prefill_s": 9.161658423952758,
+            "decode_s": 0.9305682519916445,
+            "total_s": 10.092226675944403,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          }
+        ],
+        "cuda": [
+          {
+            "prefill_s": 9.1312124079559,
+            "decode_s": 0.9313681039493531,
+            "total_s": 10.062580511905253,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          },
+          {
+            "prefill_s": 9.126153492950834,
+            "decode_s": 0.9305306390160695,
+            "total_s": 10.056684131966904,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          },
+          {
+            "prefill_s": 9.172447686083615,
+            "decode_s": 0.9296388679649681,
+            "total_s": 10.102086554048583,
+            "peak_bytes": 17239309824,
+            "output_sha256": "b5f397dffca799c680139d6a1e54cbbe867d972ae8c6cda2c656e9b2e0302bc3"
+          }
+        ]
+      },
+      "paired_output_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "first_logit_error": {
+        "compiled": [
+          0.126953125,
+          0.126953125,
+          0.126953125
+        ],
+        "cuda": [
+          0.05859375,
+          0.05859375,
+          0.05859375
+        ]
+      },
+      "median": {
+        "eager": {
+          "prefill_s": 9.685316386050545,
+          "decode_s": 0.9298376339720562,
+          "total_s": 10.613721262081526,
+          "peak_bytes": 17239309824
+        },
+        "compiled": {
+          "prefill_s": 9.160197642981075,
+          "decode_s": 0.9302230810280889,
+          "total_s": 10.089964096900076,
+          "peak_bytes": 17239309824
+        },
+        "cuda": {
+          "prefill_s": 9.1312124079559,
+          "decode_s": 0.9305306390160695,
+          "total_s": 10.062580511905253,
+          "peak_bytes": 17239309824
+        }
+      },
+      "calls_including_warmup": {
+        "eager": {
+          "replaced": 0,
+          "fallback": 0
+        },
+        "compiled": {
+          "replaced": 292,
+          "fallback": 9344
+        },
+        "cuda": {
+          "replaced": 292,
+          "fallback": 9344
+        }
+      }
+    }
+  ],
+  "method": "Actual norm inputs at module indices 0/36/72. Micro: 20 calls per CUDA Graph, 7 shuffled rounds. Model: eager vs compiled vs CUDA prefill-only replacement, warmup each, 3 randomized paired rounds. Compilation excluded.",
+  "limitations": "Complete intact CUAD contracts but bounded 32 decode forward passes, no factuality evaluation. Batch4 repeats one contract. Same documents as previous profile, not held-out generalization. CUDA activity timings are warm-cache operator timings. Default pipeline unchanged."
+}
