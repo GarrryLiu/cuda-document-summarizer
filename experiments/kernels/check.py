@@ -24,12 +24,12 @@ def run(output):
         if kind=='distinct_kv_heads':
             for h in range(Hkv):v[:,h].fill_(h+1)
         expected=reference(q,k,v)
-        for grouped in (False,True):
-            if grouped and (Hq//Hkv)%4:continue
+        for group in (None,1,2,4,8):
+            if group and (Hq//Hkv)%group:continue
             for splits in (1,2,8,32):
-                actual=decode_attention(q,k,v,splits,grouped=grouped)
+                actual=decode_attention(q,k,v,splits,group_size=group)
                 torch.testing.assert_close(actual.float(),expected,atol=.003,rtol=.02)
-                results.append({'shape':[B,Hq,Hkv,S,128],'case':kind,'splits':splits,'grouped':grouped,
+                results.append({'shape':[B,Hq,Hkv,S,128],'case':kind,'splits':splits,'group_size':group,
                                 'max_abs_error':(actual.float()-expected).abs().max().item()})
     q=torch.randn(1,16,128,device='cuda',dtype=torch.float16)
     k=torch.randn(1,2,513,128,device='cuda',dtype=torch.float16);v=torch.randn_like(k)
@@ -51,7 +51,7 @@ def run(output):
     except RuntimeError as error:assert 'aligned' in str(error)
     else:raise AssertionError('unaligned vector load accepted')
     try:decode_attention(q[:,:2].contiguous(),k,v,1,grouped=True)
-    except RuntimeError as error:assert 'divisible by four' in str(error)
+    except RuntimeError as error:assert 'divisible by group size' in str(error)
     else:raise AssertionError('unsupported grouped head ratio accepted')
     report={'status':'passed','cases':results,'nondefault_stream':'passed','invalid_api_cases':len(invalid)+2,
             'tolerance':{'atol':.003,'rtol':.02},'reference':'FP32 PyTorch SDPA math from the identical FP16 input values'}
