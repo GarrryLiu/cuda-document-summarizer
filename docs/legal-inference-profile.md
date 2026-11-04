@@ -111,7 +111,8 @@ possible fusion opportunities, but their totals also include other model work
 and cannot all be credited to RMSNorm. This is a candidate, not a claimed gain.
 
 The experiment should use the pinned model's actual RMSNorm input rows and
-weights, match its FP32 accumulation and FP16 rounding order, compare against
+weights (FP16, hidden width 2048; row count = batch times tokens), match its
+FP32 accumulation and FP16 rounding order, compare against
 both eager PyTorch and a compiled/fused baseline, then test prefill wall time
 and output quality. Include short and long workloads (batch times tokens),
 non-default-stream tests, numerical edge cases and fallback for unsupported
@@ -122,3 +123,47 @@ contribute 213.4 ms in the largest prefill profile. Its associated multiply time
 still needs isolated attribution; the model-wide `aten::mul` total is not that cost.
 
 Implementation references: [pinned Qwen2 RMSNorm/MLP source](https://github.com/huggingface/transformers/blob/v4.57.6/src/transformers/models/qwen2/modeling_qwen2.py) and [pinned cache implementation](https://github.com/huggingface/transformers/blob/v4.57.6/src/transformers/cache_utils.py).
+
+## Cache probe results
+
+All four conditions completed with three paired runs each. All twelve token
+continuations were identical, but first-step logits differed (maximum absolute
+differences 0.078125–0.13671875); this does not establish quality parity for
+complete summaries. Static allocation was included in prefill.
+
+| Prompt tokens | Batch | Dynamic total s | Static total s | Static / dynamic | Dynamic peak GiB | Static peak GiB |
+|---:|---:|---:|---:|---:|---:|---:|
+| 16621 | 1 | 2.196 | 4.919 | 2.24x | 7.72 | 8.11 |
+| 16621 | 4 | 6.994 | 15.826 | 2.26x | 13.26 | 14.06 |
+| 22899 | 1 | 3.088 | 7.818 | 2.53x | 8.42 | 9.64 |
+| 22899 | 4 | 10.642 | 26.090 | 2.45x | 16.06 | 19.44 |
+
+Native StaticCache takes 2.24–2.53 times the total wall time of DynamicCache in
+this pinned setup. It is therefore not enabled in the product. This result
+concerns this eager model/backend configuration, not every static-cache design.
+
+At 22,899 tokens / batch 4, the separate decode profile explains the regression:
+
+- Dynamic: Flash SDPA, 176.85 ms attention attribution and 326.80 ms `aten::cat`.
+- Static: efficient-attention backend, 1,451.33 ms backend attribution, plus
+  2,601.78 ms `aten::clone` with 2,304 calls. These are 2 copies per layer per step.
+- Static decode wall time is 4.520 s versus 0.930 s for dynamic; total model
+  time is 26.090 s versus 10.642 s. Peak allocation also increases.
+
+The pinned [SDPA integration source](https://github.com/huggingface/transformers/blob/v4.57.6/src/transformers/integrations/sdpa_attention.py)
+uses native GQA only when the CUDA attention mask is absent. With a mask it
+calls `repeat_kv`, whose expand/reshape materializes duplicated KV heads.
+Together with the observed clone counts and backend switch, this supports the
+explanation that avoiding cache concatenation introduced more expensive copies
+and attention execution. It is not evidence that preallocation itself is slow.
+CPU parent attribution is nested: reshape/clone/copy totals must not be summed.
+
+If cache work is resumed, test a capacity-backed cache that exposes only its
+valid prefix and preserves the native GQA/Flash path, with correctness tests for
+causality and cache positions. That is a separate implementation, not a feature
+completed by this ablation. For the present prefill-dominated workload, fused
+RMSNorm remains the next custom-kernel candidate.
+
+Slurm cache job: 138287. Raw profiles, timing rounds, output hashes and environment
+versions are in [`experiments/kernels/legal-profile`](../experiments/kernels/legal-profile).
+The CPU test suite passed all 9 tests. Both GPU jobs completed successfully.
