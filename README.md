@@ -66,8 +66,9 @@ future work. This runner is offline batch processing, not an online scheduler.
 - Record model revision, library versions, GPU, CUDA, input/prompt hashes and seed.
   Supply `--revision <commit>` for reproducibility; default main can change.
 
-The runner delegates KV caching to Transformers via `use_cache`; it does not
-implement a custom CUDA kernel or custom cache. Actual outputs may differ across
+The runner delegates KV caching to Transformers via `use_cache`. Its default
+normalization is native; an optional custom RMSNorm kernel is described below.
+It does not implement a custom cache. Actual outputs may differ across
 hardware or batch shapes. Quality parity must be checked before claiming gains.
 
 ## Quality evaluation
@@ -99,3 +100,20 @@ prefill and decode on intact CUAD contracts near 4K–24K tokens. It records sep
 wall timings and CUDA activity profiles, and tests dynamic versus preallocated
 KV cache before choosing the next custom-kernel target. These bounded research
 runs do not establish complete-summary quality or change production defaults.
+
+## Fused RMSNorm experiment
+
+The [RMSNorm study](docs/fused-rmsnorm.md) implements a Qwen-compatible FP16
+C++/CUDA normalization kernel for long-contract prefill. It compares actual
+model inputs and full prefill runs against eager PyTorch and torch.compile,
+while preserving native attention and decode. The operator is opt-in; importing
+it does not patch the summarization pipeline.
+
+The [held-out generation study](docs/rmsnorm-holdout.md) documents the optional
+`--rmsnorm-backend native|compiled|cuda` integration, safe fallback conditions,
+and EOS/cap-aware comparisons on eight contracts excluded from earlier tuning.
+On eight held-out A6000 contracts, CUDA prefill time fell 5.80–9.16%, but
+whole-generation median time did not consistently improve (aggregate +0.85%).
+Longer outputs exposed meaningful wording changes; seven contracts reached EOS
+within a 2048-token ceiling and one remained capped. Defaults remain native.
+See the study for all 102 measured generations and source-grounded case findings.

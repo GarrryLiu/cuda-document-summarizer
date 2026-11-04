@@ -1,0 +1,202 @@
+{
+  "scope": "Agent-assisted source-grounded spot review, not expert legal annotation or a complete quality score. Changed portions of all completed nonidentical backend outputs were inspected; other cases are spot checks or output-budget checks. First unique outputs reviewed; repeat stability checked separately in timing reports.",
+  "cases": [
+    {
+      "document_id": "NOVOINTEGRATEDSCIENCES,INC_12_23_2019-EX-10.1-JOINT VENTURE AGREEMENT",
+      "source_sha256": "ed8ec45674420e7e9d118f9141a3d0ad67b283c76ff1e2a703d339f731d65c2b",
+      "comparison": "First-round native, compiled and CUDA summaries identical",
+      "findings": [
+        {
+          "source_location": "9.3",
+          "finding": "The common summary reports annual 30% income remuneration but omits its delayed commencement condition (12 months after the first full 12-month revenue period).",
+          "type": "shared_omission"
+        },
+        {
+          "source_location": "9.5",
+          "finding": "The common summary preserves two million shares and the $25M net-profit threshold, but omits the each-fiscal-year qualification and share-adjustment conditions.",
+          "type": "shared_omission"
+        },
+        {
+          "source_location": "24.1",
+          "finding": "The common summary reports confidentiality but omits the express SEC-filing exception for NVOS.",
+          "type": "shared_omission"
+        },
+        {
+          "source_location": "1.1(a), definition of Action",
+          "finding": "The common summary turns a definition/list of legal proceedings into a general assertion that the parties must handle legal actions. That asserted obligation is not established by the definition.",
+          "type": "shared_unsupported_interpretation"
+        }
+      ]
+    },
+    {
+      "document_id": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+      "source_sha256": "de64f561a87663b8a6fb9d4be477fd0c0eba01695499870e754f108474440e8d",
+      "comparison": "First-round native, compiled and CUDA summaries identical; all end at the 512-token cap",
+      "findings": [
+        {
+          "source_location": "4.1\u20134.3",
+          "finding": "Common output preserves quarterly fee schedule, seventh-business-day deadline and 0.03% daily late-payment rate. This is a spot check of these facts only.",
+          "type": "shared_preserved_facts"
+        },
+        {
+          "source_location": "6.4",
+          "finding": "The common summary places the amendment/revocation waiver under a Termination by Party A label; the source clause is a waiver, not a termination right.",
+          "type": "shared_misleading_structure"
+        },
+        {
+          "source_location": "2.1\u20132.3, 12.8",
+          "finding": "Generation stops at an unfinished heading before Risks and Exceptions; important exclusivity and confidentiality restrictions are absent from the produced text.",
+          "type": "cap_limited_coverage"
+        }
+      ]
+    },
+    {
+      "document_id": "Columbia Laboratories, (Bermuda) Ltd. - AMEND NO. 2 TO MANUFACTURING AND SUPPLY AGREEMENT",
+      "source_sha256": "17bea1f531d30d456d2df5787dfdf6a44723e822e397b5ad841c4f39cdfca4ef",
+      "comparison": "512-cap study: CUDA/native identical in all three rounds; compiled/native different in all three rounds. Source review of first unique output.",
+      "findings": [
+        {
+          "source_location": "Amendment item 5 / section 2.3(c)",
+          "finding": "The source redacts the lead time for release of raw materials as [***]. Native and CUDA invent 30 days; compiled invents 21 days. Both concrete numbers are unsupported.",
+          "type": "changed_unsupported_number"
+        },
+        {
+          "source_location": "Amendment item 16 / section 12.1",
+          "finding": "The source gives 31 December 2024 as the initial expiry date, but redacts the endpoint of continued performance after termination. Native/CUDA retain the redaction for that endpoint; compiled substitutes 31 December 2024, conflating two different conditions.",
+          "type": "compiled_regression"
+        },
+        {
+          "source_location": "Amendment item 19 / section 12.3(c)",
+          "finding": "The source makes reimbursement conditional on specified termination grounds and redacts the purchased items and lookback period. Compiled generalizes this into raw-material/work-in-progress reimbursement during transition; native/CUDA preserve more of the redacted conditional wording.",
+          "type": "compiled_loss_of_conditions"
+        },
+        {
+          "source_location": "Risks and Exceptions output section",
+          "finding": "All three 512-token generations are capped. Review does not establish complete coverage.",
+          "type": "cap_limited_coverage"
+        },
+        {
+          "phase": "1024-cap followup",
+          "source_location": "13.13(b)",
+          "finding": "Compiled says any breach of the anti-bribery clause is a material breach; source and native/CUDA require a material breach of that section. Dropping the materiality qualifier changes the condition.",
+          "type": "compiled_regression"
+        },
+        {
+          "phase": "1024-cap followup",
+          "source_location": "11.3, exceptions under 11.2 and Applicable Law",
+          "finding": "Compiled mentions prior written approval for public announcements without retaining the expressly permitted or legally required disclosure exceptions. Native/CUDA explicitly mention some permitted disclosures.",
+          "type": "compiled_loss_of_conditions"
+        }
+      ],
+      "cap_followup": "1024-token-cap followup retains the earlier 512-token text prefixes for all methods. CUDA/native full text remains equal; compiled differences persist."
+    },
+    {
+      "document_id": "USASYNTHETICFUELCORP_10_21_2010-EX-10.10-STRATEGIC ALLIANCE AGREEMENT",
+      "source_sha256": "0fb8cd828f5c763b777f5eb8d80e5f92c46dbcd65a1cc5b3b911aae1c4ab9974",
+      "comparison": "First unique output identical across native, compiled and CUDA at the 512-token cap",
+      "findings": [
+        {
+          "source_location": "1(a), 8(a)",
+          "finding": "The common summary preserves the $5 million / $200 per-share consideration and five-year initial plus five-year automatic renewal term.",
+          "type": "shared_preserved_facts"
+        },
+        {
+          "source_location": "3(b)(i)",
+          "finding": "The common summary reports a 4% pre-tax cash-flow share but omits deduction of debt service and O&M and the lender-covenant condition.",
+          "type": "shared_omission"
+        },
+        {
+          "source_location": "8(b)(i)",
+          "finding": "The common summary describes termination for material breach without the written-notice and 30-day cure conditions.",
+          "type": "shared_omission"
+        }
+      ]
+    },
+    {
+      "document_id": "HEMISPHERX - Sales, Marketing, Distribution, and Supply Agreement",
+      "source_sha256": "871238d0e146f01c49d2cccba73c8b8cbaee1d6e5181cdae8d241d0c897200d2",
+      "comparison": "512-cap first unique outputs: compiled/native identical; CUDA differs. Source review focuses on changed obligations; no global quality ranking.",
+      "findings": [
+        {
+          "source_location": "IV.D (Supply)",
+          "finding": "Source assigns territory QA testing/approval to SCIEN. CUDA adds this responsibility under HEMISPHERX obligations as well as retaining it under SCIEN; native lists it under SCIEN. This is a changed duty-attribution error.",
+          "type": "cuda_regression"
+        },
+        {
+          "source_location": "IV.J (Supply)",
+          "finding": "Source requires HEMISPHERX to permit SCIEN audits at SCIEN expense with notice and timing conditions. CUDA adds the correct direction of the audit permission, but frames conducting audits as an SCIEN obligation and omits conditions. Native does not state this permission clearly.",
+          "type": "mixed_change"
+        },
+        {
+          "source_location": "Recitals; IV.A and IV.C",
+          "finding": "Both native and CUDA purpose paragraphs reverse the supply relationship by saying SCIEN supplies HEMISPHERX. The source says HEMISPHERX supplies and sells to SCIEN.",
+          "type": "shared_role_reversal"
+        },
+        {
+          "source_location": "IV.C (Supply)",
+          "finding": "CUDA reaches the complete 75-day payment and first-order 50-vial / five-patient approval exception within the cap; native is truncated mid-exception. Longer coverage alone is not evidence of better overall factuality.",
+          "type": "cap_dependent_coverage"
+        },
+        {
+          "source_location": "IV.E, post-regulatory approval item 4",
+          "finding": "Native puts temperature-compliant packaging under SCIEN, while this clause assigns it to HEMISPHERX. CUDA omits that assertion in its capped output.",
+          "type": "native_error_not_repeated"
+        },
+        {
+          "phase": "2048-cap followup",
+          "source_location": "VI.B.3",
+          "finding": "CUDA states SCIEN may terminate if SCIEN itself becomes insolvent or files for bankruptcy. Source grants termination by written notice to the other party, not the insolvent party. Native describes termination when the other party becomes insolvent.",
+          "type": "cuda_regression"
+        },
+        {
+          "phase": "2048-cap followup",
+          "source_location": "VI.C\u2013D",
+          "finding": "Both outputs omit the 30-day breach cure condition and the reasonable-efforts qualification on post-termination supply. These are shared limitations rather than evidence of CUDA-only degradation.",
+          "type": "shared_omission"
+        }
+      ],
+      "cap_followup": "2048-cap check: native/compiled end at 1299 tokens; CUDA ends at 998. Earlier QA-attribution difference persists. Faster CUDA wall time here generates fewer tokens and is not an equal-work speedup."
+    },
+    {
+      "document_id": "AFSALABANCORPINC_08_01_1996-EX-1.1-AGENCY AGREEMENT",
+      "source_sha256": "ba14c927c1ceb18f63958108bc80a98fb5de63a2071808f5873dfa9940109da9",
+      "comparison": "512-cap first unique output: CUDA changes subscribers to purchasers in the share-delivery obligation; compiled matches native",
+      "findings": [
+        {
+          "source_location": "Share issuance representation immediately before clause (r); Closing Date definition",
+          "finding": "Source expressly describes transfer of good title to purchasers against payment and release/delivery at closing. The changed recipient wording is supported by the source; no material factual regression was identified in this single changed phrase. This is not a complete review of the rest of the summary.",
+          "type": "supported_wording_change"
+        }
+      ]
+    },
+    {
+      "document_id": "TRICITYBANKSHARESCORP_05_15_1998-EX-10-OUTSOURCING AGREEMENT",
+      "source_sha256": "5ace7a03650252f3f2a08d44b3bf4c689d6b9e1bc62a90a455a23bcb4e484b02",
+      "comparison": "2048-cap completed outputs: compiled/native match; CUDA differs only in the closing meta-summary sentence",
+      "findings": [
+        {
+          "source_location": "Generated closing meta-summary sentence (not a contractual assertion)",
+          "finding": "CUDA shortens the concluding description of what the summary covers. The contractual bullets are unchanged; no change to a contractual fact was identified in this textual difference. No full native-summary factuality audit was performed.",
+          "type": "non_contractual_wording_change"
+        }
+      ]
+    },
+    {
+      "document_id": "SUCAMPOPHARMACEUTICALS,INC_11_04_2015-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+      "source_sha256": "83c8a5b6a0ee219c184a90eaffec0cf930e7ed80e4f12ce342714bc745115934",
+      "comparison": "All three backends remain token-identical but capped at 2048",
+      "findings": [
+        {
+          "source_location": "Generated tail / output budget",
+          "finding": "Output continues enumerating restricted-period obligations and is cut off mid-item. It is incomplete at the predefined final cap. No complete-summary quality conclusion is possible for this document.",
+          "type": "unresolved_cap_hit"
+        }
+      ]
+    }
+  ],
+  "report_sha256": {
+    "rmsnorm-holdout.json": "b076655cbe46e0caf546fb61d10ff66d34dd4387e5c502faababa72365ebdaed",
+    "rmsnorm-cap-followup.json": "3af6acca84df1a64e9226f9591ee176a6ba15bc27ed22e38df068123b9c07a43",
+    "rmsnorm-completion.json": "cece3588983360bb2deefcb207d186af0cdcd4cea563af447a357a02f18d067b"
+  }
+}

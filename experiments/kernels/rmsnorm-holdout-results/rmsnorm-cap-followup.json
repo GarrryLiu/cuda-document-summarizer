@@ -1,0 +1,596 @@
+{
+  "status": "complete",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX A6000",
+  "input_sha256": "bb4f4b32f9824320e68c8a6f6c3a98e2b100a98e7a981547e40d8b41f316377e",
+  "prompt_sha256": "89b22b7a3a2023181d124e12415afdce6a2d53eb4884355becc0f8827f1c96b9",
+  "script_sha256": "a451885dd90c0de82fe2b54b2c76bb51385e550b78828eb362e24d701d97d7f2",
+  "integration_sha256": "0a337655f04b68b88b04d3216a6d38711554014ed4a009840d6e2aad7307e215",
+  "excluded_ids": [
+    "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+    "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+    "EMERALDHEALTHTHERAPEUTICSINC_06_10_2020-EX-4.5-CONSULTING AGREEMENT - DR. GAETANO MORELLO N.D. INC.",
+    "VAPOTHERM, INC. - Manufacturing and Supply Agreement"
+  ],
+  "max_new_tokens": 1024,
+  "repeats": 1,
+  "batch": 1,
+  "cap_followup_of_sha256": "b076655cbe46e0caf546fb61d10ff66d34dd4387e5c502faababa72365ebdaed",
+  "followup_criterion": "Only documents with any cap hit in the referenced completed report",
+  "selection": "First two SHA256(holdout-v1:id) in each fixed length bin; excludes all four prior profiling contracts. No outcome-based selection.",
+  "limitations": "Held out from this project tuning only, not model pretraining. B1, greedy FP16 SDPA dynamic cache. EOS or cap, no truncation. No expert factuality labels. Timings exclude compilation and tokenization; include generate CPU orchestration. First-forward CUDA event measures prefill only. Raw summaries in private packet.",
+  "manifest": [
+    {
+      "id": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+      "text_sha256": "de64f561a87663b8a6fb9d4be477fd0c0eba01695499870e754f108474440e8d",
+      "prompt_tokens": 3683
+    },
+    {
+      "id": "Columbia Laboratories, (Bermuda) Ltd. - AMEND NO. 2 TO MANUFACTURING AND SUPPLY AGREEMENT",
+      "text_sha256": "17bea1f531d30d456d2df5787dfdf6a44723e822e397b5ad841c4f39cdfca4ef",
+      "prompt_tokens": 9901
+    },
+    {
+      "id": "USASYNTHETICFUELCORP_10_21_2010-EX-10.10-STRATEGIC ALLIANCE AGREEMENT",
+      "text_sha256": "0fb8cd828f5c763b777f5eb8d80e5f92c46dbcd65a1cc5b3b911aae1c4ab9974",
+      "prompt_tokens": 11099
+    },
+    {
+      "id": "SUCAMPOPHARMACEUTICALS,INC_11_04_2015-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+      "text_sha256": "83c8a5b6a0ee219c184a90eaffec0cf930e7ed80e4f12ce342714bc745115934",
+      "prompt_tokens": 13402
+    },
+    {
+      "id": "HEMISPHERX - Sales, Marketing, Distribution, and Supply Agreement",
+      "text_sha256": "871238d0e146f01c49d2cccba73c8b8cbaee1d6e5181cdae8d241d0c897200d2",
+      "prompt_tokens": 16133
+    },
+    {
+      "id": "AFSALABANCORPINC_08_01_1996-EX-1.1-AGENCY AGREEMENT",
+      "text_sha256": "ba14c927c1ceb18f63958108bc80a98fb5de63a2071808f5873dfa9940109da9",
+      "prompt_tokens": 26506
+    },
+    {
+      "id": "TRICITYBANKSHARESCORP_05_15_1998-EX-10-OUTSOURCING AGREEMENT",
+      "text_sha256": "5ace7a03650252f3f2a08d44b3bf4c689d6b9e1bc62a90a455a23bcb4e484b02",
+      "prompt_tokens": 22059
+    }
+  ],
+  "results": [
+    {
+      "id": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+      "prompt_tokens": 3683,
+      "runs": {
+        "native": [
+          {
+            "seconds": 15.25938316504471,
+            "prefill_gpu_ms": 257.4039001464844,
+            "generated_tokens": 623,
+            "tokens_per_second": 40.82733838331889,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "2ac1be1c7d61bd69fb19e15f957b54362474b5ee93d636f68a44e2e4a8858f04"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 15.521904287976213,
+            "prefill_gpu_ms": 230.29656982421875,
+            "generated_tokens": 623,
+            "tokens_per_second": 40.13682782998454,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "2ac1be1c7d61bd69fb19e15f957b54362474b5ee93d636f68a44e2e4a8858f04"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 15.561139064026065,
+            "prefill_gpu_ms": 234.5594940185547,
+            "generated_tokens": 623,
+            "tokens_per_second": 40.035629617901115,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "2ac1be1c7d61bd69fb19e15f957b54362474b5ee93d636f68a44e2e4a8858f04"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true
+        ],
+        "cuda": [
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 15.25938316504471,
+          "prefill_gpu_ms": 257.4039001464844,
+          "generated_tokens": 623,
+          "tokens_per_second": 40.82733838331889,
+          "peak_bytes": 6752485888
+        },
+        "compiled": {
+          "seconds": 15.521904287976213,
+          "prefill_gpu_ms": 230.29656982421875,
+          "generated_tokens": 623,
+          "tokens_per_second": 40.13682782998454,
+          "peak_bytes": 6752485888
+        },
+        "cuda": {
+          "seconds": 15.561139064026065,
+          "prefill_gpu_ms": 234.5594940185547,
+          "generated_tokens": 623,
+          "tokens_per_second": 40.035629617901115,
+          "peak_bytes": 6752485888
+        }
+      }
+    },
+    {
+      "id": "Columbia Laboratories, (Bermuda) Ltd. - AMEND NO. 2 TO MANUFACTURING AND SUPPLY AGREEMENT",
+      "prompt_tokens": 9901,
+      "runs": {
+        "native": [
+          {
+            "seconds": 17.908864563098177,
+            "prefill_gpu_ms": 775.1383056640625,
+            "generated_tokens": 714,
+            "tokens_per_second": 39.86852418724642,
+            "peak_bytes": 7483445248,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "54daf4fa459a197e9237d78f3fcc4012e60b72f6d787908abab3bb6bcb465d9f"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 15.721142907976173,
+            "prefill_gpu_ms": 711.7455444335938,
+            "generated_tokens": 617,
+            "tokens_per_second": 39.246510486649356,
+            "peak_bytes": 7482765312,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "9111a749e39e3879d8510c70f74a0b4160b048b7447283a907f6baab303140f8"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 18.324090861948207,
+            "prefill_gpu_ms": 715.6807861328125,
+            "generated_tokens": 714,
+            "tokens_per_second": 38.96509820755647,
+            "peak_bytes": 7482765312,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "54daf4fa459a197e9237d78f3fcc4012e60b72f6d787908abab3bb6bcb465d9f"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          false
+        ],
+        "cuda": [
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 17.908864563098177,
+          "prefill_gpu_ms": 775.1383056640625,
+          "generated_tokens": 714,
+          "tokens_per_second": 39.86852418724642,
+          "peak_bytes": 7483445248
+        },
+        "compiled": {
+          "seconds": 15.721142907976173,
+          "prefill_gpu_ms": 711.7455444335938,
+          "generated_tokens": 617,
+          "tokens_per_second": 39.246510486649356,
+          "peak_bytes": 7482765312
+        },
+        "cuda": {
+          "seconds": 18.324090861948207,
+          "prefill_gpu_ms": 715.6807861328125,
+          "generated_tokens": 714,
+          "tokens_per_second": 38.96509820755647,
+          "peak_bytes": 7482765312
+        }
+      }
+    },
+    {
+      "id": "USASYNTHETICFUELCORP_10_21_2010-EX-10.10-STRATEGIC ALLIANCE AGREEMENT",
+      "prompt_tokens": 11099,
+      "runs": {
+        "native": [
+          {
+            "seconds": 14.408510993001983,
+            "prefill_gpu_ms": 946.6263427734375,
+            "generated_tokens": 553,
+            "tokens_per_second": 38.3800935619638,
+            "peak_bytes": 7629968384,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "fa672799a3f9432f2463c4351d6b2a6aad5eb9aa43f477f7433f05eef9a56e6e"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 14.390731399995275,
+            "prefill_gpu_ms": 871.4219360351562,
+            "generated_tokens": 553,
+            "tokens_per_second": 38.42751175247295,
+            "peak_bytes": 7630979584,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "fa672799a3f9432f2463c4351d6b2a6aad5eb9aa43f477f7433f05eef9a56e6e"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 14.744341627927497,
+            "prefill_gpu_ms": 868.6394653320312,
+            "generated_tokens": 553,
+            "tokens_per_second": 37.505913383921715,
+            "peak_bytes": 7630979584,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "fa672799a3f9432f2463c4351d6b2a6aad5eb9aa43f477f7433f05eef9a56e6e"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true
+        ],
+        "cuda": [
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 14.408510993001983,
+          "prefill_gpu_ms": 946.6263427734375,
+          "generated_tokens": 553,
+          "tokens_per_second": 38.3800935619638,
+          "peak_bytes": 7629968384
+        },
+        "compiled": {
+          "seconds": 14.390731399995275,
+          "prefill_gpu_ms": 871.4219360351562,
+          "generated_tokens": 553,
+          "tokens_per_second": 38.42751175247295,
+          "peak_bytes": 7630979584
+        },
+        "cuda": {
+          "seconds": 14.744341627927497,
+          "prefill_gpu_ms": 868.6394653320312,
+          "generated_tokens": 553,
+          "tokens_per_second": 37.505913383921715,
+          "peak_bytes": 7630979584
+        }
+      }
+    },
+    {
+      "id": "SUCAMPOPHARMACEUTICALS,INC_11_04_2015-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+      "prompt_tokens": 13402,
+      "runs": {
+        "native": [
+          {
+            "seconds": 26.34444379294291,
+            "prefill_gpu_ms": 1122.9459228515625,
+            "generated_tokens": 1024,
+            "tokens_per_second": 38.86967620376585,
+            "peak_bytes": 7904847360,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "a78fe37f4ae8697a501a1a4d2bebd650ec647e4bf00993e79c9fb88b3f663b03"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 26.69767230807338,
+            "prefill_gpu_ms": 1041.522705078125,
+            "generated_tokens": 1024,
+            "tokens_per_second": 38.35540372897387,
+            "peak_bytes": 7904847360,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "a78fe37f4ae8697a501a1a4d2bebd650ec647e4bf00993e79c9fb88b3f663b03"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 26.6076869959943,
+            "prefill_gpu_ms": 1041.3721923828125,
+            "generated_tokens": 1024,
+            "tokens_per_second": 38.4851189866357,
+            "peak_bytes": 7904847360,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "a78fe37f4ae8697a501a1a4d2bebd650ec647e4bf00993e79c9fb88b3f663b03"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true
+        ],
+        "cuda": [
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 26.34444379294291,
+          "prefill_gpu_ms": 1122.9459228515625,
+          "generated_tokens": 1024,
+          "tokens_per_second": 38.86967620376585,
+          "peak_bytes": 7904847360
+        },
+        "compiled": {
+          "seconds": 26.69767230807338,
+          "prefill_gpu_ms": 1041.522705078125,
+          "generated_tokens": 1024,
+          "tokens_per_second": 38.35540372897387,
+          "peak_bytes": 7904847360
+        },
+        "cuda": {
+          "seconds": 26.6076869959943,
+          "prefill_gpu_ms": 1041.3721923828125,
+          "generated_tokens": 1024,
+          "tokens_per_second": 38.4851189866357,
+          "peak_bytes": 7904847360
+        }
+      }
+    },
+    {
+      "id": "HEMISPHERX - Sales, Marketing, Distribution, and Supply Agreement",
+      "prompt_tokens": 16133,
+      "runs": {
+        "native": [
+          {
+            "seconds": 26.562393752974458,
+            "prefill_gpu_ms": 1435.8753662109375,
+            "generated_tokens": 1024,
+            "tokens_per_second": 38.55074243394696,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "052bec87ad65e0226b6b9a9849e1e90c4cd62b73ec62f135be64fe5cd0a38fe1"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 26.818637634976767,
+            "prefill_gpu_ms": 1337.66650390625,
+            "generated_tokens": 1024,
+            "tokens_per_second": 38.182401878032124,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "052bec87ad65e0226b6b9a9849e1e90c4cd62b73ec62f135be64fe5cd0a38fe1"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 26.195194851025008,
+            "prefill_gpu_ms": 1335.546875,
+            "generated_tokens": 998,
+            "tokens_per_second": 38.09859043522055,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "f001ebf8bc359cdf45c9ad19ae7ff54d7e68a22915722fb9cbfd1e30d767a090"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true
+        ],
+        "cuda": [
+          false
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 26.562393752974458,
+          "prefill_gpu_ms": 1435.8753662109375,
+          "generated_tokens": 1024,
+          "tokens_per_second": 38.55074243394696,
+          "peak_bytes": 8229864960
+        },
+        "compiled": {
+          "seconds": 26.818637634976767,
+          "prefill_gpu_ms": 1337.66650390625,
+          "generated_tokens": 1024,
+          "tokens_per_second": 38.182401878032124,
+          "peak_bytes": 8229864960
+        },
+        "cuda": {
+          "seconds": 26.195194851025008,
+          "prefill_gpu_ms": 1335.546875,
+          "generated_tokens": 998,
+          "tokens_per_second": 38.09859043522055,
+          "peak_bytes": 8229864960
+        }
+      }
+    },
+    {
+      "id": "AFSALABANCORPINC_08_01_1996-EX-1.1-AGENCY AGREEMENT",
+      "prompt_tokens": 26506,
+      "runs": {
+        "native": [
+          {
+            "seconds": 23.520855274051428,
+            "prefill_gpu_ms": 2812.10986328125,
+            "generated_tokens": 840,
+            "tokens_per_second": 35.71298705820026,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "c6c09c0565046779a688e7e2830472de419e3e2249624941025f9ee1239f53aa"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 23.97102230298333,
+            "prefill_gpu_ms": 2650.0751953125,
+            "generated_tokens": 840,
+            "tokens_per_second": 35.04231022702179,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "c6c09c0565046779a688e7e2830472de419e3e2249624941025f9ee1239f53aa"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 23.70819437399041,
+            "prefill_gpu_ms": 2652.8603515625,
+            "generated_tokens": 840,
+            "tokens_per_second": 35.430787631872136,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "3dcec9e1857c713898c0c6722165c6f2cb7f1445871748a5cfd64686ae6241c4"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true
+        ],
+        "cuda": [
+          false
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 23.520855274051428,
+          "prefill_gpu_ms": 2812.10986328125,
+          "generated_tokens": 840,
+          "tokens_per_second": 35.71298705820026,
+          "peak_bytes": 9473763328
+        },
+        "compiled": {
+          "seconds": 23.97102230298333,
+          "prefill_gpu_ms": 2650.0751953125,
+          "generated_tokens": 840,
+          "tokens_per_second": 35.04231022702179,
+          "peak_bytes": 9473763328
+        },
+        "cuda": {
+          "seconds": 23.70819437399041,
+          "prefill_gpu_ms": 2652.8603515625,
+          "generated_tokens": 840,
+          "tokens_per_second": 35.430787631872136,
+          "peak_bytes": 9473763328
+        }
+      }
+    },
+    {
+      "id": "TRICITYBANKSHARESCORP_05_15_1998-EX-10-OUTSOURCING AGREEMENT",
+      "prompt_tokens": 22059,
+      "runs": {
+        "native": [
+          {
+            "seconds": 27.09597506490536,
+            "prefill_gpu_ms": 2167.108642578125,
+            "generated_tokens": 1024,
+            "tokens_per_second": 37.791590726929854,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "73a0062b3dd5ca6dcd0115ed7b31e268302215af5247b73007dafdf7595b2034"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 27.26843016105704,
+            "prefill_gpu_ms": 2042.9117431640625,
+            "generated_tokens": 1024,
+            "tokens_per_second": 37.552583480306424,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "73a0062b3dd5ca6dcd0115ed7b31e268302215af5247b73007dafdf7595b2034"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 27.527588031021878,
+            "prefill_gpu_ms": 2036.552734375,
+            "generated_tokens": 1024,
+            "tokens_per_second": 37.19904551194299,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "73a0062b3dd5ca6dcd0115ed7b31e268302215af5247b73007dafdf7595b2034"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true
+        ],
+        "cuda": [
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 27.09597506490536,
+          "prefill_gpu_ms": 2167.108642578125,
+          "generated_tokens": 1024,
+          "tokens_per_second": 37.791590726929854,
+          "peak_bytes": 8941451776
+        },
+        "compiled": {
+          "seconds": 27.26843016105704,
+          "prefill_gpu_ms": 2042.9117431640625,
+          "generated_tokens": 1024,
+          "tokens_per_second": 37.552583480306424,
+          "peak_bytes": 8941451776
+        },
+        "cuda": {
+          "seconds": 27.527588031021878,
+          "prefill_gpu_ms": 2036.552734375,
+          "generated_tokens": 1024,
+          "tokens_per_second": 37.19904551194299,
+          "peak_bytes": 8941451776
+        }
+      }
+    }
+  ],
+  "dispatch_including_warmup": {
+    "native": {
+      "backend": "native",
+      "modules": 0,
+      "replaced": 0,
+      "fallback": 0
+    },
+    "compiled": {
+      "backend": "compiled",
+      "modules": 73,
+      "replaced": 1022,
+      "fallback": 416465
+    },
+    "cuda": {
+      "backend": "cuda",
+      "modules": 73,
+      "replaced": 1022,
+      "fallback": 421648
+    }
+  }
+}

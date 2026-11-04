@@ -6,6 +6,7 @@ import platform
 import statistics
 import time
 from pathlib import Path
+from .rmsnorm import rmsnorm_backend
 from .batching import batches, padding_stats, prompt, read_documents
 
 
@@ -22,6 +23,8 @@ def main():
     p.add_argument("--batch-size", type=int, default=4)
     p.add_argument("--max-new-tokens", type=int, default=256)
     p.add_argument("--repeats", type=int, default=3)
+    p.add_argument("--rmsnorm-backend", choices=("native", "compiled", "cuda"), default="native",
+                   help="Opt-in Qwen2 FP16 prefill optimization; unsupported inputs use native")
     args = p.parse_args()
     if min(args.batch_size, args.max_new_tokens, args.repeats) < 1:
         p.error("batch-size, max-new-tokens and repeats must be positive")
@@ -60,37 +63,38 @@ def main():
             trimmed.append(row[:stop])
         return trimmed
 
-    results = []
-    for strategy in ("arrival", "length"):
-        plan = batches(lengths, args.batch_size, strategy)
-        for use_cache in (False, True):
-            # Warm up full longest batch for each configuration, outside measurements.
-            longest = max(plan, key=lambda b: max(lengths[i] for i in b))
-            generate(longest, use_cache); torch.cuda.synchronize()
-            runs = []
-            summary_ids = {}
-            for repeat in range(args.repeats):
-                torch.cuda.reset_peak_memory_stats()
-                torch.cuda.synchronize(); start = time.perf_counter()
-                latencies = []; output_tokens = 0
-                for batch in plan:
-                    torch.cuda.synchronize(); batch_start = time.perf_counter()
-                    generated = generate(batch, use_cache)
-                    torch.cuda.synchronize(); latencies.append(time.perf_counter() - batch_start)
-                    output_tokens += sum(map(len, generated))
-                    if repeat == 0:
-                        summary_ids.update({docs[i]["id"]: ids for i, ids in zip(batch, generated)})
-                elapsed = time.perf_counter() - start
-                runs.append({"seconds": elapsed, "documents_per_second": len(docs) / elapsed,
-                             "generated_tokens_per_second": output_tokens / elapsed,
-                             "generated_tokens": output_tokens,
-                             "batch_latency_p50_seconds": statistics.median(latencies),
-                             "batch_latency_p95_seconds": percentile(latencies, .95),
-                             "peak_allocated_bytes": torch.cuda.max_memory_allocated()})
-            summaries = {key: tokenizer.decode(ids, skip_special_tokens=True) for key, ids in summary_ids.items()}
-            results.append({"strategy": strategy, "use_cache": use_cache,
-                            "padding": padding_stats(lengths, plan), "runs": runs,
-                            "summaries": [{"id": d["id"], "summary": summaries[d["id"]]} for d in docs]})
+    with rmsnorm_backend(model, args.rmsnorm_backend) as norm_stats:
+        results = []
+        for strategy in ("arrival", "length"):
+            plan = batches(lengths, args.batch_size, strategy)
+            for use_cache in (False, True):
+                # Warm up full longest batch for each configuration, outside measurements.
+                longest = max(plan, key=lambda b: max(lengths[i] for i in b))
+                generate(longest, use_cache); torch.cuda.synchronize()
+                runs = []
+                summary_ids = {}
+                for repeat in range(args.repeats):
+                    torch.cuda.reset_peak_memory_stats()
+                    torch.cuda.synchronize(); start = time.perf_counter()
+                    latencies = []; output_tokens = 0
+                    for batch in plan:
+                        torch.cuda.synchronize(); batch_start = time.perf_counter()
+                        generated = generate(batch, use_cache)
+                        torch.cuda.synchronize(); latencies.append(time.perf_counter() - batch_start)
+                        output_tokens += sum(map(len, generated))
+                        if repeat == 0:
+                            summary_ids.update({docs[i]["id"]: ids for i, ids in zip(batch, generated)})
+                    elapsed = time.perf_counter() - start
+                    runs.append({"seconds": elapsed, "documents_per_second": len(docs) / elapsed,
+                                 "generated_tokens_per_second": output_tokens / elapsed,
+                                 "generated_tokens": output_tokens,
+                                 "batch_latency_p50_seconds": statistics.median(latencies),
+                                 "batch_latency_p95_seconds": percentile(latencies, .95),
+                                 "peak_allocated_bytes": torch.cuda.max_memory_allocated()})
+                summaries = {key: tokenizer.decode(ids, skip_special_tokens=True) for key, ids in summary_ids.items()}
+                results.append({"strategy": strategy, "use_cache": use_cache,
+                                "padding": padding_stats(lengths, plan), "runs": runs,
+                                "summaries": [{"id": d["id"], "summary": summaries[d["id"]]} for d in docs]})
     report = {"kind": "real_cuda_inference", "model": args.model,
               "resolved_revision": getattr(model.config, "_commit_hash", None),
               "arguments": vars(args), "python": platform.python_version(),
@@ -100,7 +104,7 @@ def main():
               "input_tokens": [{"id": d["id"], "tokens": n} for d, n in zip(docs, lengths)],
               "input_sha256": hashlib.sha256(Path(args.input).read_bytes()).hexdigest(),
               "prompt_sha256": hashlib.sha256(json.dumps(prompt(""), sort_keys=True).encode()).hexdigest(),
-              "results": results}
+              "rmsnorm_dispatch": norm_stats, "results": results}
     output = Path(args.output); output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n")
     print(f"Wrote {output}")
