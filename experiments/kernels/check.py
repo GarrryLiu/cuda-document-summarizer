@@ -34,9 +34,9 @@ def run(output):
     q=torch.randn(1,16,128,device='cuda',dtype=torch.float16)
     k=torch.randn(1,2,513,128,device='cuda',dtype=torch.float16);v=torch.randn_like(k)
     stream=torch.cuda.Stream();stream.wait_stream(torch.cuda.current_stream())
-    for grouped in (False,True):
+    for group in (None,1,2,4,8):
         with torch.cuda.stream(stream):
-            actual=decode_attention(q,k,v,8,grouped=grouped)
+            actual=decode_attention(q,k,v,8,group_size=group)
         torch.cuda.current_stream().wait_stream(stream)
         torch.testing.assert_close(actual.float(),reference(q,k,v),atol=.003,rtol=.02)
     invalid=[(q.float(),k,v,1),(q,k,v,0),(q,k,v,129),
@@ -53,7 +53,11 @@ def run(output):
     try:decode_attention(q[:,:2].contiguous(),k,v,1,grouped=True)
     except RuntimeError as error:assert 'divisible by group size' in str(error)
     else:raise AssertionError('unsupported grouped head ratio accepted')
-    report={'status':'passed','cases':results,'nondefault_stream':'passed','invalid_api_cases':len(invalid)+2,
+    for group in (0,3,16):
+        try:decode_attention(q,k,v,8,group_size=group)
+        except RuntimeError as error:assert 'group size must' in str(error)
+        else:raise AssertionError('invalid group size accepted')
+    report={'status':'passed' ,'cases':results,'nondefault_stream':'passed','invalid_api_cases':len(invalid)+5,
             'tolerance':{'atol':.003,'rtol':.02},'reference':'FP32 PyTorch SDPA math from the identical FP16 input values'}
     Path(output).write_text(json.dumps(report,indent=2)+'\n');print('Correctness passed:',len(results),'cases',flush=True)
 

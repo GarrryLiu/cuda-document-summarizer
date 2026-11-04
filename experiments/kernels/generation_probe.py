@@ -18,6 +18,8 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--input',required=True);p.add_argument('--sweep',required=True);p.add_argument('--output',required=True);a=p.parse_args()
     sweep=json.loads(Path(a.sweep).read_text());assert sweep['status']=='complete'
     assert sweep['gpu']==torch.cuda.get_device_name(), 'Do not reuse tuning from a different GPU'
+    source_sha=hashlib.sha256(Path('src/cuda_summary/kernels/decode_attention.cu').read_bytes()).hexdigest()
+    assert sweep['source_sha256']==source_sha, 'Kernel changed since tuning'
     extension();original=F.scaled_dot_product_attention
     revision='aa8e72537993ba99e69dfaafa59ed015b17504d1'
     tok=AutoTokenizer.from_pretrained('Qwen/Qwen2.5-3B-Instruct',revision=revision)
@@ -26,6 +28,7 @@ def main():
     # New documents, separate from the shortest/median/longest replay validation.
     docs=[docs[len(docs)//4],docs[3*len(docs)//4]]
     report={'status':'running','gpu':torch.cuda.get_device_name(),'model_revision':revision,'runs':[],
+            'source_sha256':source_sha,'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             'production_dispatch_enabled':False,'limitations':'Experimental SDPA interception is process-local and single-threaded; default pipeline unchanged. Technical-summary prompt on legal NDAs. Token hashes compare outputs, not factuality. 32-token bounded generation is not a complete-summary evaluation.'}
     with torch.inference_mode():
         for doc in docs:

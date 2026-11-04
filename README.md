@@ -87,7 +87,12 @@ synthetic input documents as 400 real benchmark documents or 100 reviewed summar
 
 The [decode-attention CUDA source](src/cuda_summary/kernels/decode_attention.cu)
 implements FP16 D128 GQA single-token attention with tiled online softmax,
-split-KV merging, and four-query-head shared KV tiles. See the
+split-KV merging, and configurable 1/2/4/8-query-head shared KV tiles. See the
 [kernel study](docs/cuda-decode-kernel.md) for compiled GPU correctness tests,
 SDPA comparisons, actual Qwen profiling, measured gains and negative results.
 This experimental operator is not enabled in the summarization pipeline.
+
+The [GQA group-size study](docs/gqa-group-sweep.md) sweeps group/split choices,
+replays real Qwen attention inputs from legal documents, and compares bounded
+generation against SDPA. It distinguishes custom-kernel improvements from
+product speedups and records negative results.
