@@ -91,3 +91,11 @@ split-KV merging, and four-query-head shared KV tiles. See the
 [kernel study](docs/cuda-decode-kernel.md) for compiled GPU correctness tests,
 SDPA comparisons, actual Qwen profiling, measured gains and negative results.
 This experimental operator is not enabled in the summarization pipeline.
+
+## Long legal-document profiling
+
+The [legal inference study](docs/legal-inference-profile.md) measures native Qwen
+prefill and decode on intact CUAD contracts near 4K–24K tokens. It records separate
+wall timings and CUDA activity profiles, and tests dynamic versus preallocated
+KV cache before choosing the next custom-kernel target. These bounded research
+runs do not establish complete-summary quality or change production defaults.
