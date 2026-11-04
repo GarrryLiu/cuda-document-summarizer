@@ -117,10 +117,11 @@ cache policy and decode norms were not replaced. Only this A6000, two intact
 contracts and the tested batch sizes are covered; other shapes/GPUs need their
 own validation. No Nsight hardware bandwidth or occupancy counters are claimed.
 
-The implementation and experimental integration are complete. Production defaults
-remain native; the kernel can be invoked explicitly through
-`cuda_summary.rmsnorm.fused_rmsnorm`. Before broad enablement, test held-out
-contracts with complete summaries and retain the compiled baseline in comparisons.
+The kernel and opt-in integration are implemented. Defaults remain native; use
+`cuda_summary.rmsnorm.fused_rmsnorm` for direct calls or the model context manager
+and CLI flag described in the [held-out study](rmsnorm-holdout.md). That follow-up
+separately checks longer generation, EOS/cap completion, source-grounded output
+differences and the compiled baseline before considering broader enablement.
 
 Raw rounds, output hashes, source hashes, GPU tests and environment versions:
 [`experiments/kernels/rmsnorm-results`](../experiments/kernels/rmsnorm-results).

@@ -112,3 +112,8 @@ it does not patch the summarization pipeline.
 The [held-out generation study](docs/rmsnorm-holdout.md) documents the optional
 `--rmsnorm-backend native|compiled|cuda` integration, safe fallback conditions,
 and EOS/cap-aware comparisons on eight contracts excluded from earlier tuning.
+On eight held-out A6000 contracts, CUDA prefill time fell 5.80–9.16%, but
+whole-generation median time did not consistently improve (aggregate +0.85%).
+Longer outputs exposed meaningful wording changes; seven contracts reached EOS
+within a 2048-token ceiling and one remained capped. Defaults remain native.
+See the study for all 102 measured generations and source-grounded case findings.

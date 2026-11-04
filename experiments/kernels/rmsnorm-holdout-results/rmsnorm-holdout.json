@@ -1,0 +1,1184 @@
+{
+  "status": "complete",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX A6000",
+  "input_sha256": "bb4f4b32f9824320e68c8a6f6c3a98e2b100a98e7a981547e40d8b41f316377e",
+  "prompt_sha256": "89b22b7a3a2023181d124e12415afdce6a2d53eb4884355becc0f8827f1c96b9",
+  "script_sha256": "578e8bce24721dfec21dcc9c975c8e1e3c844c16a78e6945a8d9915f87f18b1d",
+  "integration_sha256": "0a337655f04b68b88b04d3216a6d38711554014ed4a009840d6e2aad7307e215",
+  "excluded_ids": [
+    "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+    "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+    "EMERALDHEALTHTHERAPEUTICSINC_06_10_2020-EX-4.5-CONSULTING AGREEMENT - DR. GAETANO MORELLO N.D. INC.",
+    "VAPOTHERM, INC. - Manufacturing and Supply Agreement"
+  ],
+  "max_new_tokens": 512,
+  "repeats": 3,
+  "batch": 1,
+  "selection": "First two SHA256(holdout-v1:id) in each fixed length bin; excludes all four prior profiling contracts. No outcome-based selection.",
+  "limitations": "Held out from this project tuning only, not model pretraining. B1, greedy FP16 SDPA dynamic cache. EOS or cap, no truncation. No expert factuality labels. Timings exclude compilation and tokenization; include generate CPU orchestration. First-forward CUDA event measures prefill only. Raw summaries in private packet.",
+  "manifest": [
+    {
+      "id": "NOVOINTEGRATEDSCIENCES,INC_12_23_2019-EX-10.1-JOINT VENTURE AGREEMENT",
+      "text_sha256": "ed8ec45674420e7e9d118f9141a3d0ad67b283c76ff1e2a703d339f731d65c2b",
+      "prompt_tokens": 4748
+    },
+    {
+      "id": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+      "text_sha256": "de64f561a87663b8a6fb9d4be477fd0c0eba01695499870e754f108474440e8d",
+      "prompt_tokens": 3683
+    },
+    {
+      "id": "Columbia Laboratories, (Bermuda) Ltd. - AMEND NO. 2 TO MANUFACTURING AND SUPPLY AGREEMENT",
+      "text_sha256": "17bea1f531d30d456d2df5787dfdf6a44723e822e397b5ad841c4f39cdfca4ef",
+      "prompt_tokens": 9901
+    },
+    {
+      "id": "USASYNTHETICFUELCORP_10_21_2010-EX-10.10-STRATEGIC ALLIANCE AGREEMENT",
+      "text_sha256": "0fb8cd828f5c763b777f5eb8d80e5f92c46dbcd65a1cc5b3b911aae1c4ab9974",
+      "prompt_tokens": 11099
+    },
+    {
+      "id": "SUCAMPOPHARMACEUTICALS,INC_11_04_2015-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+      "text_sha256": "83c8a5b6a0ee219c184a90eaffec0cf930e7ed80e4f12ce342714bc745115934",
+      "prompt_tokens": 13402
+    },
+    {
+      "id": "HEMISPHERX - Sales, Marketing, Distribution, and Supply Agreement",
+      "text_sha256": "871238d0e146f01c49d2cccba73c8b8cbaee1d6e5181cdae8d241d0c897200d2",
+      "prompt_tokens": 16133
+    },
+    {
+      "id": "AFSALABANCORPINC_08_01_1996-EX-1.1-AGENCY AGREEMENT",
+      "text_sha256": "ba14c927c1ceb18f63958108bc80a98fb5de63a2071808f5873dfa9940109da9",
+      "prompt_tokens": 26506
+    },
+    {
+      "id": "TRICITYBANKSHARESCORP_05_15_1998-EX-10-OUTSOURCING AGREEMENT",
+      "text_sha256": "5ace7a03650252f3f2a08d44b3bf4c689d6b9e1bc62a90a455a23bcb4e484b02",
+      "prompt_tokens": 22059
+    }
+  ],
+  "results": [
+    {
+      "id": "NOVOINTEGRATEDSCIENCES,INC_12_23_2019-EX-10.1-JOINT VENTURE AGREEMENT",
+      "prompt_tokens": 4748,
+      "runs": {
+        "native": [
+          {
+            "seconds": 10.625675528077409,
+            "prefill_gpu_ms": 349.7635803222656,
+            "generated_tokens": 427,
+            "tokens_per_second": 40.18568032420059,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          },
+          {
+            "seconds": 10.673986139008775,
+            "prefill_gpu_ms": 352.89599609375,
+            "generated_tokens": 427,
+            "tokens_per_second": 40.00379937158629,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          },
+          {
+            "seconds": 10.673310031997971,
+            "prefill_gpu_ms": 355.4652099609375,
+            "generated_tokens": 427,
+            "tokens_per_second": 40.006333435445846,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 10.722537594032474,
+            "prefill_gpu_ms": 319.2626647949219,
+            "generated_tokens": 427,
+            "tokens_per_second": 39.82266289629451,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          },
+          {
+            "seconds": 10.645962318987586,
+            "prefill_gpu_ms": 323.52154541015625,
+            "generated_tokens": 427,
+            "tokens_per_second": 40.1091030764241,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          },
+          {
+            "seconds": 10.75119064701721,
+            "prefill_gpu_ms": 323.9690246582031,
+            "generated_tokens": 427,
+            "tokens_per_second": 39.716531314461065,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 10.694368354044855,
+            "prefill_gpu_ms": 320.7802734375,
+            "generated_tokens": 427,
+            "tokens_per_second": 39.927556809701514,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          },
+          {
+            "seconds": 10.752339180908166,
+            "prefill_gpu_ms": 322.1717529296875,
+            "generated_tokens": 427,
+            "tokens_per_second": 39.71228890901995,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          },
+          {
+            "seconds": 10.716491810977459,
+            "prefill_gpu_ms": 324.08148193359375,
+            "generated_tokens": 427,
+            "tokens_per_second": 39.845129127295344,
+            "peak_bytes": 6867183616,
+            "ended_with_eos": true,
+            "cap_hit": false,
+            "output_sha256": "06296a81993370123237a5f90ade28e9fba6d05f5e9e1c038c585ee47032cf9d"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 10.673310031997971,
+          "prefill_gpu_ms": 352.89599609375,
+          "generated_tokens": 427,
+          "tokens_per_second": 40.006333435445846,
+          "peak_bytes": 6867183616
+        },
+        "compiled": {
+          "seconds": 10.722537594032474,
+          "prefill_gpu_ms": 323.52154541015625,
+          "generated_tokens": 427,
+          "tokens_per_second": 39.82266289629451,
+          "peak_bytes": 6867183616
+        },
+        "cuda": {
+          "seconds": 10.716491810977459,
+          "prefill_gpu_ms": 322.1717529296875,
+          "generated_tokens": 427,
+          "tokens_per_second": 39.845129127295344,
+          "peak_bytes": 6867183616
+        }
+      }
+    },
+    {
+      "id": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+      "prompt_tokens": 3683,
+      "runs": {
+        "native": [
+          {
+            "seconds": 12.72524664294906,
+            "prefill_gpu_ms": 258.29376220703125,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.23497652862347,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          },
+          {
+            "seconds": 12.550585189950652,
+            "prefill_gpu_ms": 258.7238464355469,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.79491053612084,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          },
+          {
+            "seconds": 12.777330936980434,
+            "prefill_gpu_ms": 260.7605895996094,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.07096650507488,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 12.633527163998224,
+            "prefill_gpu_ms": 235.5036163330078,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.527082686697895,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          },
+          {
+            "seconds": 12.684026039903983,
+            "prefill_gpu_ms": 235.42886352539062,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.36573233051134,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          },
+          {
+            "seconds": 12.663120919954963,
+            "prefill_gpu_ms": 235.36537170410156,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.43237075886826,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 13.016500615980476,
+            "prefill_gpu_ms": 234.72128295898438,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.33468872358927,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          },
+          {
+            "seconds": 12.985423534992151,
+            "prefill_gpu_ms": 235.0212860107422,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.428825607443656,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          },
+          {
+            "seconds": 12.623758995090611,
+            "prefill_gpu_ms": 235.2967071533203,
+            "generated_tokens": 512,
+            "tokens_per_second": 40.55844223571736,
+            "peak_bytes": 6752485888,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "6c67dd2ccbb17ec7c994c51f6a93f0538cb67fd5133773fa057e2660ad3527cf"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 12.72524664294906,
+          "prefill_gpu_ms": 258.7238464355469,
+          "generated_tokens": 512,
+          "tokens_per_second": 40.23497652862347,
+          "peak_bytes": 6752485888
+        },
+        "compiled": {
+          "seconds": 12.663120919954963,
+          "prefill_gpu_ms": 235.42886352539062,
+          "generated_tokens": 512,
+          "tokens_per_second": 40.43237075886826,
+          "peak_bytes": 6752485888
+        },
+        "cuda": {
+          "seconds": 12.985423534992151,
+          "prefill_gpu_ms": 235.0212860107422,
+          "generated_tokens": 512,
+          "tokens_per_second": 39.428825607443656,
+          "peak_bytes": 6752485888
+        }
+      }
+    },
+    {
+      "id": "Columbia Laboratories, (Bermuda) Ltd. - AMEND NO. 2 TO MANUFACTURING AND SUPPLY AGREEMENT",
+      "prompt_tokens": 9901,
+      "runs": {
+        "native": [
+          {
+            "seconds": 13.114255288965069,
+            "prefill_gpu_ms": 784.5752563476562,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.04148491228626,
+            "peak_bytes": 7484230144,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "ebd5a10770485f51d9d01e9ad7f8baac6199881bca157fe5c962d338f2710261"
+          },
+          {
+            "seconds": 13.018874370027333,
+            "prefill_gpu_ms": 783.193115234375,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.32751676126091,
+            "peak_bytes": 7484230144,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "ebd5a10770485f51d9d01e9ad7f8baac6199881bca157fe5c962d338f2710261"
+          },
+          {
+            "seconds": 13.057618567021564,
+            "prefill_gpu_ms": 784.9307861328125,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.21082526434887,
+            "peak_bytes": 7484230144,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "ebd5a10770485f51d9d01e9ad7f8baac6199881bca157fe5c962d338f2710261"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 13.058879245072603,
+            "prefill_gpu_ms": 722.830322265625,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.20703992980015,
+            "peak_bytes": 7483550208,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e61ebdbdf698ae1081e396f7a02a74f41f4a7d53f46949457ee5caf533767499"
+          },
+          {
+            "seconds": 13.090731645002961,
+            "prefill_gpu_ms": 722.1964721679688,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.11164126532549,
+            "peak_bytes": 7483550208,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e61ebdbdf698ae1081e396f7a02a74f41f4a7d53f46949457ee5caf533767499"
+          },
+          {
+            "seconds": 13.08619305503089,
+            "prefill_gpu_ms": 719.383544921875,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.1252060738295,
+            "peak_bytes": 7483550208,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e61ebdbdf698ae1081e396f7a02a74f41f4a7d53f46949457ee5caf533767499"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 13.069756828946993,
+            "prefill_gpu_ms": 722.428955078125,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.17440903460565,
+            "peak_bytes": 7483550208,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "ebd5a10770485f51d9d01e9ad7f8baac6199881bca157fe5c962d338f2710261"
+          },
+          {
+            "seconds": 13.120137305930257,
+            "prefill_gpu_ms": 719.7655029296875,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.023981842673074,
+            "peak_bytes": 7483550208,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "ebd5a10770485f51d9d01e9ad7f8baac6199881bca157fe5c962d338f2710261"
+          },
+          {
+            "seconds": 13.089925589039922,
+            "prefill_gpu_ms": 722.7105102539062,
+            "generated_tokens": 512,
+            "tokens_per_second": 39.11404969549201,
+            "peak_bytes": 7483550208,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "ebd5a10770485f51d9d01e9ad7f8baac6199881bca157fe5c962d338f2710261"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          false,
+          false,
+          false
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 13.057618567021564,
+          "prefill_gpu_ms": 784.5752563476562,
+          "generated_tokens": 512,
+          "tokens_per_second": 39.21082526434887,
+          "peak_bytes": 7484230144
+        },
+        "compiled": {
+          "seconds": 13.08619305503089,
+          "prefill_gpu_ms": 722.1964721679688,
+          "generated_tokens": 512,
+          "tokens_per_second": 39.1252060738295,
+          "peak_bytes": 7483550208
+        },
+        "cuda": {
+          "seconds": 13.089925589039922,
+          "prefill_gpu_ms": 722.428955078125,
+          "generated_tokens": 512,
+          "tokens_per_second": 39.11404969549201,
+          "peak_bytes": 7483550208
+        }
+      }
+    },
+    {
+      "id": "USASYNTHETICFUELCORP_10_21_2010-EX-10.10-STRATEGIC ALLIANCE AGREEMENT",
+      "prompt_tokens": 11099,
+      "runs": {
+        "native": [
+          {
+            "seconds": 13.217268525972031,
+            "prefill_gpu_ms": 950.4000244140625,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.73720194107551,
+            "peak_bytes": 7629761536,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          },
+          {
+            "seconds": 13.197484245989472,
+            "prefill_gpu_ms": 949.9576416015625,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.7952726790024,
+            "peak_bytes": 7629761536,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          },
+          {
+            "seconds": 13.197155606001616,
+            "prefill_gpu_ms": 949.61962890625,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.79623877187292,
+            "peak_bytes": 7629761536,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 13.209006242919713,
+            "prefill_gpu_ms": 876.5706176757812,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.7614322064873,
+            "peak_bytes": 7630772736,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          },
+          {
+            "seconds": 13.273215226014145,
+            "prefill_gpu_ms": 878.8070678710938,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.57392434928143,
+            "peak_bytes": 7630772736,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          },
+          {
+            "seconds": 13.284549526986666,
+            "prefill_gpu_ms": 878.455810546875,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.54101329969124,
+            "peak_bytes": 7630772736,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 13.274129641940817,
+            "prefill_gpu_ms": 874.7622680664062,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.5712671045708,
+            "peak_bytes": 7630772736,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          },
+          {
+            "seconds": 13.231182459974661,
+            "prefill_gpu_ms": 877.7830200195312,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.69646583355941,
+            "peak_bytes": 7630772736,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          },
+          {
+            "seconds": 13.27821691997815,
+            "prefill_gpu_ms": 877.370361328125,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.55939416305623,
+            "peak_bytes": 7630772736,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "e713facfd579e2e2d5d82a99b4bb8839b2c5ef4ce0807dbd0e91b2eeb1745dd1"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 13.197484245989472,
+          "prefill_gpu_ms": 949.9576416015625,
+          "generated_tokens": 512,
+          "tokens_per_second": 38.7952726790024,
+          "peak_bytes": 7629761536
+        },
+        "compiled": {
+          "seconds": 13.273215226014145,
+          "prefill_gpu_ms": 878.455810546875,
+          "generated_tokens": 512,
+          "tokens_per_second": 38.57392434928143,
+          "peak_bytes": 7630772736
+        },
+        "cuda": {
+          "seconds": 13.274129641940817,
+          "prefill_gpu_ms": 877.370361328125,
+          "generated_tokens": 512,
+          "tokens_per_second": 38.5712671045708,
+          "peak_bytes": 7630772736
+        }
+      }
+    },
+    {
+      "id": "SUCAMPOPHARMACEUTICALS,INC_11_04_2015-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+      "prompt_tokens": 13402,
+      "runs": {
+        "native": [
+          {
+            "seconds": 13.43329564994201,
+            "prefill_gpu_ms": 1126.5350341796875,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.11425083927266,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          },
+          {
+            "seconds": 13.442360304994509,
+            "prefill_gpu_ms": 1126.4122314453125,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.08854906305155,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          },
+          {
+            "seconds": 13.436496003065258,
+            "prefill_gpu_ms": 1127.5345458984375,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.105172649416765,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 13.395002900040708,
+            "prefill_gpu_ms": 1046.9334716796875,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.22320934312332,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          },
+          {
+            "seconds": 13.454103866009973,
+            "prefill_gpu_ms": 1044.125732421875,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.05530305838509,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          },
+          {
+            "seconds": 13.467135551036336,
+            "prefill_gpu_ms": 1044.2188720703125,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.018478247261726,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 13.41984233004041,
+            "prefill_gpu_ms": 1045.57666015625,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.152460171151525,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          },
+          {
+            "seconds": 13.480792246991768,
+            "prefill_gpu_ms": 1043.8970947265625,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.979963686055065,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          },
+          {
+            "seconds": 13.462509704986587,
+            "prefill_gpu_ms": 1044.6876220703125,
+            "generated_tokens": 512,
+            "tokens_per_second": 38.0315417570583,
+            "peak_bytes": 7904145920,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "4264e16589f07c4558fad8fc5000fa56208fbcc798bf2236e2eda55e810df6e8"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 13.436496003065258,
+          "prefill_gpu_ms": 1126.5350341796875,
+          "generated_tokens": 512,
+          "tokens_per_second": 38.105172649416765,
+          "peak_bytes": 7904145920
+        },
+        "compiled": {
+          "seconds": 13.454103866009973,
+          "prefill_gpu_ms": 1044.2188720703125,
+          "generated_tokens": 512,
+          "tokens_per_second": 38.05530305838509,
+          "peak_bytes": 7904145920
+        },
+        "cuda": {
+          "seconds": 13.462509704986587,
+          "prefill_gpu_ms": 1044.6876220703125,
+          "generated_tokens": 512,
+          "tokens_per_second": 38.0315417570583,
+          "peak_bytes": 7904145920
+        }
+      }
+    },
+    {
+      "id": "HEMISPHERX - Sales, Marketing, Distribution, and Supply Agreement",
+      "prompt_tokens": 16133,
+      "runs": {
+        "native": [
+          {
+            "seconds": 13.722379019018263,
+            "prefill_gpu_ms": 1433.841552734375,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.31131455343156,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "56ee48f9c6e7520372b4df8f9eaeae7c396abb7e4a9e522b87cecafc38c7197e"
+          },
+          {
+            "seconds": 13.71870989096351,
+            "prefill_gpu_ms": 1434.0648193359375,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.321293625230275,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "56ee48f9c6e7520372b4df8f9eaeae7c396abb7e4a9e522b87cecafc38c7197e"
+          },
+          {
+            "seconds": 13.858762411982752,
+            "prefill_gpu_ms": 1434.9957275390625,
+            "generated_tokens": 512,
+            "tokens_per_second": 36.94413575899877,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "56ee48f9c6e7520372b4df8f9eaeae7c396abb7e4a9e522b87cecafc38c7197e"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 13.66467659000773,
+            "prefill_gpu_ms": 1338.8983154296875,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.46887067743697,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "56ee48f9c6e7520372b4df8f9eaeae7c396abb7e4a9e522b87cecafc38c7197e"
+          },
+          {
+            "seconds": 13.709651882993057,
+            "prefill_gpu_ms": 1337.0399169921875,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.34595191546333,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "56ee48f9c6e7520372b4df8f9eaeae7c396abb7e4a9e522b87cecafc38c7197e"
+          },
+          {
+            "seconds": 13.720788354985416,
+            "prefill_gpu_ms": 1337.0439453125,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.31564008958465,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "56ee48f9c6e7520372b4df8f9eaeae7c396abb7e4a9e522b87cecafc38c7197e"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 13.696756951976568,
+            "prefill_gpu_ms": 1335.7066650390625,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.381111586864634,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "8f02effe60d7000d9b8414a4ea1c8174fbd0f6c9490f8eb8216b01c9a912e437"
+          },
+          {
+            "seconds": 13.727269054972567,
+            "prefill_gpu_ms": 1335.486328125,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.29802322294638,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "8f02effe60d7000d9b8414a4ea1c8174fbd0f6c9490f8eb8216b01c9a912e437"
+          },
+          {
+            "seconds": 13.72335037891753,
+            "prefill_gpu_ms": 1336.3271484375,
+            "generated_tokens": 512,
+            "tokens_per_second": 37.30867360105874,
+            "peak_bytes": 8229864960,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "8f02effe60d7000d9b8414a4ea1c8174fbd0f6c9490f8eb8216b01c9a912e437"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          false,
+          false,
+          false
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 13.722379019018263,
+          "prefill_gpu_ms": 1434.0648193359375,
+          "generated_tokens": 512,
+          "tokens_per_second": 37.31131455343156,
+          "peak_bytes": 8229864960
+        },
+        "compiled": {
+          "seconds": 13.709651882993057,
+          "prefill_gpu_ms": 1337.0439453125,
+          "generated_tokens": 512,
+          "tokens_per_second": 37.34595191546333,
+          "peak_bytes": 8229864960
+        },
+        "cuda": {
+          "seconds": 13.72335037891753,
+          "prefill_gpu_ms": 1335.7066650390625,
+          "generated_tokens": 512,
+          "tokens_per_second": 37.30867360105874,
+          "peak_bytes": 8229864960
+        }
+      }
+    },
+    {
+      "id": "AFSALABANCORPINC_08_01_1996-EX-1.1-AGENCY AGREEMENT",
+      "prompt_tokens": 26506,
+      "runs": {
+        "native": [
+          {
+            "seconds": 15.065859715919942,
+            "prefill_gpu_ms": 2818.471923828125,
+            "generated_tokens": 512,
+            "tokens_per_second": 33.984121029547005,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "757bdf8eb0a8307eed86bc921c5542cc9128eb13897cb7d3878fa7430e7d6e8a"
+          },
+          {
+            "seconds": 15.221758187981322,
+            "prefill_gpu_ms": 2816.955322265625,
+            "generated_tokens": 512,
+            "tokens_per_second": 33.63606185810132,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "757bdf8eb0a8307eed86bc921c5542cc9128eb13897cb7d3878fa7430e7d6e8a"
+          },
+          {
+            "seconds": 15.073885245015845,
+            "prefill_gpu_ms": 2816.449462890625,
+            "generated_tokens": 512,
+            "tokens_per_second": 33.96602744931284,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "757bdf8eb0a8307eed86bc921c5542cc9128eb13897cb7d3878fa7430e7d6e8a"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 14.9993830450112,
+            "prefill_gpu_ms": 2654.804931640625,
+            "generated_tokens": 512,
+            "tokens_per_second": 34.134737306431504,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "757bdf8eb0a8307eed86bc921c5542cc9128eb13897cb7d3878fa7430e7d6e8a"
+          },
+          {
+            "seconds": 15.30335310800001,
+            "prefill_gpu_ms": 2654.739501953125,
+            "generated_tokens": 512,
+            "tokens_per_second": 33.456720000294965,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "757bdf8eb0a8307eed86bc921c5542cc9128eb13897cb7d3878fa7430e7d6e8a"
+          },
+          {
+            "seconds": 15.076909034978598,
+            "prefill_gpu_ms": 2656.2333984375,
+            "generated_tokens": 512,
+            "tokens_per_second": 33.95921530150207,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "757bdf8eb0a8307eed86bc921c5542cc9128eb13897cb7d3878fa7430e7d6e8a"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 15.739686862099916,
+            "prefill_gpu_ms": 2656.6982421875,
+            "generated_tokens": 512,
+            "tokens_per_second": 32.529236730424465,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "3b985c019b7be744dd0deae35e5128062947e348f329cc9cf02d17a7ef245a84"
+          },
+          {
+            "seconds": 15.546021809917875,
+            "prefill_gpu_ms": 2653.536376953125,
+            "generated_tokens": 512,
+            "tokens_per_second": 32.93447071284565,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "3b985c019b7be744dd0deae35e5128062947e348f329cc9cf02d17a7ef245a84"
+          },
+          {
+            "seconds": 15.311839731992222,
+            "prefill_gpu_ms": 2653.533203125,
+            "generated_tokens": 512,
+            "tokens_per_second": 33.4381765327806,
+            "peak_bytes": 9473763328,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "3b985c019b7be744dd0deae35e5128062947e348f329cc9cf02d17a7ef245a84"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          false,
+          false,
+          false
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 15.073885245015845,
+          "prefill_gpu_ms": 2816.955322265625,
+          "generated_tokens": 512,
+          "tokens_per_second": 33.96602744931284,
+          "peak_bytes": 9473763328
+        },
+        "compiled": {
+          "seconds": 15.076909034978598,
+          "prefill_gpu_ms": 2654.804931640625,
+          "generated_tokens": 512,
+          "tokens_per_second": 33.95921530150207,
+          "peak_bytes": 9473763328
+        },
+        "cuda": {
+          "seconds": 15.546021809917875,
+          "prefill_gpu_ms": 2653.536376953125,
+          "generated_tokens": 512,
+          "tokens_per_second": 32.93447071284565,
+          "peak_bytes": 9473763328
+        }
+      }
+    },
+    {
+      "id": "TRICITYBANKSHARESCORP_05_15_1998-EX-10-OUTSOURCING AGREEMENT",
+      "prompt_tokens": 22059,
+      "runs": {
+        "native": [
+          {
+            "seconds": 14.62833623192273,
+            "prefill_gpu_ms": 2170.86865234375,
+            "generated_tokens": 512,
+            "tokens_per_second": 35.00056273540435,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          },
+          {
+            "seconds": 14.657025445019826,
+            "prefill_gpu_ms": 2173.15625,
+            "generated_tokens": 512,
+            "tokens_per_second": 34.932053704932855,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          },
+          {
+            "seconds": 14.634432464954443,
+            "prefill_gpu_ms": 2164.136962890625,
+            "generated_tokens": 512,
+            "tokens_per_second": 34.98598262871507,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          }
+        ],
+        "compiled": [
+          {
+            "seconds": 14.597647220012732,
+            "prefill_gpu_ms": 2043.0499267578125,
+            "generated_tokens": 512,
+            "tokens_per_second": 35.074145325150106,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          },
+          {
+            "seconds": 14.739550878060982,
+            "prefill_gpu_ms": 2040.3056640625,
+            "generated_tokens": 512,
+            "tokens_per_second": 34.736472246388736,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          },
+          {
+            "seconds": 14.662077940069139,
+            "prefill_gpu_ms": 2037.9637451171875,
+            "generated_tokens": 512,
+            "tokens_per_second": 34.92001625504834,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          }
+        ],
+        "cuda": [
+          {
+            "seconds": 14.45259622996673,
+            "prefill_gpu_ms": 2041.1668701171875,
+            "generated_tokens": 512,
+            "tokens_per_second": 35.426160936980565,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          },
+          {
+            "seconds": 14.663564333110116,
+            "prefill_gpu_ms": 2041.3173828125,
+            "generated_tokens": 512,
+            "tokens_per_second": 34.91647653796638,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          },
+          {
+            "seconds": 14.62407954398077,
+            "prefill_gpu_ms": 2036.5496826171875,
+            "generated_tokens": 512,
+            "tokens_per_second": 35.01075048588188,
+            "peak_bytes": 8941451776,
+            "ended_with_eos": false,
+            "cap_hit": true,
+            "output_sha256": "208ceb5d6829b423ed54a68815b6cdcf3d654139085ff304edab6e90a969a809"
+          }
+        ]
+      },
+      "paired_token_equal": {
+        "compiled": [
+          true,
+          true,
+          true
+        ],
+        "cuda": [
+          true,
+          true,
+          true
+        ]
+      },
+      "median": {
+        "native": {
+          "seconds": 14.634432464954443,
+          "prefill_gpu_ms": 2170.86865234375,
+          "generated_tokens": 512,
+          "tokens_per_second": 34.98598262871507,
+          "peak_bytes": 8941451776
+        },
+        "compiled": {
+          "seconds": 14.662077940069139,
+          "prefill_gpu_ms": 2040.3056640625,
+          "generated_tokens": 512,
+          "tokens_per_second": 34.92001625504834,
+          "peak_bytes": 8941451776
+        },
+        "cuda": {
+          "seconds": 14.62407954398077,
+          "prefill_gpu_ms": 2041.1668701171875,
+          "generated_tokens": 512,
+          "tokens_per_second": 35.01075048588188,
+          "peak_bytes": 8941451776
+        }
+      }
+    }
+  ],
+  "dispatch_including_warmup": {
+    "native": {
+      "backend": "native",
+      "modules": 0,
+      "replaced": 0,
+      "fallback": 0
+    },
+    "compiled": {
+      "backend": "compiled",
+      "modules": 73,
+      "replaced": 2336,
+      "fallback": 877241
+    },
+    "cuda": {
+      "backend": "cuda",
+      "modules": 73,
+      "replaced": 2336,
+      "fallback": 877241
+    }
+  }
+}

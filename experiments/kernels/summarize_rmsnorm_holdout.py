@@ -31,9 +31,14 @@ def render(report):
         total_m = sum(row['median'][mode]['seconds'] for row in rows)
         lines.append(f"- {mode} vs native: {sum(paired)}/{len(paired)} token-identical pairs; "
                      f"sum of per-document median generation times changes by {100*(total_m/total_n-1):+.2f}%.")
-    lines += ['', 'Output-length differences make aggregate wall-time changes unequal-work comparisons. '
-              'Prefill uses the same source tokens; token throughput is recorded separately. '
-              'EOS, token identity and timing do not certify legal factuality.', '']
+    equal_lengths = all(
+        len({row['runs'][mode][i]['generated_tokens'] for mode in ('native', 'compiled', 'cuda')}) == 1
+        for row in rows for i in range(report['repeats']))
+    length_note = ('All methods generated the same token count in each paired round, '
+                   'although token identities can differ.' if equal_lengths else
+                   'Output-length differences make aggregate wall-time changes unequal-work comparisons.')
+    lines += ['', length_note + ' Prefill uses the same source tokens; token throughput '
+              'is recorded separately. EOS, token identity and timing do not certify legal factuality.', '']
     return '\n'.join(lines)
 
 
