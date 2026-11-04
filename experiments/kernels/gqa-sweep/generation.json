@@ -1,0 +1,279 @@
+{
+  "status": "complete",
+  "gpu": "NVIDIA RTX A6000",
+  "model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "runs": [
+    {
+      "document_id": "152",
+      "batch": 1,
+      "prompt_tokens": 1401,
+      "config": "g8_s64",
+      "seconds": {
+        "sdpa": [
+          0.8508538859896362,
+          0.8782400359632447,
+          0.84075571608264
+        ],
+        "custom": [
+          0.8708300569560379,
+          0.854103792924434,
+          0.8475392690161243
+        ]
+      },
+      "median_seconds": {
+        "sdpa": 0.8508538859896362,
+        "custom": 0.854103792924434
+      },
+      "peak_allocated_bytes": {
+        "sdpa": [
+          6463939072,
+          6463939072,
+          6463939072
+        ],
+        "custom": [
+          6463939072,
+          6463939072,
+          6463939072
+        ]
+      },
+      "output_token_sha256": {
+        "sdpa": [
+          "b6568133aea320db46f39d26bcf11ae2fc0207cc6b90c14ac786959c1ccb2534",
+          "b6568133aea320db46f39d26bcf11ae2fc0207cc6b90c14ac786959c1ccb2534",
+          "b6568133aea320db46f39d26bcf11ae2fc0207cc6b90c14ac786959c1ccb2534"
+        ],
+        "custom": [
+          "b6568133aea320db46f39d26bcf11ae2fc0207cc6b90c14ac786959c1ccb2534",
+          "b6568133aea320db46f39d26bcf11ae2fc0207cc6b90c14ac786959c1ccb2534",
+          "b6568133aea320db46f39d26bcf11ae2fc0207cc6b90c14ac786959c1ccb2534"
+        ]
+      },
+      "output_tokens": {
+        "sdpa": [
+          32,
+          32,
+          32
+        ],
+        "custom": [
+          32,
+          32,
+          32
+        ]
+      },
+      "paired_outputs_identical": [
+        true,
+        true,
+        true
+      ],
+      "calls_including_warmup": {
+        "custom": 4464,
+        "fallback": 144
+      }
+    },
+    {
+      "document_id": "152",
+      "batch": 4,
+      "prompt_tokens": 1401,
+      "config": "g4_s64",
+      "seconds": {
+        "sdpa": [
+          1.14216025499627,
+          1.1718047199537978,
+          1.1379258839879185
+        ],
+        "custom": [
+          1.133532505016774,
+          1.15260299295187,
+          1.1439595730043948
+        ]
+      },
+      "median_seconds": {
+        "sdpa": 1.14216025499627,
+        "custom": 1.1439595730043948
+      },
+      "peak_allocated_bytes": {
+        "sdpa": [
+          6968854016,
+          6968854016,
+          6968854016
+        ],
+        "custom": [
+          6968854016,
+          6968854016,
+          6968854016
+        ]
+      },
+      "output_token_sha256": {
+        "sdpa": [
+          "90b4d47c5a5cc1950fbb7fb8d1dd981cb8d9b4cf80607345bc49184bd2c178fb",
+          "90b4d47c5a5cc1950fbb7fb8d1dd981cb8d9b4cf80607345bc49184bd2c178fb",
+          "90b4d47c5a5cc1950fbb7fb8d1dd981cb8d9b4cf80607345bc49184bd2c178fb"
+        ],
+        "custom": [
+          "90b4d47c5a5cc1950fbb7fb8d1dd981cb8d9b4cf80607345bc49184bd2c178fb",
+          "90b4d47c5a5cc1950fbb7fb8d1dd981cb8d9b4cf80607345bc49184bd2c178fb",
+          "90b4d47c5a5cc1950fbb7fb8d1dd981cb8d9b4cf80607345bc49184bd2c178fb"
+        ]
+      },
+      "output_tokens": {
+        "sdpa": [
+          32,
+          32,
+          32
+        ],
+        "custom": [
+          32,
+          32,
+          32
+        ]
+      },
+      "paired_outputs_identical": [
+        true,
+        true,
+        true
+      ],
+      "calls_including_warmup": {
+        "custom": 4464,
+        "fallback": 144
+      }
+    },
+    {
+      "document_id": "32",
+      "batch": 1,
+      "prompt_tokens": 2889,
+      "config": "g8_s64",
+      "seconds": {
+        "sdpa": [
+          0.9629176090238616,
+          0.974820327013731,
+          0.9563966849818826
+        ],
+        "custom": [
+          0.9588467280846089,
+          0.9854411829728633,
+          0.9606851249700412
+        ]
+      },
+      "median_seconds": {
+        "sdpa": 0.9629176090238616,
+        "custom": 0.9606851249700412
+      },
+      "peak_allocated_bytes": {
+        "sdpa": [
+          6641210368,
+          6641210368,
+          6641210368
+        ],
+        "custom": [
+          6641210368,
+          6641210368,
+          6641210368
+        ]
+      },
+      "output_token_sha256": {
+        "sdpa": [
+          "db6ae109d143349004b8c0f2340b5310da401d41f92ea34c59ca68df8f202715",
+          "db6ae109d143349004b8c0f2340b5310da401d41f92ea34c59ca68df8f202715",
+          "db6ae109d143349004b8c0f2340b5310da401d41f92ea34c59ca68df8f202715"
+        ],
+        "custom": [
+          "90a9d670cb279cbe8c6dd912458e548d6c6504eb234958ccc3859195bdef4915",
+          "90a9d670cb279cbe8c6dd912458e548d6c6504eb234958ccc3859195bdef4915",
+          "90a9d670cb279cbe8c6dd912458e548d6c6504eb234958ccc3859195bdef4915"
+        ]
+      },
+      "output_tokens": {
+        "sdpa": [
+          32,
+          32,
+          32
+        ],
+        "custom": [
+          32,
+          32,
+          32
+        ]
+      },
+      "paired_outputs_identical": [
+        false,
+        false,
+        false
+      ],
+      "calls_including_warmup": {
+        "custom": 4464,
+        "fallback": 144
+      }
+    },
+    {
+      "document_id": "32",
+      "batch": 4,
+      "prompt_tokens": 2889,
+      "config": "g4_s64",
+      "seconds": {
+        "sdpa": [
+          1.622417903970927,
+          1.6256955119315535,
+          1.6351638160413131
+        ],
+        "custom": [
+          1.6044517289847136,
+          1.5976687059737742,
+          1.60207130596973
+        ]
+      },
+      "median_seconds": {
+        "sdpa": 1.6256955119315535,
+        "custom": 1.60207130596973
+      },
+      "peak_allocated_bytes": {
+        "sdpa": [
+          7679862272,
+          7679862272,
+          7679862272
+        ],
+        "custom": [
+          7679862272,
+          7679862272,
+          7679862272
+        ]
+      },
+      "output_token_sha256": {
+        "sdpa": [
+          "13889f3e2fe59c91dd3f20530612a43746d704304b2b14bfdb0d55d409ad3cae",
+          "13889f3e2fe59c91dd3f20530612a43746d704304b2b14bfdb0d55d409ad3cae",
+          "13889f3e2fe59c91dd3f20530612a43746d704304b2b14bfdb0d55d409ad3cae"
+        ],
+        "custom": [
+          "13889f3e2fe59c91dd3f20530612a43746d704304b2b14bfdb0d55d409ad3cae",
+          "13889f3e2fe59c91dd3f20530612a43746d704304b2b14bfdb0d55d409ad3cae",
+          "13889f3e2fe59c91dd3f20530612a43746d704304b2b14bfdb0d55d409ad3cae"
+        ]
+      },
+      "output_tokens": {
+        "sdpa": [
+          32,
+          32,
+          32
+        ],
+        "custom": [
+          32,
+          32,
+          32
+        ]
+      },
+      "paired_outputs_identical": [
+        true,
+        true,
+        true
+      ],
+      "calls_including_warmup": {
+        "custom": 4464,
+        "fallback": 144
+      }
+    }
+  ],
+  "source_sha256": "8ece71cd7f78e2bddf2cac5a0d05023d9baeab6ea13b2c25790f4926946819fa",
+  "script_sha256": "4e9e7b47c7bb9053622f4968288890b35a929316e3a1168c54aeb14eb940a52a",
+  "production_dispatch_enabled": false,
+  "limitations": "Experimental SDPA interception is process-local and single-threaded; default pipeline unchanged. Technical-summary prompt on legal NDAs. Token hashes compare outputs, not factuality. 32-token bounded generation is not a complete-summary evaluation."
+}

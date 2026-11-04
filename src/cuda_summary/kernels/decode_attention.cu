@@ -133,25 +133,25 @@ torch::Tensor decode(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t spl
 }
 
 
-// Optimization v2: four query heads share one staged K/V tile.
+// G query heads share one staged K/V tile; identical tile/load/reduction algorithm.
 // 16-byte global loads reduce repeated KV traffic and instruction overhead.
-__global__ void attend_grouped(const half* q,const half* k,const half* v,
+template<int G> __global__ void attend_grouped(const half* q,const half* k,const half* v,
                               half* out,float* parts,float* lse,
                               int Hq,int Hkv,int S,int splits) {
   const int tid=threadIdx.x,lane=tid%32,warp=tid/32;
-  const int groups=Hq/4,b=blockIdx.x/groups,first=(blockIdx.x%groups)*4,h=first+warp;
+  const int groups=Hq/G,b=blockIdx.x/groups,first=(blockIdx.x%groups)*G,h=first+warp;
   const int bh=b*Hq+h,kh=first/(Hq/Hkv),split=blockIdx.y;
   const int chunk=(S+splits-1)/splits,begin=split*chunk,end=min(S,begin+chunk);
   const int64_t base=(int64_t(b)*Hkv+kh)*S*D;
   __shared__ __align__(16) half keys[32*D],values[32*D];
-  __shared__ float weights[4][32];
+  __shared__ float weights[G][32];
   float query[4],acc[4]={0.f,0.f,0.f,0.f};
   #pragma unroll
   for(int j=0;j<4;++j) query[j]=__half2float(q[int64_t(bh)*D+lane+j*32]);
   float maximum=-INFINITY,denominator=0.f;
   for(int start=begin;start<end;start+=32) {
     int count=min(32,end-start);
-    for(int i=tid;i<count*D/8;i+=128) {
+    for(int i=tid;i<count*D/8;i+=32*G) {
       reinterpret_cast<uint4*>(keys)[i]=reinterpret_cast<const uint4*>(k+base+int64_t(start)*D)[i];
       reinterpret_cast<uint4*>(values)[i]=reinterpret_cast<const uint4*>(v+base+int64_t(start)*D)[i];
     }
@@ -193,9 +193,10 @@ __global__ void attend_grouped(const half* q,const half* k,const half* v,
   if(!lane&&splits>1) lse[int64_t(bh)*splits+split]=denominator>0?maximum+logf(denominator):-INFINITY;
 }
 
-torch::Tensor decode_grouped(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t splits) {
+torch::Tensor decode_grouped(torch::Tensor q,torch::Tensor k,torch::Tensor v,int64_t splits,int64_t group_size) {
   validate(q,k,v,splits);
-  TORCH_CHECK((q.size(1)/k.size(1))%4==0,"grouped kernel requires GQA ratio divisible by four");
+  TORCH_CHECK(group_size==1||group_size==2||group_size==4||group_size==8,"group size must be 1, 2, 4 or 8");
+  TORCH_CHECK((q.size(1)/k.size(1))%group_size==0,"GQA ratio must be divisible by group size");
   TORCH_CHECK(reinterpret_cast<std::uintptr_t>(k.data_ptr())%16==0&&
               reinterpret_cast<std::uintptr_t>(v.data_ptr())%16==0,
               "grouped kernel requires 16-byte aligned K/V storage");
@@ -206,11 +207,18 @@ torch::Tensor decode_grouped(torch::Tensor q,torch::Tensor k,torch::Tensor v,int
   auto lse=torch::empty({B,Hq,splits},q.options().dtype(torch::kFloat32));
   auto stream=at::cuda::getCurrentCUDAStream();
   auto op=reinterpret_cast<half*>(out.data_ptr<at::Half>());
-  attend_grouped<<<dim3(B*Hq/4,splits),128,0,stream>>>(
-    reinterpret_cast<const half*>(q.data_ptr<at::Half>()),
-    reinterpret_cast<const half*>(k.data_ptr<at::Half>()),
-    reinterpret_cast<const half*>(v.data_ptr<at::Half>()),op,
-    parts.data_ptr<float>(),lse.data_ptr<float>(),Hq,Hkv,S,splits);
+  #define LAUNCH_GROUP(G) attend_grouped<G><<<dim3(B*Hq/G,splits),32*G,0,stream>>>( \
+    reinterpret_cast<const half*>(q.data_ptr<at::Half>()), \
+    reinterpret_cast<const half*>(k.data_ptr<at::Half>()), \
+    reinterpret_cast<const half*>(v.data_ptr<at::Half>()),op, \
+    parts.data_ptr<float>(),lse.data_ptr<float>(),Hq,Hkv,S,splits)
+  switch(group_size) {
+    case 1: LAUNCH_GROUP(1); break;
+    case 2: LAUNCH_GROUP(2); break;
+    case 4: LAUNCH_GROUP(4); break;
+    case 8: LAUNCH_GROUP(8); break;
+  }
+  #undef LAUNCH_GROUP
   C10_CUDA_KERNEL_LAUNCH_CHECK();
   if(splits>1) {
     merge_splits<<<B*Hq,D,0,stream>>>(parts.data_ptr<float>(),lse.data_ptr<float>(),op,splits);
@@ -220,5 +228,7 @@ torch::Tensor decode_grouped(torch::Tensor q,torch::Tensor k,torch::Tensor v,int
 }
 PYBIND11_MODULE(TORCH_EXTENSION_NAME,m) {
   m.def("decode",&decode,"FP16 D128 split-KV decode attention");
-  m.def("decode_grouped",&decode_grouped,"Four query heads reuse shared KV tiles");
+  m.def("decode_grouped",&decode_grouped,"Query heads reuse shared KV tiles",
+        pybind11::arg("q"),pybind11::arg("k"),pybind11::arg("v"),
+        pybind11::arg("splits"),pybind11::arg("group_size")=4);
 }
